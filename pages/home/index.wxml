@@ -1,0 +1,55 @@
+<view class="box">
+  <!-- 轮播图 -->
+  <view>
+    <swiper class="image_box" autoplay indicator-dots circular>
+      <block>
+        <swiper-item class="swiper_box">
+          <image src="http://img11.360buyimg.com/pop/jfs/t1/75485/6/13513/40549/5daee77fE93639cd4/9449daa9d4539755.jpg">
+          </image>
+        </swiper-item>
+      </block>
+      <block>
+        <swiper-item>
+          <image
+            src="http://img11.360buyimg.com/pop/jfs/t1/118126/16/3075/51789/5ea550caEe9ed646a/2790c7f857e6068b.jpg">
+          </image>
+        </swiper-item>
+      </block>
+      <block>
+        <swiper-item>
+          <image
+            src="http://img11.360buyimg.com/pop/jfs/t1/118126/16/3075/51789/5ea550caEe9ed646a/2790c7f857e6068b.jpg">
+          </image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+
+  <!-- 现在下单 -->
+  <view class="now_box">
+    <!-- 左盒子 -->
+    <view class="left_box">
+      <view class="left_text">现在下单</view>
+      <view class="left_texts">大师咖啡/厚乳拿铁/小鹿茶</view>
+    </view>
+
+    <!-- 右盒子 -->
+    <view class="right_box">
+      <view class="vouChers">
+        <view class="right_text">领券中心</view>
+        <view class="right_texts">周周领券 福利多多</view>
+      </view>
+      <!-- 潮品盒子 -->
+      <view class="tide">
+        <view class="tide_1">瑞幸潮品</view>
+        <view class="tide_2">夏日冰爽季</view>
+      </view>
+      <!-- 充值盒子 -->
+      <view class="filling">
+        <view class="filling_1">充4赠3</view>
+      </view>
+    </view>
+  </view>
+
+</view>
