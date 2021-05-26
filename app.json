@@ -48,6 +48,9 @@
     "color": "#666",
     "selectedColor": "#333999"
   },
-  "style": "v2",
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

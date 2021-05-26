@@ -37,19 +37,53 @@
     <!-- 右盒子 -->
     <view class="right_box">
       <view class="vouChers">
-        <view class="right_text">领券中心</view>
-        <view class="right_texts">周周领券 福利多多</view>
+        <view>领券中心</view>
+        <view>周周领券 福利多多</view>
       </view>
-      <!-- 潮品盒子 -->
-      <view class="tide">
-        <view class="tide_1">瑞幸潮品</view>
-        <view class="tide_2">夏日冰爽季</view>
-      </view>
-      <!-- 充值盒子 -->
-      <view class="filling">
-        <view class="filling_1">充4赠3</view>
+
+      <view class='right_box2'>
+        <!-- 潮品盒子 -->
+        <view class="tide">
+          <view class="tide_1">瑞幸潮品</view>
+          <view class="tide_2">夏日冰爽季</view>
+        </view>
+        <!-- 充值盒子 -->
+        <view class="filling">
+          <view class="filling_1">充4赠3</view>
+        </view>
       </view>
     </view>
+
   </view>
+
+  <!-- 邀请 -->
+  <view class="invitation">
+    <view class="invitation_box1">
+      邀请有礼
+    </view>
+
+    <view class="invitation_box2">
+      送礼品卡
+    </view>
+  </view>
+
+  <!-- 广告图 -->
+  <view class="billing">
+    <image src="../../assets/image/cof.png"></image>
+  </view>
+
+  <!-- 导航栏 -->
+  <van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="冰爽季">
+    <view></view>
+  </van-tab>
+  <van-tab title="瑞幸自营">内容 2</van-tab>
+  <van-tab title="咖啡水具">内容 3</van-tab>
+  <van-tab title="糕点零食">内容 4</van-tab>
+<view slot='nav-right' class="nav-right">更多</view>
+
+
+</van-tabs>
+
 
 </view>
