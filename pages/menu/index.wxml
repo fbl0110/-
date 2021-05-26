@@ -1,2 +1,7 @@
-<!--pages/menu/index.wxml-->
-<text>pages/menu/index.wxml</text>
+<view>
+   <image>
+     <image></image>
+     <view></view>
+     <van-switch checked="{{ checked }}" bind:change="onChange" />
+   </image>
+</view>
