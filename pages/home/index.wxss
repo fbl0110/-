@@ -12,12 +12,11 @@
   /* padding: 0 20rpx; */
   padding: 16rpx;
   border-radius: 10rpx;
-  display: flex;
   /* 395 195 */
   width: 780rpx;
   height: 385rpx;
   /* border: 1px solid red; */
-  /* background-color: pink; */
+  background-color: pink;
 }
 .now_box .left_box{
   border: 1px solid red;
@@ -27,63 +26,10 @@
   background-position: center;
   background-size:100% 100%;
   border-radius: 10rpx;
+
+
 }
 .now_box .left_box .left_text{
   font-size:40rpx
-}
-
-.right_box{
-  margin-left: 15rpx
-}
-.right_box .vouChers{
-  width: 401rpx;
-  height:160rpx;
-  border: 1px solid red;
-}
-.right_box2{
-  /* display:flex */
-  display: flex;
-  padding-top: 14rpx;
-}
-.right_box2 .filling{
-  border:1px solid red;
-  margin-left: 20rpx;
-  width:200rpx;
-  height:180rpx;
-}
-.right_box2 .tide{
-  border:1px solid red;
-  width:200rpx;
-  height:180rpx;
-}
-
-.invitation{
-  display: flex;
-  justify-content: space-around;
-}
-.invitation .invitation_box1,.invitation_box2{
-  border: 1px solid red;
-  text-align: center;
-
-  width:320rpx;
-  height:120rpx;
-  /* line-height:120rpx */
-  line-height:120rpx
-}
-
-.billing{
-  /* width:780rpx; */
-  height:120rpx;
-  padding:30rpx;
-  border-radius:10rpx;
-}
-.billing image{
-  width:100%;
-  height:100%;
-}
-
-/* 导航栏 */
-.nav-right{
-  border:1px solid red;
-  font-size:28rpx;
+  
 }

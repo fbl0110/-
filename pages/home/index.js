@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
-  },
-  onChange(){
-
+    indicatorDots:true,
+    autoplay:true,
+    // indicator-color:background-color
+    // indicatorColor:background
   },
 
   /**
