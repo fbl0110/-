@@ -5,7 +5,7 @@
     <!-- 中间 -->
      <view class="middle">
          <image class="tb" src="../../assets/gw_img/tb.png"></image>
-         <view >你的购物车有点寂寞</view>
-         <button class="but">去喝一杯</button>
+         <view class="txt">你的购物车有点寂寞</view>
+         <button class="but"  bindtap="drink">去喝一杯</button>
      </view>
 </view>

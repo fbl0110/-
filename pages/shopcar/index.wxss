@@ -20,4 +20,19 @@
      width: 400rpx;
      height: 300rpx;
      font-size: 30rpx;
+
 }
+.box .middle .txt{
+  color:#6b6b6b ;
+  font-size: 30rpx;
+
+}
+.box .middle .but{
+  width: 330rpx;
+  height: 100rpx;
+  background-color:#6d86c4;
+  color: #f5f5f5;
+  font-size: 40rpx;
+  margin-top: 40rpx;
+  border-radius:55rpx 55rpx 55rpx 55rpx;
+  }
