@@ -4,7 +4,10 @@
     "pages/menu/index",
     "pages/order/index",
     "pages/shopcar/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/login/index",
+    "pages/details/index"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -48,6 +51,16 @@
     "color": "#666",
     "selectedColor": "#333999"
   },
-  "style": "v2",
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-goods-action": "@vant/weapp/goods-action/index",
+  "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+  "van-goods-action-button": "@vant/weapp/goods-action-button/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

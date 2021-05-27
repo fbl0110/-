@@ -1,2 +1,39 @@
-<!--pages/my/index.wxml-->
-<text>pages/my/index.wxml</text>
+<view class="box">
+  <!-- 头部 -->
+  <view class="header">
+    <image class="backdrop" src="../../assets/gw_img/head.png"> </image>
+    <view  bindtap="t_logon" class="head">
+      <view class="logo_con">
+        <image class="logon" src="../../assets/gw_img/logon.png"></image>
+      </view>
+      <view class="login">
+        <text>登录/注册</text>
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+  <!-- 九格 -->
+<view class="dd">
+  <view class="jgg ">
+    <view class="jggg" wx:for="{{jgglist}}">
+          <image class="jgimg" src="{{item.img}}"></image>
+          <view  class="jgtext">{{item.text}}</view>
+      </view>
+    <view class="sxlbut" bindtap="jl">
+        <image wx:if="{{fbl==true}}" class="sxl" src="../../assets/gw_img/xl.png"></image>
+        <image wx:if="{{fbl==true}}" class="sxl"  src="../../assets/gw_img/sl.png"></image>
+    </view>
+  </view>
+      <view class="tp">
+       <image class="A" src="../../assets/gw_img/A.png"></image>
+       <image class="B" src="../../assets/gw_img/B.png"></image>
+  </view>
+    <van-tabs sticky  class="tabs">
+      <van-tab title="潮品下午茶">内容 1</van-tab>
+      <van-tab title="生活家具">内容 2</van-tab>
+      <van-tab title="数码电器">内容 3</van-tab>
+      <van-tab title="潮玩饰品">内容 4</van-tab>
+    </van-tabs>
+</view>
+  
+</view>

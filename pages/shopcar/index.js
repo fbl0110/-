@@ -14,6 +14,12 @@ Page({
   onLoad: function (options) {
 
   },
+//  跳转到菜单页面
+drink(){
+  wx.switchTab({
+    url: '/pages/menu/index',
+  })
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
