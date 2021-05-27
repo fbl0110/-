@@ -5,12 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    indicatorDots:true,
-    autoplay:true,
-    // indicator-color:background-color
-    // indicatorColor:background
-  },
 
+  },
+  onChange(){
+
+  },
+  now_box(){
+    wx.switchTab({
+      url: '/pages/menu/index',
+    })
+  },
+  goods(){
+    wx.navigateTo({
+      url: '/pages/details/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

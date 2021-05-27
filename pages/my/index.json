@@ -1,5 +1,10 @@
 {
+<<<<<<< HEAD
   "usingComponents": {
    
   }
+=======
+  "usingComponents": {},
+  "navigationBarTitleText":"我的"
+>>>>>>> guang
 }

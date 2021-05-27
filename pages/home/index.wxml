@@ -27,7 +27,7 @@
 
 
   <!-- 现在下单 -->
-  <view class="now_box">
+  <view class="now_box" bindtap="now_box">
     <!-- 左盒子 -->
     <view class="left_box">
       <view class="left_text">现在下单</view>
@@ -37,19 +37,190 @@
     <!-- 右盒子 -->
     <view class="right_box">
       <view class="vouChers">
-        <view class="right_text">领券中心</view>
-        <view class="right_texts">周周领券 福利多多</view>
+        <view>领券中心</view>
+        <view>周周领券 福利多多</view>
       </view>
-      <!-- 潮品盒子 -->
-      <view class="tide">
-        <view class="tide_1">瑞幸潮品</view>
-        <view class="tide_2">夏日冰爽季</view>
-      </view>
-      <!-- 充值盒子 -->
-      <view class="filling">
-        <view class="filling_1">充4赠3</view>
+
+      <view class='right_box2'>
+        <!-- 潮品盒子 -->
+        <view class="tide">
+          <view class="tide_1">瑞幸潮品</view>
+          <view class="tide_2">夏日冰爽季</view>
+        </view>
+        <!-- 充值盒子 -->
+        <view class="filling">
+          <view class="filling_1">充4赠3</view>
+        </view>
       </view>
     </view>
+
   </view>
+
+  <!-- 邀请 -->
+  <view class="invitation">
+    <view class="invitation_box1">
+      邀请有礼
+    </view>
+
+    <view class="invitation_box2">
+      送礼品卡
+    </view>
+  </view>
+
+  <!-- 广告图 -->
+  <view class="billing">
+    <image src="../../assets/image/cof.png"></image>
+  </view>
+
+
+  <!-- 滚动图片 -->
+
+  <swiper class="scroll"  circular='true' next-margin='110px'>
+    <block class="scroll3">
+      <swiper-item class="scroll1">
+        <image src="../../assets/image/1.png"></image>
+      </swiper-item>
+    </block>
+    <block class="scroll3">
+      <swiper-item class="scroll1">
+        <image src="../../assets/image/2.png"></image>
+      </swiper-item>
+    </block>
+    <block class="scroll3">
+      <swiper-item class="scroll1">
+        <image src="../../assets/image/3.png"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 导航栏 -->
+  <van-tabs active="{{ active }}" bind:change="onChange" sticky='true'>
+    <van-tab title="冰爽季" class="tab">
+      <view class="con">
+        <!-- 内容 -->
+        <view class="dry-goods" bindtap="goods">
+          <view class="image_box">
+            <image src="../../assets/image/fs.png"></image>
+          </view>
+
+          <view class="email_box">
+            <view>瑞幸花漾特调即溶咖啡</view>
+            <view>
+              <text>¥119</text>
+              <text>¥159</text>
+            </view>
+            <view class="ready">
+              <view>已售卖6800+件</view>
+              <i class="iconfont  icon-gouwuche"></i>
+            </view>
+          </view>
+
+        </view>
+        <!-- 内容 -->
+        <view class="dry-goods">
+          <view class="image_box">
+            <image src="../../assets/image/fs.png"></image>
+          </view>
+
+          <view class="email_box">
+            <view>瑞幸花漾特调即溶咖啡</view>
+            <view>
+              <text>¥119</text>
+              <text>¥159</text>
+            </view>
+            <view class="ready">
+              <view>已售卖6800+件</view>
+              <i class="iconfont  icon-gouwuche"></i>
+            </view>
+          </view>
+
+        </view>
+        <!-- 内容 -->
+        <view class="dry-goods">
+          <view class="image_box">
+            <image src="../../assets/image/fs.png"></image>
+          </view>
+
+          <view class="email_box">
+            <view>瑞幸花漾特调即溶咖啡</view>
+            <view>
+              <text>¥119</text>
+              <text>¥159</text>
+            </view>
+            <view class="ready">
+              <view>已售卖6800+件</view>
+              <i class="iconfont  icon-gouwuche"></i>
+            </view>
+          </view>
+
+        </view>
+        <!-- 内容 -->
+        <view class="dry-goods">
+          <view class="image_box">
+            <image src="../../assets/image/fs.png"></image>
+          </view>
+
+          <view class="email_box">
+            <view>瑞幸花漾特调即溶咖啡</view>
+            <view>
+              <text>¥119</text>
+              <text>¥159</text>
+            </view>
+            <view class="ready">
+              <view>已售卖6800+件</view>
+              <i class="iconfont  icon-gouwuche"></i>
+            </view>
+          </view>
+
+        </view>
+                <!-- 内容 -->
+                <view class="dry-goods">
+          <view class="image_box">
+            <image src="../../assets/image/fs.png"></image>
+          </view>
+
+          <view class="email_box">
+            <view>瑞幸花漾特调即溶咖啡</view>
+            <view>
+              <text>¥119</text>
+              <text>¥159</text>
+            </view>
+            <view class="ready">
+              <view>已售卖6800+件</view>
+              <i class="iconfont  icon-gouwuche"></i>
+            </view>
+          </view>
+
+        </view>
+                <!-- 内容 -->
+                <view class="dry-goods">
+          <view class="image_box">
+            <image src="../../assets/image/fs.png"></image>
+          </view>
+
+          <view class="email_box">
+            <view>瑞幸花漾特调即溶咖啡</view>
+            <view>
+              <text>¥119</text>
+              <text>¥159</text>
+            </view>
+            <view class="ready">
+              <view>已售卖6800+件</view>
+              <i class="iconfont  icon-gouwuche"></i>
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+    </van-tab>
+    <van-tab title="瑞幸自营">内容 2</van-tab>
+    <van-tab title="咖啡水具">内容 3</van-tab>
+    <van-tab title="糕点零食">内容 4</van-tab>
+    <!-- <view slot='nav-right' class="nav-right">更多</view> -->
+
+
+  </van-tabs>
+
 
 </view>

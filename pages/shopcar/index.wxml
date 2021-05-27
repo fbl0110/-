@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <view class="box">
     <!-- 头部 -->
@@ -9,3 +10,7 @@
          <button class="but"  bindtap="drink">去喝一杯</button>
      </view>
 </view>
+=======
+<!--pages/shopcar/index.wxml-->
+<text>pages/shopcar/index.wxml</text>
+>>>>>>> guang

@@ -1,11 +1,11 @@
-// pages/order/index.js
+// pages/details/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
+    index:6
   },
 
   /**
