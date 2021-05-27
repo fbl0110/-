@@ -1,0 +1,12 @@
+<van-tabs type="card" color='#6d86c4' >
+  <van-tab title="已支付" >
+    <van-card
+  num="1"
+  price="13.00"
+  title="卡布奇诺"
+  thumb="{{ imageURL }}"
+/>
+  </van-tab>
+  <van-tab title="待支付">内容 2</van-tab>
+  <van-tab title="待评价">内容 3</van-tab>
+</van-tabs>
