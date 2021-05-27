@@ -1,7 +1,0 @@
-<view>
-   <image>
-     <image></image>
-     <view></view>
-     <van-switch checked="{{ checked }}" bind:change="onChange" />
-   </image>
-</view>
