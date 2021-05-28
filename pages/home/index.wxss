@@ -45,7 +45,7 @@
   width: 401rpx;
   height: 160rpx;
 
-  /* border: 1px solid red; */
+  border: 1px solid red;
 
 }
 
