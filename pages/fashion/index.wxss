@@ -1,0 +1,15 @@
+.box{
+  width: 100%;
+  height: 100%;
+  background-color:#ffffff ;
+}
+.box.head{
+    width: 100%;
+     
+}
+.headimg{
+  width: 90%;
+  height: 350rpx;
+  margin-left: 40rpx;
+  border-radius:5% ;
+}

@@ -6,7 +6,8 @@
     "pages/shopcar/index",
     "pages/my/index",
     "pages/login/index",
-    "pages/details/index"
+    "pages/details/index",
+    "pages/fashion/index"
 
   ],
   "window": {

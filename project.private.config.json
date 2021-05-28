@@ -13,46 +13,32 @@
     "miniprogram": {
       "list": [
         {
-<<<<<<< HEAD
           "name": "pages/shopcar/index",
           "pathName": "pages/shopcar/index",
-=======
-          "name": "订单",
-          "pathName": "pages/order/index",
->>>>>>> guang
           "query": "",
           "scene": null
         },
         {
-<<<<<<< HEAD
           "name": "pages/my/index",
           "pathName": "pages/my/index",
-=======
-          "name": "菜单",
-          "pathName": "pages/menu/index",
->>>>>>> guang
           "query": "",
           "scene": null
         },
         {
-<<<<<<< HEAD
           "name": "pages/aa/index",
           "pathName": "pages/aa/index",
-=======
-          "name": "登录",
-          "pathName": "pages/login/index",
->>>>>>> guang
           "query": "",
           "scene": null
         },
         {
-<<<<<<< HEAD
           "name": "pages/my/index",
           "pathName": "pages/my/index",
-=======
-          "name": "详情页",
-          "pathName": "pages/details/index",
->>>>>>> guang
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/fashion/index",
+          "pathName": "pages/fashion/index",
           "scene": null
         }
       ]

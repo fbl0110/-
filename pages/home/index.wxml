@@ -9,8 +9,8 @@
         </swiper-item>
       </block>
       <block>
-        <swiper-item>
-          <image
+        <swiper-item >
+          <image 
             src="http://img11.360buyimg.com/pop/jfs/t1/118126/16/3075/51789/5ea550caEe9ed646a/2790c7f857e6068b.jpg">
           </image>
         </swiper-item>
