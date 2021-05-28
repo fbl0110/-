@@ -11,6 +11,7 @@
 }
 
 .now_box {
+<<<<<<< HEAD
   /* text-align: center; */
   /* padding: 0 20rpx; */
   padding: 16rpx;
@@ -23,6 +24,17 @@
   /* line-height: 385rpx; */
   /* border: 1px solid red; */
   /* background-color: pink; */
+=======
+  padding: 16rpx;
+  border-radius: 10rpx;
+  display: flex;
+  /* width: 100vw; */
+  height: 385rpx;
+  background-color:#ffff;
+  border:1px solid red;
+  margin-top: 20rpx;
+  border-radius: 20rpx;
+>>>>>>> guang
 }
 
 .now_box .left_box {
@@ -46,7 +58,11 @@
 .right_box .vouChers {
   width: 401rpx;
   height: 160rpx;
+<<<<<<< HEAD
   border: 1px solid red;
+=======
+  /* border: 1px solid red; */
+>>>>>>> guang
 }
 
 .right_box2 {
@@ -56,14 +72,22 @@
 }
 
 .right_box2 .filling {
+<<<<<<< HEAD
   border: 1px solid red;
+=======
+  /* border: 1px solid red; */
+>>>>>>> guang
   margin-left: 20rpx;
   width: 200rpx;
   height: 180rpx;
 }
 
 .right_box2 .tide {
+<<<<<<< HEAD
   border: 1px solid red;
+=======
+  /* border: 1px solid red; */
+>>>>>>> guang
   width: 200rpx;
   height: 180rpx;
 }
@@ -75,7 +99,11 @@
 
 .invitation .invitation_box1,
 .invitation_box2 {
+<<<<<<< HEAD
   border: 1px solid red;
+=======
+  /* border: 1px solid red; */
+>>>>>>> guang
   text-align: center;
 
   width: 320rpx;

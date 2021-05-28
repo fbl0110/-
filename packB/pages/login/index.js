@@ -1,47 +1,20 @@
-// pages/home/index.js
-const {getLunbo}=require('../../api/home')
+// pages/login/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
-
-=======
-    lunboImage:[]
->>>>>>> guang
-  },
-  onChange(){
 
   },
-  now_box(){
-    wx.switchTab({
-      url: '/pages/menu/index',
-    })
-  },
-  goods(){
-    wx.navigateTo({
-<<<<<<< HEAD
-      url: '/pages/details/index',
-=======
-      url: '/packC/pages/details/index',
->>>>>>> guang
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this._getlunbo()
+
   },
- async _getlunbo(){
-   let {message}=await getLunbo()
-   console.log(message)
-   this.setData({
-    lunboImage:message
-   })
- },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

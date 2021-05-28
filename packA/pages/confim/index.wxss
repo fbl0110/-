@@ -1,0 +1,63 @@
+/* pages/confirm/index.wxss */
+
+.self{
+  height: 112rpx;
+  line-height: 112rpx;
+  border-bottom: 2px solid #ccc;
+  background-color: #fff;
+}
+.self i{
+  padding-left: 40rpx;
+}
+.self text{
+  padding-left: 26rpx;
+}
+.van-card{
+  border-bottom: 1px solid #ccc;
+}
+.price{
+  position: relative;
+  height: 90rpx;
+
+}
+.price .all_price{
+  position: absolute;
+  right: 10rpx;
+  top: 30rpx;
+}
+.pay{
+  height: 86rpx;
+  margin-top: 20rpx;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.nopay{
+  padding-left: 20rpx;
+}
+.nopay .nocolor{
+  color: #f05a25;
+  padding-left: 10rpx;
+}
+.pay_image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pay_image image{
+  width: 60rpx;
+  height: 60rpx;
+  padding-right: 8rpx;
+}
+.van-checkbox{
+  padding-top: 20rpx;
+  padding-bottom: 5rpx;
+  padding-left: 24rpx;
+}
+.tips{
+  color: #b4b4b4;
+  font-size: 25rpx;
+  padding: 24rpx;
+}

@@ -1,5 +1,11 @@
 {
+<<<<<<< HEAD
   "usingComponents": {},
+=======
+  "usingComponents": {
+    "sea":"/components/sea/sea"
+  },
+>>>>>>> guang
   "navigationBarTitleText":"首页",
   "enablePullDownRefresh":true
 }
