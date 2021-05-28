@@ -117,4 +117,8 @@
   overflow: hidden;
   padding: 20rpx;
 }
-
+.My_list{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}

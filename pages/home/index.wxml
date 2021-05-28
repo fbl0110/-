@@ -4,7 +4,7 @@
     <swiper class="image_box" autoplay indicator-dots circular indicator-color="#ccc" indicator-active-color="#ffff">
       <block wx:for="{{lunboImage}}" wx:key="*this">
         <swiper-item class="swiper_box">
-          <image src="{{item.img}}">
+          <image bindtap="fashion" src="{{item.img}}">
           </image>
         </swiper-item>
       </block>

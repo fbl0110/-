@@ -15,7 +15,7 @@
   <!-- 九格 -->
 <view class="dd">
   <view class="jgg ">
-    <view class="jggg" wx:for="{{jgglist}}">
+    <view class="jggg" wx:for="{{jgglist}}" bindtap="jgg" id="{{index}}">
           <image class="jgimg" src="{{item.img}}"></image>
           <view  class="jgtext">{{item.text}}</view>
       </view>
@@ -29,10 +29,43 @@
        <image class="B" src="../../assets/gw_img/B.png"></image>
   </view>
     <van-tabs sticky  class="tabs">
-      <van-tab title="潮品下午茶">内容 1</van-tab>
-      <van-tab title="生活家具">内容 2</van-tab>
-      <van-tab title="数码电器">内容 3</van-tab>
-      <van-tab title="潮玩饰品">内容 4</van-tab>
+      <van-tab  title="潮品下午茶">
+        <view class="My_list">
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+        </view>
+      </van-tab>
+      <van-tab class="My_list" title="生活家具"> 
+        <view class="My_list">
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+        </view>
+      </van-tab>
+      <van-tab class="My_list" title="数码电器"> <view class="My_list">
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+        </view></van-tab>
+      <van-tab class="My_list" title="潮玩饰品"> <view class="My_list">
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+          <sea></sea>
+        </view>
+      </van-tab>
     </van-tabs>
 </view>
   
