@@ -6,7 +6,7 @@
       银星科技大厦11楼C区理论室
     </view>
     <!-- <view>距您3.2km</view> -->
-    <view>切换</view>
+    <view class="change">切换</view>
 
   </view>
 

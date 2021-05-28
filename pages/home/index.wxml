@@ -25,18 +25,18 @@
     <view class="right_box">
       <view class="vouChers">
         <view>领券中心</view>
-        <view>周周领券 福利多多</view>
+        <!-- <view class="more">周周领券 福利多多</view> -->
       </view>
 
       <view class='right_box2'>
         <!-- 潮品盒子 -->
         <view class="tide">
           <view class="tide_1">瑞幸潮品</view>
-          <view class="tide_2">夏日冰爽季</view>
+          <!-- <view class="tide_2">夏日冰爽季</view> -->
         </view>
         <!-- 充值盒子 -->
         <view class="filling">
-          <view class="filling_1">充4赠3</view>
+          <!-- <view class="filling_1"></view> -->
         </view>
       </view>
     </view>
