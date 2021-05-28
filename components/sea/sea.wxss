@@ -1,0 +1,27 @@
+@import '../../assets/css/icon.wxss';
+
+.dry-goods {
+  width: 340rpx;
+  height: 500rpx;
+  border: 1px solid red;
+  margin: 10rpx;
+  /* padding:10rpx; */
+}
+
+.dry-goods .image_box {
+  width: 340rpx;
+  height: 300rpx;
+}
+
+.dry-goods .image_box image {
+  width: 100%;
+  height: 100%;
+}
+
+.dry-goods .ready {
+  display: flex;
+  justify-content: space-between;
+}
+.email_box {
+  padding: 20rpx;
+}

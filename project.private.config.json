@@ -1,0 +1,66 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "订单",
+          "pathName": "pages/order/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "菜单",
+          "pathName": "pages/menu/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分包详情页",
+          "pathName": "packC/pages/details/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "菜单",
+          "pathName": "pages/menu/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分包订单",
+          "pathName": "packA/pages/confim/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分包登录",
+          "pathName": "packB/pages/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/b/index",
+          "pathName": "pages/b/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

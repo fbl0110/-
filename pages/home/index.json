@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "sea":"/components/sea/sea"
+  },
+  "navigationBarTitleText":"首页",
+  "enablePullDownRefresh":true
 }
