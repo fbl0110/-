@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <view class="box">
   <view class="image_box">
     <view>
@@ -15,4 +14,3 @@
 </view>
  <!-- 搜索栏 -->
   <van-search value="{{ value }}" placeholder="请输入搜索关键词" />
->>>>>>> guang

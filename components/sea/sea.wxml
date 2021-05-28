@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<!--components/sea/sea.wxml-->
-<text>components/sea/sea.wxml</text>
-=======
+
 <view class="dry-goods" bindtap="goods">
           <view class="image_box">
             <image src="../../assets/image/fs.png"></image>
@@ -20,4 +17,3 @@
           </view>
 
         </view>
->>>>>>> guang

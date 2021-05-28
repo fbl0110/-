@@ -6,11 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
 
-=======
     lunboImage:[]
->>>>>>> guang
   },
   onChange(){
 
@@ -22,11 +19,9 @@ Page({
   },
   goods(){
     wx.navigateTo({
-<<<<<<< HEAD
-      url: '/pages/details/index',
-=======
+
       url: '/packC/pages/details/index',
->>>>>>> guang
+
     })
   },
   /**

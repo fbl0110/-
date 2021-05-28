@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-/* components/sea/sea.wxss */
-=======
+
 @import '../../assets/css/icon.wxss';
 
 .dry-goods {
@@ -28,4 +26,4 @@
 .email_box {
   padding: 20rpx;
 }
->>>>>>> guang
+
