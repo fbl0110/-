@@ -95,9 +95,9 @@
       </view>
 
     </van-tab>
-    <van-tab title="瑞幸自营">内容 2</van-tab>
-    <van-tab title="咖啡水具">内容 3</van-tab>
-    <van-tab title="糕点零食">内容 4</van-tab>
+    <van-tab title="瑞幸自营">内容 12132</van-tab>
+    <van-tab title="咖啡水具">内容 2343</van-tab>
+    <van-tab title="糕点零食">内容 42412</van-tab>
     <!-- <view slot='nav-right' class="nav-right">更多</view> -->
 
 
