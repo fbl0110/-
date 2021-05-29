@@ -8,11 +8,11 @@ module.exports.getLunbo=function(){
   })
 }
 // 首页商品列表
-// module.exports.getShopList=function(s_id,page,limit){
-//   return request({
-//     url:`https://rxcoffee.suchcow.top/goodsList?s_id=${s_id}&page=${page}&limit=${limit}`
-//   })
-// }
+module.exports.getShopList=function(s_id,page,limit){
+  return request({
+    url:`https://rxcoffee.suchcow.top/goodsList?s_id=${s_id}&page=${page}&limit=${limit}`
+  })
+}
 
 // 菜单页面商品列表
 module.exports.getMenu=function(){
