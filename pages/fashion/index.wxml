@@ -6,10 +6,11 @@
    <view>
     <van-tabs animated="{{true}}"  title-active-color="red" color="#ffffff" active="{{ active }}" bind:change="onChange">
             <van-tab title="综合">
+                <sea></sea>
             </van-tab>
-            <van-tab title="新品">内容 2</van-tab>
-            <van-tab title="销量">内容 3</van-tab>
-            <van-tab title="价格">内容 4</van-tab>
+            <van-tab title="新品"> <sea></sea></van-tab>
+            <van-tab title="销量"> <sea></sea></van-tab>
+            <van-tab title="价格"> <sea></sea></van-tab>
         </van-tabs>
    </view>
 
