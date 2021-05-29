@@ -1,0 +1,20 @@
+<view class="box">
+   <view class="head">
+       <image class="headimg" src="http://rx.suchcow.top/fashion.png"></image>
+   </view>
+   <!-- tab -->
+   <view>
+    <van-tabs animated="{{true}}"  title-active-color="red" color="#ffffff" active="{{ active }}" bind:change="onChange">
+            <van-tab title="综合">
+                <sea></sea>
+            </van-tab>
+            <van-tab title="新品"> <sea></sea></van-tab>
+            <van-tab title="销量"> <sea></sea></van-tab>
+            <van-tab title="价格"> <sea></sea></van-tab>
+        </van-tabs>
+   </view>
+
+   
+
+
+</view>

@@ -5,7 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      jgglist:[
+         {
+           img:"../../assets/gw_img/1.png",
+           text:'我的订单'
+         },
+         {
+          img:"../../assets/gw_img/2.png",
+          text:'咖啡钱包'
+        },
+        {
+          img:"../../assets/gw_img/3.png",
+          text:'优惠卷'
+        },
+        {
+          img:"../../assets/gw_img/4.png",
+          text:'礼品卡'
+        },
+        {
+          img:"../../assets/gw_img/5.png",
+          text:'账户余额'
+        },
+        {
+          img:"../../assets/gw_img/6.png",
+          text:'发票管理'
+        },
+        {
+          img:"../../assets/gw_img/7.png",
+          text:'兑换优惠'
+        },
+        {
+          img:"../../assets/gw_img/8.png",
+          text:'帮助反馈'
+        },
+      ],
+      tabs:[
+        {title:"潮品下午茶"},
+        {title:"生活家具"},
+        {title:"数码电器"},
+        {title:"潮玩饰品"}
+      ],
+      ellipsis_3:".ellipsis_3",
+      fbl:true,
   },
 
   /**
@@ -14,7 +55,79 @@ Page({
   onLoad: function (options) {
 
   },
+//  跳转登录页面
+  t_logon(){
+      wx.navigateTo({
+        url: '/pages/login/index',
+      })
+  },
+  jgg(index){
+    let mylist= index.currentTarget.id
 
+    // if (mylist==0) {
+    //   wx.switchTab({
+    //     url: '/pages/order/index',
+    //   })
+    // }
+    console.log(index.currentTarget.id);
+    switch(mylist){
+        case '0':
+        wx.switchTab({
+          url: '/pages/order/index',
+        })
+        break;
+        case '1':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break; case '2':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break; case '3':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break; case '4':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break;
+          case '5':
+            wx.switchTab({
+              url: '/pages/order/index',
+            })
+            break;
+            case '6':
+              wx.switchTab({
+                url: '/pages/order/index',
+              })
+              break;
+              case '7':
+                wx.switchTab({
+                  url: '/pages/order/index',
+                })
+                break;
+        default:
+        console.log("您的输入有误");
+        break;
+        }
+  },
+
+  //展开收起
+  jl(){
+    if (this.data.fbl==true) {
+    this.setData({
+      fbl:false,
+      ellipsis_3:''
+    })
+    return
+    }
+    this.setData({
+      fbl:true,
+      ellipsis_3:".ellipsis_3"
+    })
+ },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

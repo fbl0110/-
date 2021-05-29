@@ -1,0 +1,87 @@
+<view class="box">
+    <!-- 轮播图 -->
+    <swiper circular='true' class="swiper_box" current='{{index}}'>
+      <block>
+        <swiper-item>
+          <image src="../../assets/image/one.jpg"></image>
+        </swiper-item>
+      </block>
+      <block>
+        <swiper-item>
+          <image src="../../assets/image/one.jpg"></image>
+        </swiper-item>
+      </block>
+      <block>
+        <swiper-item>
+          <image src="../../assets/image/one.jpg"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 价格,商品描述 -->
+    <view class="price_box">
+      <view class="price_box1">
+        <text class="discountPrice">¥159</text>
+        <text class="originalPrice">¥239</text>
+      </view>
+
+      <view class="info">瑞幸吸猫系列挂耳咖啡-36包囤货装</view>
+      <view class="sold">已售卖2000+件</view>
+    </view>
+
+    <!-- sku -->
+    <view class="sku_box">
+      <!-- <view>
+        <text>选择</text>
+        <text>默认规格/36包装+橘猫杯×1</text>
+        <text>多种选择</text>
+      </view> -->
+      <van-cell title="选择" is-link value="多种选择" />
+    </view>
+
+    <!-- 运费 -->
+    <view class="fare">
+      <!-- 运费 \t \t 免运费 -->
+      <van-cell title="运费"  value="免运费" />
+    </view>
+
+    <!-- 分割线 -->
+<van-divider
+    contentPosition="center"
+    customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;"
+    >
+  瑞幸潮品自营 \t 好物品质保证 \t购物畅选无忧
+</van-divider>
+
+<!-- 评价 -->
+<view>
+  <van-cell title="评价(13)" is-link value="查看全部" />
+
+  <!-- 评价大盒子 -->
+  <view>
+    <!-- 用户头像 -->
+    <view class="face_box">
+      <image src="../../assets/image/kong.png"></image>
+      <view>摇摆羊</view>
+    </view>
+    <view class="face_text">好评,孩子很喜欢,敏感肌也可以用</view>
+
+    <view class="face_image">
+      <view class="img">
+        <image src="../../assets/image/one.jpg"></image>
+      </view>
+      <view class="face_number">共1张</view>
+    </view>
+  </view>
+
+  <!-- 商品详情  富文本-->
+  <view>商品详情</view>
+
+  <!-- 加入购物车 -->
+  <van-goods-action>
+  <van-goods-action-icon icon="cart-o" text="购物车" info="5" />
+  <van-goods-action-button color="#8095cb" text="加入购物车"  plain/>
+  <van-goods-action-button color="#6d86c4" text="立即购买" />
+</van-goods-action>
+</view>
+</view>

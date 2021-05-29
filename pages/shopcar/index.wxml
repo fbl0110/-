@@ -1,2 +1,11 @@
-<!--pages/shopcar/index.wxml-->
-<text>pages/shopcar/index.wxml</text>
+
+<view class="box">
+    <!-- 头部 -->
+    <image class="im_head" src="../../assets/gw_img/head.png"></image>
+    <!-- 中间 -->
+     <view class="middle">
+         <image class="tb" src="../../assets/gw_img/tb.png"></image>
+         <view class="txt">你的购物车有点寂寞</view>
+         <button class="but"  bindtap="drink">去喝一杯</button>
+     </view>
+</view>

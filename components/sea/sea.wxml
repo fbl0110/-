@@ -1,0 +1,18 @@
+<view class="dry-goods" bindtap="goods">
+  <view class="image_box">
+    <image src="../../assets/image/fs.png"></image>
+  </view>
+
+  <view class="email_box">
+    <view>瑞幸花漾特调即溶咖啡</view>
+    <view>
+      <text>¥119</text>
+      <text>¥159</text>
+    </view>
+    <view class="ready">
+      <view>已售卖6800+件</view>
+      <i class="iconfont  icon-gouwuche"></i>
+    </view>
+  </view>
+
+</view>

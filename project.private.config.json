@@ -1,0 +1,29 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/fashion/index",
+          "pathName": "pages/fashion/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/fashion/index",
+          "pathName": "pages/fashion/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

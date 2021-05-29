@@ -1,0 +1,72 @@
+.swiper_box{
+  width: 820rpx;
+  height: 560rpx;
+}
+.swiper_box image{
+  width: 100%;
+  height: 100%;
+}
+.price_box{
+  border: 1px solid red;
+}
+.price_box1{
+  padding: 10rpx;
+  /* border: 1px solid red; */
+}
+.price_box1 .discountPrice{
+  color: #e06e11;
+  font-size: 50rpx;
+}
+.price_box1 .originalPrice{
+  text-decoration:line-through;
+  color:#cccc
+}
+.price_box .sold{
+  color:#ccc;
+  padding:10rpx;
+}
+.price_box .info{
+  padding: 10rpx;
+  font-size: 40rpx;
+}
+.sku_box{
+  border-bottom: 1px solid #ccc;
+}
+.fare{
+  border-bottom: 1px solid #ccc;
+}
+
+.face_box{
+  display: flex;
+  padding: 10rpx;
+}
+.face_box image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.face_text{
+  text-align: center;
+}
+.face_image{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.face_image .face_number{
+  position: absolute;
+  bottom: 70rpx;
+  right: 50rpx;
+}
+.img{
+  margin-left: 50rpx;
+  width: 440rpx;
+  height: 440rpx;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+.img image{
+  width: 150rpx;
+  height: 200rpx;
+  padding-left: 100rpx;
+  /* text-align: center; */
+}
