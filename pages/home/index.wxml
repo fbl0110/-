@@ -87,8 +87,11 @@
     <van-tab title="冰爽季" class="tab">
       <view class="con">
        
-        <sea></sea>
-        
+        <block>
+          <sea></sea>
+
+        </block>
+       <!-- <sea></sea>  -->
       
 
 
