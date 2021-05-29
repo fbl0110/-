@@ -61,6 +61,58 @@ Page({
         url: '/pages/login/index',
       })
   },
+  jgg(index){
+    let mylist= index.currentTarget.id
+
+    // if (mylist==0) {
+    //   wx.switchTab({
+    //     url: '/pages/order/index',
+    //   })
+    // }
+    console.log(index.currentTarget.id);
+    switch(mylist){
+        case '0':
+        wx.switchTab({
+          url: '/pages/order/index',
+        })
+        break;
+        case '1':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break; case '2':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break; case '3':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break; case '4':
+          wx.switchTab({
+            url: '/pages/order/index',
+          })
+          break;
+          case '5':
+            wx.switchTab({
+              url: '/pages/order/index',
+            })
+            break;
+            case '6':
+              wx.switchTab({
+                url: '/pages/order/index',
+              })
+              break;
+              case '7':
+                wx.switchTab({
+                  url: '/pages/order/index',
+                })
+                break;
+        default:
+        console.log("您的输入有误");
+        break;
+        }
+  },
 
   //展开收起
   jl(){
