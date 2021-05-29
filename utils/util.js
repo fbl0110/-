@@ -13,7 +13,12 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : `0${n}`
 }
+ 
+const TOKEN="token"
+const getToken=()=>{
+ return wx.getStorageSync(TOKEN)
+}
 
 module.exports = {
-  formatTime
+  formatTime,getToken
 }

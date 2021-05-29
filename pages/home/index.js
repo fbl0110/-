@@ -1,12 +1,11 @@
 // pages/home/index.js
-const {getLunbo}=require('../../api/home')
+const {getLunbo}=require('../../api/home.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
     lunboImage:[]
   },
   onChange(){
