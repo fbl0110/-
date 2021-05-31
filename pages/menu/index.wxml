@@ -1,16 +1,71 @@
+<view class="">
+  <view class="box">
+    <view class="image_box">
+      <view>
+        <i class="iconfont icon-icon-test" style="color='#fffff'"></i>
+        银星科技大厦11楼C区理论室
+      </view>
+      <!-- <view>距您3.2km</view> -->
+      <view class="change">切换</view>
 
-<view class="box">
-  <view class="image_box">
-    <view>
-      <i class="iconfont icon-icon-test" style="color='#fffff'"></i>
-      银星科技大厦11楼C区理论室
     </view>
-    <!-- <view>距您3.2km</view> -->
-    <view class="change">切换</view>
 
+  
   </view>
+  <!-- 搜索栏 -->
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:focus="toSearch" /> 
 
- 
+  <view class="goods_con">
+  <view class="left"  >
+    <scroll-view class="scrollLeft" style="height:{{autoHeight}};"  scroll-y  scroll-into-view="title{{toTitle}}" enhanced="true"  show-scrollbar="false" scroll-with-animation="{{true}}">
+      <block wx:for="{{list}}" wx:key="id">
+        <view class="item tabTilte {{item.isSelect ? 'selectColor' : ''}}" id="title{{index}}"  data-index="{{index}}" bindtap="selectItem">
+          <view class="flex-c-c">{{item.value}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="right" >
+    <scroll-view style="height:{{autoHeight}};"  scroll-y scroll-into-view="select{{toView}}" class="scroll-warp" scroll-with-animation="{{true}}" bindscroll="handelScroll">
+     <view class="goods_list"  wx:for="{{dataList}}" wx:key="id" id="select{{index}}" >
+      <view class="sort" wx:for="{{item}}" wx:key="id"  >
+        <view class="sort_title">
+           <text class="">{{index}}</text>
+        </view>
+        <view class="" >
+          <block wx:for="{{item}}" wx:key="id">
+          <!-- 商品item -->
+            <view class="item" data-id="{{item.g_id}}" bindtap="toGoodsDetail" >
+              <!-- 左边商品图 -->
+              <view class="cover" >
+                <image class="" src="{{item.img}}" mode="aspectFill"></image>
+              </view>
+              <!-- 右边商品信息 -->
+              <view class="goods_info" >
+                <view class="goods_title flex-c">
+                  <text class="title">{{item.g_name}}</text>
+                  <text class="label">人气</text>
+                </view>
+                <view class="goods_Eng">{{item.g_ename}}</view>
+                <view class="goods_price">
+                  <view class="" >
+                    <text class="x_price">￥{{item.g_x_price}}</text>
+                    <text class="y_price">￥{{item.g_y_price}}</text>
+                  </view>
+                  <view class="add flex-c-c" >
+                      <van-icon name="plus"  size="24rpx" />
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+        <van-divider />
+      </view>
+     </view>
+
+    </scroll-view>
+  </view>
 </view>
- <!-- 搜索栏 -->
-  <van-search value="{{ value }}" placeholder="请输入搜索关键词" />
+
+</view>
