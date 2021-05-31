@@ -1,19 +1,18 @@
-
 <view class="dry-goods" bindtap="goods">
-          <view class="image_box">
-            <image src="../../assets/image/fs.png"></image>
-          </view>
+  <view class="image_box">
+    <image src="{{tabs.img}}"></image>
+  </view>
 
-          <view class="email_box">
-            <view>瑞幸花漾特调即溶咖啡</view>
-            <view>
-              <text>¥119</text>
-              <text>¥159</text>
-            </view>
-            <view class="ready">
-              <view>已售卖6800+件</view>
-              <i class="iconfont  icon-gouwuche"></i>
-            </view>
-          </view>
-
-        </view>
+  <view class="email_box">
+    <view>{{tabs.g_name}}</view>
+    <view class="price">
+      <text class="nowPrice">¥{{tabs.g_x_price}}</text>
+      <text>¥{{tabs.g_y_price}}</text>
+    </view>
+    <view class="ready">
+      <view>已售卖{{tabs.g_stock}}+件</view>
+      <i class="iconfont  icon-gouwuche"></i>
+      <!-- <image src="../../assets/image/shopcar.png"></image> -->
+    </view>
+  </view>
+</view>

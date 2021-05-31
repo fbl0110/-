@@ -1,4 +1,4 @@
-// pages/login/index.js
+const {getLogin}=require('../../api/user')
 Page({
 
   /**
@@ -13,6 +13,40 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+  login(){
+    wx.login({
+      async success(res){
+        // console.log(res.code)
+        if(res.code){
+          let {token}=await getLogin(res.code)
+          // console.log(data)
+          if(token){
+            wx.setStorageSync('token', token)
+            wx.showToast({
+              title: '登录成功',
+            })
+            setTimeout(()=>{
+              // wx.switchTab({
+              //   url: '/pages/order/index',
+              // })
+              wx.navigateBack({
+                delta: 1,
+              })
+            },1000)
+            
+          }else{
+            wx.showToast({
+              title: '登录失败',
+            })
+          }
+        }
+      },
+      fail(err){
+        console.log(err)
+
+      }
+    })
   },
 
   /**

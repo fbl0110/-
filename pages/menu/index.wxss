@@ -10,8 +10,7 @@
   flex-direction: column;
   color: #fff;
 }
-/* .box{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+.change{
+  padding-top: 45rpx;
+  border-bottom: 1px solid #ccc ;
+}

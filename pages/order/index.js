@@ -1,4 +1,5 @@
 // pages/order/index.js
+const {getToken}=require('../../utils/util')
 Page({
 
   /**
@@ -12,7 +13,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let token=getToken()
+    // console.log(token)
+    if(!token){
+        wx.redirectTo({
+          url: '/pages/login/index',
+        })
+    }else{
+      wx.switchTab({
+        url:'/pages/order/index'
+      })
+    }
 
+    // try {
+    //   var value = wx.getStorageSync('token')
+    //   if (value) {
+    //     // Do something with return value
+    //     console.log(value)
+    //   }
+    // } catch (e) {
+    //   console.log(e)
+    //   // Do something when catch error
+    // }
   },
 
   /**
@@ -26,7 +48,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**
