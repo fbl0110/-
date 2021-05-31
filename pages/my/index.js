@@ -1,4 +1,5 @@
 // pages/my/index.js
+const {getShopList}=require('../../api/my.js');
 Page({
 
   /**
@@ -47,13 +48,23 @@ Page({
       ],
       ellipsis_3:".ellipsis_3",
       fbl:true,
+      goodslist:[],//个人中心商品列表
+      page:1,
+      limit:6,
+       s_id:9
+      
   },
-
+  onChange(e){
+    //  console.log(e);
+    let index=e.detail.index;
+    let numbverIndex=[9,10,11,12]
+    this._getShopList(numbverIndex[index])
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getShopList();
   },
 //  跳转登录页面
   t_logon(){
@@ -61,14 +72,21 @@ Page({
         url: '/pages/login/index',
       })
   },
+  //个人中心
+  async _getShopList(index){
+    if(index){
+      index=index
+    }else{
+      index=9
+    }
+    let {data}=await getShopList(index,this.data.page,this.data.limit)
+    console.log(data)
+    this.setData({
+      goodslist:data
+    })
+  },
   jgg(index){
     let mylist= index.currentTarget.id
-
-    // if (mylist==0) {
-    //   wx.switchTab({
-    //     url: '/pages/order/index',
-    //   })
-    // }
     console.log(index.currentTarget.id);
     switch(mylist){
         case '0':
