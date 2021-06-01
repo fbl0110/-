@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/fbl0110/-/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/fbl0110/-#readme"
+=======
+  "homepage": "https://github.com/fbl0110/-#readme",
+  "dependencies": {
+    "@vant/area-data": "^1.1.1",
+    "@vant/weapp": "^1.6.8"
+  }
+>>>>>>> 3a28278c598683a3ffdf8fe5fb40a6347880be7e
 }

@@ -2,6 +2,7 @@
   "usingComponents": {
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
-    "sea":"/components/sea/sea"
+    "sea":"/components/sea/sea",
+    "van-icon": "@vant/weapp/icon/index"
   }
 }

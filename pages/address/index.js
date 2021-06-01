@@ -5,14 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
+    list:{
+      name:'梦比优斯先生',
+      gd:'广东省'  
+    }
 
+  },
+  add(){
+    wx.setStorageSync('value', this.data.list)
   },
   writeAddress(){
     wx.navigateTo({
       url: '/pages/shippingAddress/index',
     })
   },
-
+  form(e){
+  console.log(e)
+},
   /**
    * 生命周期函数--监听页面加载
    */
