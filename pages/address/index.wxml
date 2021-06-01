@@ -3,14 +3,14 @@
   label="梦比优斯先生"
   title="广东省"
   link-type="navigateTo"
-  url="/pages/shippingAddress/index"
-  
+  bind:click="add"  
 >
-<van-icon slot="right-icon" name="edit" class="custom-icon" />
+<van-icon slot="right-icon" name="edit" class="custom-icon" bindtap="writeAddress" />
 </van-cell>
 
-<button>+新建收货地址</button>
+<button bindtap="writeAddress" form-type="save">+新建收货地址</button>
 
 </view>
 
-<!-- <van-button order type="danger">+新建收货地址</van-button> -->
+
+

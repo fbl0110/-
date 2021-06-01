@@ -1,5 +1,6 @@
 
 // import { areaList } from '../../node_modules/@vant/area-data/lib/index'
+const {areaList} =require('../../utils/area')
 Page({
 
   /**
@@ -7,8 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // areaList,
-    show:false
+    areaList,
+    show:false,
+    checked:false
+  },
+  confirm(e){
+    // console.log(e)
+    let value=e.detail.values
+    console.log(value)
   },
 
   showPopup(){
@@ -16,6 +23,10 @@ Page({
   },
   onClose(){
     this.setData({show:false})
+  },
+  onChange({ detail }) {
+    // 需要手动对 checked 状态进行更新
+    this.setData({ checked: detail });
   },
 
   /**

@@ -7,6 +7,11 @@ Page({
   data: {
     // imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
   },
+  address(){
+    wx.navigateTo({
+      url: '/pages/address/index',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

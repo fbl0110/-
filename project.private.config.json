@@ -39,6 +39,12 @@
         {
           "name": "添加地址",
           "pathName": "pages/shippingAddress/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/shopcar/index",
           "scene": null
         }
       ]

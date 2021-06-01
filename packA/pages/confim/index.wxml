@@ -7,7 +7,8 @@
 />
 
 <view class="box">
-  <van-cell size="large" border  title="添加快递收货地址" is-link icon="location-o" />
+  <van-cell size="large" border  title="添加快递收货地址" is-link icon="location-o" 
+  bindtap="address" />
 
   <!-- 店铺 -->
   <view class="self">
