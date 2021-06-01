@@ -39,7 +39,8 @@
     height: 100rpx;
     text-align: center;
     line-height: 60rpx;
-    color: #666
+    color: #666;
+    font-size: 30rpx;
 }
 
 .left .selectColor {

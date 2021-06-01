@@ -13,7 +13,7 @@ Page({
         toView: '',
         list: [],
         dataList: {},
-        toTitle: ''
+        toTitle: 0
     },
 
     // 跳转到搜索页面
@@ -38,7 +38,7 @@ Page({
                 })
                 list[i + 1].isSelect = true;
                 this.setData({
-                    toTitle: i,
+                    toTitle: i + 1,
                     list
                 })
 
@@ -49,9 +49,12 @@ Page({
                 })
                 list[0].isSelect = true;
                 this.setData({
+                    toTitle: 0,
                     list
                 })
+
             }
+
         }
     },
     // 点击 分类 实现锚点定位
@@ -59,10 +62,17 @@ Page({
         // console.log(e.currentTarget.dataset.value);
         let { index } = e.currentTarget.dataset;
         // console.log(index);
-        this.setData({
-            toView: index
-        })
 
+        let list = this.data.list;
+        list.map(item => {
+            item.isSelect = false;
+            return item;
+        })
+        list[index].isSelect = true;
+        this.setData({
+            toView: index,
+            list
+        })
     },
 
     //  获取右边 滚动高度
@@ -106,16 +116,16 @@ Page({
     },
 
     // 获取商品分类名
-    async loadSortTitle() {
-        let { data } = await FecthGoodsSortTitle();
+    async loadSortTitle(dataListArr) {
         // console.log(data)
-        let list = data.map(item => {
+        let list = dataListArr.map(item => {
             let memuTitle = {};
-            memuTitle.value = item.s_name;
+            memuTitle.value = Object.keys(item)[0];
             memuTitle.isSelect = false;
             return memuTitle;
         })
         list[0].isSelect = true;
+        console.log(list)
         this.setData({
             list
         })
@@ -147,6 +157,8 @@ Page({
         this.setData({
             dataList: dataListArr
         })
+        this.loadSortTitle(dataListArr);
+
     },
 
     toGoodsDetail(e) {
@@ -161,7 +173,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.loadSortTitle();
         this.loadMemuGoodsList();
 
     },
@@ -170,8 +181,8 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-        this.rightItemScroll();
         this.leftItemScroll();
+        this.rightItemScroll();
     },
 
     /**
