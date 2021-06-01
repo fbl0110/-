@@ -16,13 +16,14 @@ Page({
     // console.log(e)
     let value=e.detail.values
     console.log(value)
+    this.onClose()
   },
-
   showPopup(){
     this.setData({show:true})
   },
   onClose(){
     this.setData({show:false})
+
   },
   onChange({ detail }) {
     // 需要手动对 checked 状态进行更新

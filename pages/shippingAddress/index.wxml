@@ -1,13 +1,16 @@
-<van-cell-group>
+<button form-type="submit">
+  <van-cell-group>
   <van-field value="{{ username }}" clearable label="收货人" placeholder="请填写收货人姓名" />
-
-  <van-field type="digit" value="{{ password }}" label="手机号码" placeholder="请填写收货人手机号码" />
+  <van-field type="number" value="{{ password }}" label="手机号码" placeholder="请填写收货人手机号码" />
   <van-cell title="所在地区" is-link bind:click="showPopup" columns-num />
-  <van-popup show="{{ show }}" close-icon="close" position="bottom" custom-style="height: 70%" bind:close="onClose">
+  <van-popup show="{{ show }}" close-icon="close" position="bottom"    custom-style="height: 70%" bind:close="onClose" bind:click="showPopup">
     <van-area bind:confirm="confirm" area-list="{{ areaList }}" columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}" title="请选择" />
   </van-popup>
   <van-field value="{{ password }}" label="详细地址" placeholder="街道,楼牌号等" />
 </van-cell-group>
+</button>
+
+
 
 
 
@@ -15,6 +18,8 @@
   <van-switch size="24px" slot="right-icon" checked="{{ checked }}" active-color="red" inactive-color="#ffff"
     bind:change="onChange" />
 </van-cell>
+
+
 <view class="box">
   <button>保存</button>
 </view>
