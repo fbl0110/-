@@ -160,10 +160,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-<<<<<<< HEAD
-=======
+
     this.t_logon();
->>>>>>> 3a28278c598683a3ffdf8fe5fb40a6347880be7e
   },
 
   /**

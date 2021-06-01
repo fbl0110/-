@@ -26,8 +26,8 @@ Page({
             version
         });
     })
-    let token=wx.getStorageSync('value')
-    console.log(token)
+    // let token=wx.getStorageSync('value')
+    // console.log(token)
   },
   
   onChange(){

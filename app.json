@@ -10,8 +10,6 @@
         "pages/details/index",
         "pages/fashion/index",
         "pages/search/index"
-
-
     ],
     "window": {
         "backgroundTextStyle": "light",
