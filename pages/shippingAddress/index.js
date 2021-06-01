@@ -1,34 +1,39 @@
-// pages/confirm/index.js
+
+// import { areaList } from '../../node_modules/@vant/area-data/lib/index'
+const {areaList} =require('../../utils/area')
 Page({
 
   /**
+   * 
    * 页面的初始数据
    */
   data: {
-    // imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
+    areaList,
+    show:false,
+    checked:false
   },
-  address(){
-    wx.navigateTo({
-      url: '/pages/address/index',
-    })
+  confirm(e){
+    // console.log(e)
+    let value=e.detail.values
+    console.log(value)
+  },
+
+  showPopup(){
+    this.setData({show:true})
+  },
+  onClose(){
+    this.setData({show:false})
+  },
+  onChange({ detail }) {
+    // 需要手动对 checked 状态进行更新
+    this.setData({ checked: detail });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const eventChannel = this.getOpenerEventChannel();
-    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on('version', ({ version }) => {
-        console.log(version);
-        this.setData({
-            version
-        });
-    })
-  },
-  
-  onChange(){
-    checkedColor:'blue'
+
   },
 
   /**

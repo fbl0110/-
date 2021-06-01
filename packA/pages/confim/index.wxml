@@ -7,7 +7,8 @@
 />
 
 <view class="box">
-  <van-cell size="large" border  title="添加快递收货地址" is-link icon="location-o" />
+  <van-cell size="large" border  title="添加快递收货地址" is-link icon="location-o" 
+  bindtap="address" />
 
   <!-- 店铺 -->
   <view class="self">
@@ -19,10 +20,10 @@
   <van-card
   num="1"
   centered="true"
-  price="119"
+  price="{{version.g_x_price}}"
   desc="默认规格:混合装"
-  title="瑞幸花漾特调即溶咖啡"
-  thumb="{{ imageURL }}"
+  title="{{version.g_name}}"
+  thumb="{{ version.img }}"
 >
 </van-card>
 

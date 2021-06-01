@@ -4,7 +4,7 @@
     <swiper class="image_box" autoplay indicator-dots circular indicator-color="#ccc" indicator-active-color="#ffff">
       <block wx:for="{{lunboImage}}" wx:key="*this">
         <swiper-item class="swiper_box">
-          <image src="{{item.img}}">
+          <image bindtap="fashion" src="{{item.img}}">
           </image>
         </swiper-item>
       </block>
@@ -86,21 +86,33 @@
   <van-tabs active="{{ active }}" bind:change="onChange" sticky='true'>
     <van-tab title="冰爽季" class="tab">
       <view class="con">
-       
-        <block>
-          <sea></sea>
-
+        <block wx:for="{{goodslist}}" wx:key="id" bindtap="taurder">
+          <sea tabs="{{item}}"></sea>
         </block>
-       <!-- <sea></sea>  -->
-      
-
-
       </view>
 
     </van-tab>
-    <van-tab title="瑞幸自营">内容 12132</van-tab>
-    <van-tab title="咖啡水具">内容 2343</van-tab>
-    <van-tab title="糕点零食">内容 42412</van-tab>
+    <van-tab title="瑞幸自营">
+      <view class="con">
+        <block wx:for="{{goodslist}}" wx:key="id">
+          <sea tabs="{{item}}"></sea>
+        </block>
+      </view>
+    </van-tab>
+    <van-tab title="咖啡水具">
+      <view class="con">
+        <block wx:for="{{goodslist}}" wx:key="id">
+          <sea tabs="{{item}}"></sea>
+        </block>
+      </view>
+    </van-tab>
+    <van-tab title="糕点零食">
+      <view class="con" >
+        <block wx:for="{{goodslist}}" wx:key="id">
+          <sea tabs="{{item}}"></sea>
+        </block>
+      </view>
+    </van-tab>
     <!-- <view slot='nav-right' class="nav-right">更多</view> -->
 
 

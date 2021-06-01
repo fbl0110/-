@@ -27,8 +27,11 @@ Page({
               title: '登录成功',
             })
             setTimeout(()=>{
-              wx.switchTab({
-                url: '/pages/order/index',
+              // wx.switchTab({
+              //   url: '/pages/order/index',
+              // })
+              wx.navigateBack({
+                delta: 1,
               })
             },1000)
             

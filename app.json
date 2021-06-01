@@ -7,14 +7,19 @@
     "pages/my/index",
     "pages/login/index",
     "pages/details/index",
-    "pages/fashion/index"
+    "pages/fashion/index",
+    "pages/address/index",
+    "pages/shippingAddress/index"
+
+    
 
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance":50
   },
   "tabBar": {
     "list": [
@@ -91,7 +96,13 @@
     "van-submit-bar": "@vant/weapp/submit-bar/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-stepper": "@vant/weapp/stepper/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-switch": "@vant/weapp/switch/index"
+
   },
   "sitemapLocation": "sitemap.json"
 }

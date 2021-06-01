@@ -1,0 +1,16 @@
+<view class="box">
+  <van-cell
+  label="梦比优斯先生"
+  title="广东省"
+  link-type="navigateTo"
+  bind:click="add"  
+>
+<van-icon slot="right-icon" name="edit" class="custom-icon" bindtap="writeAddress" />
+</van-cell>
+
+<button bindtap="writeAddress" form-type="save">+新建收货地址</button>
+
+</view>
+
+
+

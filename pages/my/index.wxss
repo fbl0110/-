@@ -116,5 +116,11 @@
   -webkit-line-clamp: 3;
   overflow: hidden;
   padding: 20rpx;
+  background-color: red;
 }
-
+.My_list{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   
+}

@@ -1,5 +1,7 @@
 {
 
-  "usingComponents": {},
+  "usingComponents": {
+    "sea":"/components/sea/sea"
+  },
   "navigationBarTitleText":"我的"
 }

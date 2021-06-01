@@ -13,76 +13,38 @@
     "miniprogram": {
       "list": [
         {
-<<<<<<< HEAD
-          "name": "pages/shopcar/index",
-          "pathName": "pages/shopcar/index",
-=======
-          "name": "订单",
-          "pathName": "pages/order/index",
->>>>>>> guang
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
-          "name": "pages/my/index",
-          "pathName": "pages/my/index",
-=======
-          "name": "菜单",
-          "pathName": "pages/menu/index",
->>>>>>> guang
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
-          "name": "pages/aa/index",
-          "pathName": "pages/aa/index",
-=======
-          "name": "登录",
-          "pathName": "pages/login/index",
->>>>>>> guang
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
-          "name": "pages/my/index",
-          "pathName": "pages/my/index",
-=======
-          "name": "分包详情页",
-          "pathName": "packC/pages/details/index",
->>>>>>> guang
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
           "name": "pages/fashion/index",
           "pathName": "pages/fashion/index",
-=======
-          "name": "菜单",
-          "pathName": "pages/menu/index",
           "query": "",
           "scene": null
         },
         {
-          "name": "分包订单",
-          "pathName": "packA/pages/confim/index",
+          "name": "pages/fashion/index",
+          "pathName": "pages/fashion/index",
           "query": "",
           "scene": null
         },
         {
-          "name": "分包登录",
-          "pathName": "packB/pages/login/index",
+          "name": "商品详情页",
+          "pathName": "pages/details/index",
+          "query": "id=46",
+          "scene": null
+        },
+        {
+          "name": "收货地址",
+          "pathName": "pages/address/index",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/b/index",
-          "pathName": "pages/b/index",
+          "name": "添加地址",
+          "pathName": "pages/shippingAddress/index",
           "query": "",
->>>>>>> guang
+          "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/shopcar/index",
           "scene": null
         }
       ]

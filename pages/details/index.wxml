@@ -3,31 +3,26 @@
     <swiper circular='true' class="swiper_box" current='{{index}}'>
       <block>
         <swiper-item>
-          <image src="../../assets/image/one.jpg"></image>
+          <image src="{{Detailgoods.img}}"></image>
         </swiper-item>
       </block>
-      <block>
-        <swiper-item>
-          <image src="../../assets/image/one.jpg"></image>
-        </swiper-item>
-      </block>
-      <block>
-        <swiper-item>
-          <image src="../../assets/image/one.jpg"></image>
-        </swiper-item>
-      </block>
+
     </swiper>
 
     <!-- 价格,商品描述 -->
-    <view class="price_box">
+    <!-- <block   wx:for="{{Detailgoods}}" wx:key="g_name"> -->
+      <view class="price_box">
+        
       <view class="price_box1">
-        <text class="discountPrice">¥159</text>
-        <text class="originalPrice">¥239</text>
+        <text class="discountPrice">¥{{Detailgoods.g_x_price}}</text>
+        <text class="originalPrice">¥{{Detailgoods.g_y_price}}</text>
       </view>
 
-      <view class="info">瑞幸吸猫系列挂耳咖啡-36包囤货装</view>
-      <view class="sold">已售卖2000+件</view>
+      <view class="info">{{Detailgoods.g_name}}</view>
+      <view class="sold">已售卖{{Detailgoods.buyed}}+件</view>
     </view>
+    <!-- </block> -->
+
 
     <!-- sku -->
     <view class="sku_box">
@@ -80,8 +75,8 @@
   <!-- 加入购物车 -->
   <van-goods-action>
   <van-goods-action-icon icon="cart-o" text="购物车" info="5" />
-  <van-goods-action-button color="#8095cb" text="加入购物车"  plain/>
-  <van-goods-action-button color="#6d86c4" text="立即购买" />
+  <van-goods-action-button bind:click="onClickIcon" color="#8095cb" text="加入购物车"  plain />
+  <van-goods-action-button bind:click="onClickButton" color="#6d86c4" text="立即购买" />
 </van-goods-action>
 </view>
 </view>
