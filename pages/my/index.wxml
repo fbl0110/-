@@ -21,7 +21,7 @@
       </view>
     <view class="sxlbut" bindtap="jl">
         <image wx:if="{{fbl==true}}" class="sxl" src="../../assets/gw_img/xl.png"></image>
-        <image wx:if="{{fbl==true}}" class="sxl"  src="../../assets/gw_img/sl.png"></image>
+        <image wx:else="{{fbl==true}}" class="sxl"  src="../../assets/gw_img/sl.png"></image>
     </view>
   </view>
       <view class="tp">
