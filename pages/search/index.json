@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "sea": "/components/sea/sea"
+    },
+    "navigationBarTitleText": "搜索"
+}

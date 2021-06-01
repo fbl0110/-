@@ -1,5 +1,6 @@
 // pages/my/index.js
 const {getShopList}=require('../../api/my.js');
+const {getToken}=require('../../utils/util')
 Page({
 
   /**
@@ -50,12 +51,11 @@ Page({
       fbl:true,
       goodslist:[],//个人中心商品列表
       page:1,
-      limit:6,
+      limit:40,
        s_id:9
       
   },
   onChange(e){
-    //  console.log(e);
     let index=e.detail.index;
     let numbverIndex=[9,10,11,12]
     this._getShopList(numbverIndex[index])
@@ -68,10 +68,20 @@ Page({
   },
 //  跳转登录页面
   t_logon(){
-      wx.navigateTo({
+    let token=getToken();
+    if(!token){
+      wx.redirectTo({
         url: '/pages/login/index',
       })
+      return
+  }else{
+    wx.switchTab({
+      url:'/pages/my/index'
+    })
+  }
   },
+
+
   //个人中心
   async _getShopList(index){
     if(index){
@@ -150,20 +160,24 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+<<<<<<< HEAD
+=======
+    this.t_logon();
+>>>>>>> 3a28278c598683a3ffdf8fe5fb40a6347880be7e
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+ 
   },
 
   /**
