@@ -10,7 +10,7 @@
       <text>¥{{tabs.g_y_price}}</text>
     </view>
     <view class="ready">
-      <view>已售卖{{tabs.g_stock}}+件</view>
+      <view>已售卖{{tabs.buyed}}+件</view>
       <i class="iconfont  icon-gouwuche"></i>
       <!-- <image src="../../assets/image/shopcar.png"></image> -->
     </view>

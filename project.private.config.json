@@ -21,6 +21,30 @@
         {
           "name": "pages/fashion/index",
           "pathName": "pages/fashion/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品详情页",
+          "pathName": "pages/details/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/index",
+          "pathName": "pages/home/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/cccc/index",
+          "pathName": "pages/cccc/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/index",
+          "pathName": "pages/home/index",
           "scene": null
         }
       ]

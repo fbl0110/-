@@ -28,3 +28,9 @@ module.exports.getDetail=function(g_id){
   })
 }
 
+//瑞辛潮品
+module.exports.getTrendGoodsList=function(active,page,limit){
+  return request({
+    url:`https://rxcoffee.suchcow.top/getTrendGoodsList?active=${active}&page=${page}&activelimit=${limit}`
+  })
+}
