@@ -1,4 +1,4 @@
-<view class="dry-goods" bindtap="goods">
+<view class="dry-goods"  data-id="{{tabs.g_id}}" bindtap="prouter">
   <view class="image_box">
     <image src="{{tabs.img}}"></image>
   </view>
@@ -7,12 +7,13 @@
     <view>{{tabs.g_name}}</view>
     <view class="price">
       <text class="nowPrice">¥{{tabs.g_x_price}}</text>
-      <text>¥{{tabs.g_y_price}}</text>
+      <text class="rebatePrice">¥{{tabs.g_y_price}}</text>
     </view>
     <view class="ready">
-      <view>已售卖{{tabs.g_stock}}+件</view>
+      <view>已售卖{{tabs.buyed}}+件</view>
       <i class="iconfont  icon-gouwuche"></i>
       <!-- <image src="../../assets/image/shopcar.png"></image> -->
     </view>
   </view>
+  
 </view>

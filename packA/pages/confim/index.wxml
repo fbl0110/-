@@ -19,10 +19,10 @@
   <van-card
   num="1"
   centered="true"
-  price="119"
+  price="{{version.g_x_price}}"
   desc="默认规格:混合装"
-  title="瑞幸花漾特调即溶咖啡"
-  thumb="{{ imageURL }}"
+  title="{{version.g_name}}"
+  thumb="{{ version.img }}"
 >
 </van-card>
 

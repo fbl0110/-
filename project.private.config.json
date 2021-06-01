@@ -21,6 +21,24 @@
         {
           "name": "pages/fashion/index",
           "pathName": "pages/fashion/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "商品详情页",
+          "pathName": "pages/details/index",
+          "query": "id=46",
+          "scene": null
+        },
+        {
+          "name": "收货地址",
+          "pathName": "pages/address/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "添加地址",
+          "pathName": "pages/shippingAddress/index",
           "scene": null
         }
       ]

@@ -7,7 +7,10 @@
   height: 100%;
 }
 .price_box{
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  
 }
 .price_box1{
   padding: 10rpx;

@@ -1,0 +1,16 @@
+<view class="box">
+  <van-cell
+  label="梦比优斯先生"
+  title="广东省"
+  link-type="navigateTo"
+  url="/pages/shippingAddress/index"
+  
+>
+<van-icon slot="right-icon" name="edit" class="custom-icon" />
+</van-cell>
+
+<button>+新建收货地址</button>
+
+</view>
+
+<!-- <van-button order type="danger">+新建收货地址</van-button> -->
