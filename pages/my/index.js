@@ -47,8 +47,8 @@ Page({
         {title:"数码电器"},
         {title:"潮玩饰品"}
       ],
-      ellipsis_3:".ellipsis_3",
-      fbl:true,
+      jgg1:".jgg1",
+      fbl:"true",
       goodslist:[],//个人中心商品列表
       page:1,
       limit:40,
@@ -64,13 +64,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.t_logon();
+    this.jl();
     this._getShopList();
+    
   },
 //  跳转登录页面
   t_logon(){
     let token=getToken();
     if(!token){
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/login/index',
       })
       return
@@ -153,14 +156,14 @@ Page({
     }
     this.setData({
       fbl:true,
-      ellipsis_3:".ellipsis_3"
+      jgg1:".jgg1"
     })
  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.t_logon();
+    
   },
 
   /**

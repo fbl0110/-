@@ -16,7 +16,7 @@ Page({
   },
   login(){
     wx.login({
-      async success(res){
+       success:async(res)=>{
         // console.log(res.code)
         if(res.code){
           let {token}=await getLogin(res.code)
