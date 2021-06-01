@@ -13,3 +13,50 @@
   margin-left: 40rpx;
   border-radius:5% ;
 }
+.My_list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+/* .ellipsis_3{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  padding: 20rpx;
+  background-color: red;
+} */
+.tabs{
+  position: relative;
+  
+}
+.cc{
+  position: absolute;
+  top: 18rpx;
+  right:40rpx;
+  z-index:100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.orderBy{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border:12rpx solid transparent;
+}
+.desc_price{
+  border-bottom-color:#999;
+  margin-bottom:6rpx;
+}
+.cc .select_desc_price{
+  border-bottom-color:red;
+}
+.cc .select_asc_price{
+  border-top-color:red;
+}
+.asc_price{
+  border-top-color:#999;
+}
+
