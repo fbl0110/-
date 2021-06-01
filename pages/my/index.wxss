@@ -57,22 +57,11 @@
   padding: 20rpx;
   box-sizing: border-box;
   overflow: hidden;
+  transition:all 0.5s
 }
 
-.jgg1{
-  width: 700rpx;
+.header .jgg1{
   height: 440rpx;
-  background-color:#fff;
-  left: 25rpx;
-  top: 280rpx;
-  position: absolute;
-  border-radius:25rpx 25rpx  45rpx  45rpx;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 20rpx;
-  box-sizing: border-box;
-  overflow: hidden;
 }
 .jggg{
   width: 150rpx;
@@ -112,7 +101,6 @@
   width: 700rpx;
   height: 400rpx;
   margin-left: 25rpx;
-  margin-top: 117rpx;
   border-radius:25rpx 25rpx  45rpx  45rpx;
 }
 .A{

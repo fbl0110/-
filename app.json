@@ -8,8 +8,8 @@
         "pages/login/index",
         "pages/details/index",
         "pages/fashion/index",
-        "pages/search/index"
-
+        "pages/search/index",
+        "pages/upmy/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

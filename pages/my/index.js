@@ -47,8 +47,7 @@ Page({
         {title:"数码电器"},
         {title:"潮玩饰品"}
       ],
-      jgg1:".jgg1",
-      fbl:"true",
+      fbl:true,
       goodslist:[],//个人中心商品列表
       page:1,
       limit:40,
@@ -62,9 +61,9 @@ Page({
   },
   /**
    * 生命周期函数--监听页面加载
+ 
    */
   onLoad: function (options) {
-    this.t_logon();
     this.jl();
     this._getShopList();
     
@@ -77,11 +76,16 @@ Page({
         url: '/pages/login/index',
       })
       return
-  }else{
+  }else if(token) {
+    wx.navigateTo({
+      url:'/pages/upmy/index'
+    })
+  }
+  else {
     wx.switchTab({
       url:'/pages/my/index'
     })
-  }
+  }    
   },
 
 
@@ -99,6 +103,13 @@ Page({
     })
   },
   jgg(index){
+    let token=getToken();
+    if(!token){
+      wx.navigateTo({
+        url: '/pages/login/index',
+      })
+      return
+  }else{
     let mylist= index.currentTarget.id
     console.log(index.currentTarget.id);
     switch(mylist){
@@ -143,20 +154,15 @@ Page({
         console.log("您的输入有误");
         break;
         }
+      }
   },
 
   //展开收起
   jl(){
-    if (this.data.fbl==true) {
+  
     this.setData({
-      fbl:false,
-      ellipsis_3:''
-    })
-    return
-    }
-    this.setData({
-      fbl:true,
-      jgg1:".jgg1"
+      fbl:!this.data.fbl,
+     
     })
  },
   /**

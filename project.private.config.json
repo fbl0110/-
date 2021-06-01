@@ -45,6 +45,12 @@
         {
           "name": "pages/home/index",
           "pathName": "pages/home/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/upmy/index",
+          "pathName": "pages/upmy/index",
           "scene": null
         }
       ]

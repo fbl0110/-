@@ -11,19 +11,19 @@
         <van-icon name="arrow" />
       </view>
     </view>
-    <view class="jgg {{jgg1}}">
+    <view class="jgg {{!fbl? 'jgg1' : ''}}">
       <view class="jggg  flex-c-c " wx:for="{{jgglist}}" bindtap="jgg" id="{{index}}" wx:key="this">
         <image class="jgimg" src="{{item.img}}"></image>
         <view class="jgtext">{{item.text}}</view>
       </view>
       <view class="sxlbut flex-c-c" bindtap="jl">
-        <image wx:if="{{fbl==false}}" class="sxl" src="../../assets/gw_img/xl.png"></image>
-        <image wx:else="{{fbl==true}}" class="sxl" src="../../assets/gw_img/sl.png"></image>
+        <image style="transform:{{fbl? 'rotate(180deg)' : ''}};transition:all 0.3s" class="sxl" src="../../assets/gw_img/sl.png"></image>
+        <!-- <image wx:else class="sxl" src="../../assets/gw_img/sl.png"></image> -->
       </view>
     </view>
   </view>
   <view class="dd">
-    <view class="tp">
+    <view class="tp" style="margin-top: {{!fbl? 320 : 120}}rpx;transition:all 0.5s">
       <image class="A" src="../../assets/gw_img/A.png"></image>
       <image class="B" src="../../assets/gw_img/B.png"></image>
     </view>
