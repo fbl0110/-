@@ -36,10 +36,17 @@ Page({
       url: '/pages/fashion/index',
     })
   },
+  taurder(){
+    wx.navigateTo({
+      url: '/pages/details/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(this.data.goodslist)
+    // console.log(options)
     this._getlunbo();
     // this.onChange()
     this._getShopList()
@@ -54,14 +61,14 @@ Page({
  },
 //  商品列表
 async _getShopList(index){
-  console.log(index);
+  // console.log(index);
   if(index){
     index=index
   }else{
     index=9
   }
   let {data}=await getShopList(index,this.data.page,this.data.limit)
-  console.log(data)
+  // console.log(data)
   this.setData({
     goodslist:data
   })
@@ -98,20 +105,31 @@ async _getShopList(index){
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+        this.data.goodslist={}
+        this._getShopList()
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
+  },
+
+  // 下拉加载更多
+  onReachBottom:function(e){
+    // console.log(e)
+    ++ this.data.limit
+    this._getShopList()
+    wx.showToast({
+      title: '数据已经加载完毕',
+    })
+    // if(!this.data.limit==10){
+    //   this._getShopList();
+    // }else{
+    //   return
+
+    // }
   }
 })

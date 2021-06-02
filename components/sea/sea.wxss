@@ -4,8 +4,10 @@
 .dry-goods {
   width: 340rpx;
   height: 500rpx;
-  /* border: 1px solid red; */
-  margin: 10rpx;
+  /* padding-left: 35rpx; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   /* padding:10rpx; */
 }
 
@@ -22,6 +24,13 @@
 .dry-goods .ready {
   display: flex;
   justify-content: space-between;
+  margin-top: 40rpx;
+}
+.ready view{
+  color: 		#A9A9A9;
+  font-size: 30rpx;
+  /* width: 140rpx; */
+  /* height: 50rpx; */
 }
 .email_box {
   padding: 30rpx;
@@ -29,7 +38,7 @@
 .price .nowPrice{
   color: #edad79;
 }
-.price text{
+.price .rebatePrice{
   padding-left: 20rpx;
   box-sizing: border-box;
   color: #ccc;

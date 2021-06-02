@@ -86,7 +86,7 @@
   <van-tabs active="{{ active }}" bind:change="onChange" sticky='true'>
     <van-tab title="冰爽季" class="tab">
       <view class="con">
-        <block wx:for="{{goodslist}}" wx:key="id">
+        <block wx:for="{{goodslist}}" wx:key="id" bindtap="taurder">
           <sea tabs="{{item}}"></sea>
         </block>
       </view>
@@ -107,7 +107,7 @@
       </view>
     </van-tab>
     <van-tab title="糕点零食">
-      <view class="con">
+      <view class="con" >
         <block wx:for="{{goodslist}}" wx:key="id">
           <sea tabs="{{item}}"></sea>
         </block>

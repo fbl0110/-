@@ -1,2 +1,15 @@
-<!--pages/upmy/index.wxml-->
-<text>pages/upmy/index.wxml</text>
+<view class="upmy_box">
+  <view class="headimg">
+    <van-cell class="user">
+      <view class="user_wb">
+        <view class="van-cell-text">用户头像</view>
+        <image class="uimg" src="../../assets/gw_img/head.png"></image>
+      </view>
+    </van-cell>
+    <van-cell title="用户名" value="内容" />
+    <van-cell title="性别" value="内容" />
+    <van-cell title="绑定的手机" value="内容" />
+    <van-cell title="收获地址"  value="内容" />
+    <button class="but">退出登录</button>
+  </view>
+</view>

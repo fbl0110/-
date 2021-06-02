@@ -1,0 +1,20 @@
+.box{
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button{
+  position: absolute;
+  /* bottom: 0; */
+  top: 70rpx;
+  
+  /* left: 156rpx; */
+  width: 510rpx;
+  height: 90rpx;
+  color: #fff;
+  background-color: red;
+  border-radius: 70rpx;
+
+}

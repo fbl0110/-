@@ -1,37 +1,32 @@
-// pages/confirm/index.js
+// pages/address/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
+    list:{
+      name:'梦比优斯先生',
+      gd:'广东省'  
+    }
+
   },
-  address(){
+  add(){
+    wx.setStorageSync('value', this.data.list)
+  },
+  writeAddress(){
     wx.navigateTo({
-      url: '/pages/address/index',
+      url: '/pages/shippingAddress/index',
     })
   },
-
+  form(e){
+  console.log(e)
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
-    const eventChannel = this.getOpenerEventChannel();
-    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
-    eventChannel.on('version', ({ version }) => {
-        console.log(version);
-        this.setData({
-            version
-        });
-    })
-    // let token=wx.getStorageSync('value')
-    // console.log(token)
-  },
-  
-  onChange(){
-    checkedColor:'blue'
+
   },
 
   /**
