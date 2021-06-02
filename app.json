@@ -1,6 +1,6 @@
 {
     "pages": [
-        "pages/home/index",
+       
         "pages/menu/index",
         "pages/order/index",
         "pages/shopcar/index",
@@ -9,7 +9,7 @@
         "pages/details/index",
         "pages/fashion/index",
         "pages/search/index"
-
+        "pages/home/index",
     ],
     "window": {
         "backgroundTextStyle": "light",
