@@ -1,8 +1,8 @@
 {
 
     "pages": [
-        "pages/build/index",
         "pages/home/index",
+        "pages/build/index",
         "pages/menu/index",
         "pages/order/index",
         "pages/shopcar/index",

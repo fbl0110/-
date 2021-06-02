@@ -1,5 +1,4 @@
 {
-  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -13,57 +12,23 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/fashion/index",
-          "pathName": "pages/fashion/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/fashion/index",
-          "pathName": "pages/fashion/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "商品详情页",
-          "pathName": "pages/details/index",
-<<<<<<< HEAD
-          "query": "id=46",
-          "scene": null
-        },
-        {
-          "name": "收货地址",
+          "name": "编辑地址",
           "pathName": "pages/address/index",
-=======
-          "query": "",
           "scene": null
         },
         {
-          "name": "pages/home/index",
-          "pathName": "pages/home/index",
->>>>>>> 3a28278c598683a3ffdf8fe5fb40a6347880be7e
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
           "name": "添加地址",
           "pathName": "pages/shippingAddress/index",
-=======
-          "name": "pages/cccc/index",
-          "pathName": "pages/cccc/index",
->>>>>>> 3a28278c598683a3ffdf8fe5fb40a6347880be7e
-          "query": "",
           "scene": null
         },
         {
-<<<<<<< HEAD
-          "name": "购物车",
-          "pathName": "pages/shopcar/index",
-=======
-          "name": "pages/home/index",
-          "pathName": "pages/home/index",
->>>>>>> 3a28278c598683a3ffdf8fe5fb40a6347880be7e
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
+          "scene": null
+        },
+        {
+          "name": "地址",
+          "pathName": "pages/build/index",
           "scene": null
         }
       ]
