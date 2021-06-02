@@ -6,6 +6,13 @@ Page({
    */
   data: {
     // imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
+    list:[],
+    checked:false
+  },
+  onChange(event) {
+    this.setData({
+      checked: event.detail,
+    });
   },
   address(){
     wx.navigateTo({
@@ -17,17 +24,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
+    console.log(options)
     const eventChannel = this.getOpenerEventChannel();
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('version', ({ version }) => {
-        console.log(version);
+        // console.log(version);
         this.setData({
             version
         });
     })
     // let token=wx.getStorageSync('value')
     // console.log(token)
+    let value=JSON.parse(wx.getStorageSync('value')) 
+    this.data.list.push(value)
+    this.setData({
+      list:value
+    })
+    console.log(value)
   },
   
   onChange(){

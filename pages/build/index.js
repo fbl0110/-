@@ -1,46 +1,43 @@
-// pages/address/index.js
+// pages/build/index.js
+const {areaList}=require('../../utils/area')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[]
- 
-    
+    show:false,
+    areaList,
+    nowAddress:[],
+    // address
+  },
 
+  showPopup() {
+    this.setData({ show: true });
   },
-  add(){
-    wx.setStorageSync('value', this.data.list)
+
+  onClose() {
+    this.setData({ show: false });
   },
-  writeAddress(){
-    wx.navigateTo({
-      url: '/pages/shippingAddress/index',
-    })
+  add(e){
+      this.onClose()
+      let address=e.detail.values
+      console.log(address)
+      // this.setData({
+      //   nowAddress:address
+      // })
   },
-  form(e){
-  console.log(e)
-},
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     let value= JSON.parse(wx.getStorageSync('value'))
-      this.data.list.push(value)
-      this.setData({
-        list:this.data.list
-      })
-      console.log(this.data.list);
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  add(){
-    wx.navigateTo({
-      url: '/packA/pages/confim/index?value='+this.data.list,
-    })
-  },
   onReady: function () {
 
   },
