@@ -1,6 +1,8 @@
 {
     "usingComponents": {
-        "sea": "/components/sea/sea"
+        "sea": "/components/sea/sea",
+        "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+        "van-dropdown-item": "@vant/weapp/dropdown-item/index"
     },
     "navigationBarTitleText": "搜索"
 }
