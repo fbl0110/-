@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     let token=getToken()
-    // console.log(token)
+    console.log(token)
     if(!token){
         wx.redirectTo({
           url: '/pages/login/index',
@@ -23,6 +23,9 @@ Page({
       wx.switchTab({
         url:'/pages/order/index'
       })
+      // wx.navigateBack({
+      //   delta: 1,
+      // })
     }
 
     // try {

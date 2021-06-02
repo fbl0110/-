@@ -2,8 +2,15 @@
   text="亲爱的顾客,若您购买多个不同商品可能涉及不同仓库发货,进行拆分订单,具体以订单显示为准。" />
 
 <view class="box">
-  <van-cell size="large" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" />
+
   <!-- <van-cell size="large" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" /> -->
+  
+
+  <!-- <view wx:for="{{list}}"> -->
+  <van-cell  bindtap="add" label="{{list.username}}" title="{{list.address}}" link-type="navigateTo" >
+  <van-icon slot="right-icon" name="edit" class="custom-icon" bindtap="writeAddress" />
+</van-cell>
+<!-- </view> -->
   
 
   <!-- 店铺 -->
