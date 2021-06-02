@@ -1,0 +1,35 @@
+.upmy_box{
+  width: 100%;
+  height: 1200rpx;
+  background-color:#f5f5f5;
+  
+}
+/* .tx{
+  width: 100%;
+  height: 100rpx;
+  
+} */
+.headimg{
+  height:100%;
+  width: 95%;
+  padding:20rpx;
+  background-color:#f0f0f0;
+}
+
+.user_wb{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.uimg{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.but{
+  height: 100rpx;
+  /* width: 800rpx; */
+  margin-top: 560rpx;
+  border-radius:50rpx 50rpx 50rpx 50rpx;
+  background-color: #7276b8;
+}

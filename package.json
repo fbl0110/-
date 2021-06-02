@@ -1,8 +1,12 @@
 {
-  "name": "page",
+  "name": "-",
   "version": "1.0.0",
-  "description": "",
+  "description": "packA 为 订单详情",
   "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@vant/area-data": "^1.1.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,8 +20,13 @@
   "bugs": {
     "url": "https://github.com/fbl0110/-/issues"
   },
+<<<<<<< HEAD
+  "homepage": "https://github.com/fbl0110/-#readme"
+=======
   "homepage": "https://github.com/fbl0110/-#readme",
   "dependencies": {
+    "@vant/area-data": "^1.1.1",
     "@vant/weapp": "^1.6.8"
   }
+>>>>>>> 3a28278c598683a3ffdf8fe5fb40a6347880be7e
 }

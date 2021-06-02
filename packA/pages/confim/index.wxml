@@ -1,69 +1,57 @@
-<van-notice-bar
-  wrapable
-  scrollable="{{ false }}"
-  color="#6b86ca"
-  background="#e7e9f0"
-  text="亲爱的顾客,若您购买多个不同商品可能涉及不同仓库发货,进行拆分订单,具体以订单显示为准。"
-/>
+<van-notice-bar wrapable scrollable="{{ false }}" color="#6b86ca" background="#e7e9f0"
+  text="亲爱的顾客,若您购买多个不同商品可能涉及不同仓库发货,进行拆分订单,具体以订单显示为准。" />
 
 <view class="box">
-  <van-cell size="large" border  title="添加快递收货地址" is-link icon="location-o" />
+  <van-cell size="large" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" />
+  <!-- <van-cell size="large" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" /> -->
+  
 
   <!-- 店铺 -->
   <view class="self">
-      <i class="iconfont  icon-dianpu"></i>
-      <text>潮品自营</text>
+    <i class="iconfont  icon-dianpu"></i>
+    <text>潮品自营</text>
   </view>
 
   <!-- 商品信息 -->
-  <van-card
-  num="1"
-  centered="true"
-  price="119"
-  desc="默认规格:混合装"
-  title="瑞幸花漾特调即溶咖啡"
-  thumb="{{ imageURL }}"
->
-</van-card>
+  <van-card num="1" centered="true" price="{{version.g_x_price}}" desc="默认规格:混合装" title="{{version.g_name}}"
+    thumb="{{ version.img }}">
+  </van-card>
 
 
-<!-- 总价 -->
-<view class="price">
-  <view class="all_price">
-    应付
-    <i class="iconfont icon-fl-renminbi">119</i>
+  <!-- 总价 -->
+  <view class="price">
+    <view class="all_price">
+      应付
+      <i class="iconfont icon-fl-renminbi">119</i>
+    </view>
   </view>
-</view>
 
-<!-- 优惠券 -->
-<van-cell-group>
-  <van-cell title="优惠券" value="无可用" />
-</van-cell-group>
+  <!-- 优惠券 -->
+  <van-cell-group>
+    <van-cell title="优惠券" value="无可用" />
+  </van-cell-group>
 
-<!-- 配送费 -->
-<view class="pay">
-  <view class="nopay">
-    <text>配送费</text>
-    <text class="nocolor">免运费</text>
+  <!-- 配送费 -->
+  <view class="pay">
+    <view class="nopay">
+      <text>配送费</text>
+      <text class="nocolor">免运费</text>
+    </view>
+    <view class="pay_image">
+      <image src="../../../assets/image/wxzf.png"></image>
+      微信支付 >
+    </view>
   </view>
-  <view class="pay_image">
-    <image src="../../../assets/image/wxzf.png"></image>
-    微信支付 >
-  </view>
-</view>
 
-<van-checkbox value="{{ checked }}" bind:change="onChange">我已阅读并同意<text>《支付协议》</text></van-checkbox>
-<view class="tips">温馨提示:此订单电商仓直接发货快递到家,不支持门店配送或自取</view>
+  <van-checkbox value="{{ checked }}" bind:change="onChange">我已阅读并同意<text>《支付协议》</text></van-checkbox>
+  <view class="tips">温馨提示:此订单电商仓直接发货快递到家,不支持门店配送或自取</view>
 
 
 
-<!-- 提交订单 -->
-  <van-submit-bar
-  price="{{ 4900 }}"
-  button-text="去支付"
-/>
+  <!-- 提交订单 -->
+  <van-submit-bar price="{{ 4900 }}" button-text="去支付" />
 
-<!-- <van-submit-bar
+  <!-- <van-submit-bar
   price="{{ 4900 }}"
   button-text="去支付"
   bind:submit="onClickButton"

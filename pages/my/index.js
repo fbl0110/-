@@ -1,4 +1,6 @@
 // pages/my/index.js
+const {getShopList}=require('../../api/my.js');
+const {getToken}=require('../../utils/util')
 Page({
 
   /**
@@ -45,30 +47,70 @@ Page({
         {title:"数码电器"},
         {title:"潮玩饰品"}
       ],
-      ellipsis_3:".ellipsis_3",
       fbl:true,
+      goodslist:[],//个人中心商品列表
+      page:1,
+      limit:40,
+       s_id:9
+      
   },
-
+  onChange(e){
+    let index=e.detail.index;
+    let numbverIndex=[9,10,11,12]
+    this._getShopList(numbverIndex[index])
+  },
   /**
    * 生命周期函数--监听页面加载
+ 
    */
   onLoad: function (options) {
-
+    this.jl();
+    this._getShopList();
+    
   },
 //  跳转登录页面
   t_logon(){
+    let token=getToken();
+    if(!token){
       wx.navigateTo({
         url: '/pages/login/index',
       })
+      return
+  }else if(token) {
+    wx.navigateTo({
+      url:'/pages/upmy/index'
+    })
+  }
+  else {
+    wx.switchTab({
+      url:'/pages/my/index'
+    })
+  }    
+  },
+
+
+  //个人中心
+  async _getShopList(index){
+    if(index){
+      index=index
+    }else{
+      index=9
+    }
+    let {data}=await getShopList(index,this.data.page,this.data.limit)
+    console.log(data)
+    this.setData({
+      goodslist:data
+    })
   },
   jgg(index){
+    let token=getToken();
+    if(!token){
+      wx.navigateTo({
+        url: '/pages/login/index',
+      })
+      return
+  }else{
     let mylist= index.currentTarget.id
-
-    // if (mylist==0) {
-    //   wx.switchTab({
-    //     url: '/pages/order/index',
-    //   })
-    // }
     console.log(index.currentTarget.id);
     switch(mylist){
         case '0':
@@ -112,41 +154,35 @@ Page({
         console.log("您的输入有误");
         break;
         }
+      }
   },
 
   //展开收起
   jl(){
-    if (this.data.fbl==true) {
+  
     this.setData({
-      fbl:false,
-      ellipsis_3:''
-    })
-    return
-    }
-    this.setData({
-      fbl:true,
-      ellipsis_3:".ellipsis_3"
+      fbl:!this.data.fbl,
+     
     })
  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+ 
   },
 
   /**

@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText":"菜单"
+    "usingComponents": {
+        "van-icon": "@vant/weapp/icon/index"
+    },
+    "navigationBarTitleText": "菜单"
 }

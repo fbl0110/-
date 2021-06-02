@@ -15,16 +15,22 @@ module.exports.getShopList=function(s_id,page,limit){
 }
 
 // 菜单页面商品列表
-module.exports.getLunbo=function(){
+module.exports.getMenu=function(){
   return request({
     url:'https://rxcoffee.suchcow.top/memuGoodsList'
   })
 }
 
 // 商品详情
-module.exports.getLunbo=function(g_id){
+module.exports.getDetail=function(g_id){
   return request({
     url:`https://rxcoffee.suchcow.top/GoodsDetail?g_id=${g_id}`
   })
 }
 
+//瑞辛潮品
+module.exports.getTrendGoodsList=function(active,page,limit){
+  return request({
+    url:`https://rxcoffee.suchcow.top/getTrendGoodsList?active=${active}&page=${page}&activelimit=${limit}`
+  })
+}

@@ -2,7 +2,7 @@
   <!-- 头部 -->
   <view class="header">
     <image class="backdrop" src="../../assets/gw_img/head.png"> </image>
-    <view  bindtap="t_logon" class="head">
+    <view bindtap="t_logon" class="head">
       <view class="logo_con">
         <image class="logon" src="../../assets/gw_img/logon.png"></image>
       </view>
@@ -11,71 +11,54 @@
         <van-icon name="arrow" />
       </view>
     </view>
-  </view>
-  <!-- 九格 -->
-<view class="dd">
-  <view class="jgg ">
-    <view class="jggg" wx:for="{{jgglist}}" bindtap="jgg" id="{{index}}">
-          <image class="jgimg" src="{{item.img}}"></image>
-          <view  class="jgtext">{{item.text}}</view>
+    <view class="jgg {{!fbl? 'jgg1' : ''}}">
+      <view class="jggg  flex-c-c " wx:for="{{jgglist}}" bindtap="jgg" id="{{index}}" wx:key="this">
+        <image class="jgimg" src="{{item.img}}"></image>
+        <view class="jgtext">{{item.text}}</view>
       </view>
-    <view class="sxlbut" bindtap="jl">
-        <image wx:if="{{fbl==true}}" class="sxl" src="../../assets/gw_img/xl.png"></image>
-        <image wx:if="{{fbl==true}}" class="sxl"  src="../../assets/gw_img/sl.png"></image>
+      <view class="sxlbut flex-c-c" bindtap="jl">
+        <image style="transform:{{fbl? 'rotate(180deg)' : ''}};transition:all 0.3s" class="sxl" src="../../assets/gw_img/sl.png"></image>
+        <!-- <image wx:else class="sxl" src="../../assets/gw_img/sl.png"></image> -->
+      </view>
     </view>
   </view>
-      <view class="tp">
-       <image class="A" src="../../assets/gw_img/A.png"></image>
-       <image class="B" src="../../assets/gw_img/B.png"></image>
-  </view>
-    <van-tabs sticky  class="tabs">
-      <van-tab  title="潮品下午茶">
+  <view class="dd">
+    <view class="tp" style="margin-top: {{!fbl? 320 : 120}}rpx;transition:all 0.5s">
+      <image class="A" src="../../assets/gw_img/A.png"></image>
+      <image class="B" src="../../assets/gw_img/B.png"></image>
+    </view>
+    <van-tabs sticky animated="{{true}}" title-active-color="red" color="#ffffff" active="{{ active }}"
+      bind:change="onChange" class="tabs" sticky='true'>
+      <van-tab title="冰爽季" class="tab">
         <view class="My_list">
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
+          <block wx:for="{{goodslist}}" wx:key="id">
+            <sea tabs="{{item}}"></sea>
+          </block>
+        </view>
+
+      </van-tab>
+      <van-tab title="瑞幸自营">
+        <view class="My_list">
+          <block wx:for="{{goodslist}}" wx:key="id">
+            <sea tabs="{{item}}"></sea>
+          </block>
         </view>
       </van-tab>
-      <van-tab class="My_list" title="生活家具"> 
+      <van-tab title="咖啡水具">
         <view class="My_list">
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
+          <block wx:for="{{goodslist}}" wx:key="id">
+            <sea tabs="{{item}}"></sea>
+          </block>
         </view>
       </van-tab>
-      <van-tab class="My_list" title="数码电器"> <view class="My_list">
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-        </view></van-tab>
-      <van-tab class="My_list" title="潮玩饰品"> <view class="My_list">
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
-          <sea></sea>
+      <van-tab title="糕点零食">
+        <view class="My_list">
+          <block wx:for="{{goodslist}}" wx:key="id">
+            <sea tabs="{{item}}"></sea>
+          </block>
         </view>
       </van-tab>
     </van-tabs>
-</view>
-  
+  </view>
+
 </view>

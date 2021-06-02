@@ -1,78 +1,58 @@
 {
-  "pages": [
-    "pages/home/index",
-    "pages/menu/index",
-    "pages/order/index",
-    "pages/shopcar/index",
-    "pages/my/index",
-    "pages/login/index",
-    "pages/details/index",
-    "pages/fashion/index"
-
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/home/index",
-        "text": "首页",
-        "iconPath": "./assets/icon/home.png",
-        "selectedIconPath": "./assets/icon/home-select.png"
-      },
-      {
-        "pagePath": "pages/menu/index",
-        "text": "菜单",
-        "iconPath": "/assets/icon/menu.png",
-        "selectedIconPath": "/assets/icon/menu-select.png"
-      },
-      {
-        "pagePath": "pages/order/index",
-        "text": "订单",
-        "iconPath": "/assets/icon/order.png",
-        "selectedIconPath": "/assets/icon/order-select.png"
-      },
-      {
-        "pagePath": "pages/shopcar/index",
-        "text": "购物车",
-        "iconPath": "/assets/icon/shopcar.png",
-        "selectedIconPath": "/assets/icon/shopcar-select.png"
-      },
-      {
-        "pagePath": "pages/my/index",
-        "text": "我的",
-        "iconPath": "/assets/icon/my.png",
-        "selectedIconPath": "/assets/icon/my-select.png"
-      }
+    "pages": [
+        "pages/home/index",
+        "pages/menu/index",
+        "pages/order/index",
+        "pages/shopcar/index",
+        "pages/my/index",
+        "pages/login/index",
+        "pages/details/index",
+        "pages/fashion/index",
+        "pages/search/index",
+        "pages/upmy/index"
     ],
-    "color": "#666",
-    "selectedColor": "#333999"
-  },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [{
+                "pagePath": "pages/home/index",
+                "text": "首页",
+                "iconPath": "./assets/icon/home.png",
+                "selectedIconPath": "./assets/icon/home-select.png"
+            },
+            {
+                "pagePath": "pages/menu/index",
+                "text": "菜单",
+                "iconPath": "/assets/icon/menu.png",
+                "selectedIconPath": "/assets/icon/menu-select.png"
+            },
+            {
+                "pagePath": "pages/order/index",
+                "text": "订单",
+                "iconPath": "/assets/icon/order.png",
+                "selectedIconPath": "/assets/icon/order-select.png"
+            },
+            {
+                "pagePath": "pages/shopcar/index",
+                "text": "购物车",
+                "iconPath": "/assets/icon/shopcar.png",
+                "selectedIconPath": "/assets/icon/shopcar-select.png"
+            },
+            {
+                "pagePath": "pages/my/index",
+                "text": "我的",
+                "iconPath": "/assets/icon/my.png",
+                "selectedIconPath": "/assets/icon/my-select.png"
+            }
+        ],
+        "color": "#666",
+        "selectedColor": "#333999"
+    },
 
-  "subpackages": [
-    {
-      "root": "packA",
-      "pages": [
-        "pages/confim/index"
-      ]
-    },
-    {
-      "root": "packB",
-      "pages": [
-        "pages/login/index"
-      ]
-    },
-    {
-      "root": "packC",
-      "pages": [
-        "pages/details/index"
-      ]
-    }
-  ],
 
   "usingComponents": {
     "van-tab": "@vant/weapp/tab/index",
@@ -91,7 +71,34 @@
     "van-submit-bar": "@vant/weapp/submit-bar/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-stepper": "@vant/weapp/stepper/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-switch": "@vant/weapp/switch/index"
+
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+    "subpackages": [{
+            "root": "packA",
+            "pages": [
+                "pages/confim/index"
+            ]
+        },
+        {
+            "root": "packB",
+            "pages": [
+                "pages/login/index"
+            ]
+        },
+        {
+            "root": "packC",
+            "pages": [
+                "pages/details/index"
+            ]
+        }
+    ]
+
+    
 }

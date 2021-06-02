@@ -1,16 +1,141 @@
-.image_box{
-  background: url(data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAsHCAoIBwsKCQoMDAsNEBsSEA8PECEYGRQbJyMpKScjJiUsMT81LC47LyUmNko3O0FDRkdGKjRNUkxEUj9FRkP/2wBDAQwMDBAOECASEiBDLSYtQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0P/wAARCABXAYwDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAAQDAgEF/8QAIRABAAICAQUBAQEAAAAAAAAAAAECAxExEiFBUWEEcYH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAgEDBf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8A+KM631y666+3uOLnJii3eOUmWe+vSy2T0nz06o6o58qjE4CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYA5gACbLXpv8lwoz13TfpOuAA0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAOYAA8tG6zHxIsRzyqAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAOYAATwjVZZ1SUqoACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiJmdRyAN6YPNp/wAhpFKxxWGaJBbqPTi2KlvGv4zRKNMmGa947wzaLAEADy9opXcgy/RbvFfTEmdzMyLgANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACI3OoVYscUj75Z/nruZt6bptABIAAM7Ya2nfDQaPAGBM6jcpcl5vPzwCoOQFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACnBGscNARQAYAAAAP//Z)no-repeat;
-  background-position: center;
-  background-size: 100% 100%; 
-  height: 280rpx;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #fff;
+.image_box {
+    background: url(data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAsHCAoIBwsKCQoMDAsNEBsSEA8PECEYGRQbJyMpKScjJiUsMT81LC47LyUmNko3O0FDRkdGKjRNUkxEUj9FRkP/2wBDAQwMDBAOECASEiBDLSYtQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0P/wAARCABXAYwDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAAQDAgEF/8QAIRABAAICAQUBAQEAAAAAAAAAAAECAxExEiFBUWEEcYH/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAgEDBf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8A+KM631y666+3uOLnJii3eOUmWe+vSy2T0nz06o6o58qjE4CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYA5gACbLXpv8lwoz13TfpOuAA0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAOYAA8tG6zHxIsRzyqAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAOYAATwjVZZ1SUqoACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiJmdRyAN6YPNp/wAhpFKxxWGaJBbqPTi2KlvGv4zRKNMmGa947wzaLAEADy9opXcgy/RbvFfTEmdzMyLgANAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACI3OoVYscUj75Z/nruZt6bptABIAAM7Ya2nfDQaPAGBM6jcpcl5vPzwCoOQFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACnBGscNARQAYAAAAP//Z)no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 280rpx;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
 }
-.change{
-  padding-top: 45rpx;
-  border-bottom: 1px solid #ccc ;
+
+.change {
+    padding-top: 45rpx;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* 菜单 */
+
+.goods_con {
+    position: absolute;
+    top: 390rpx;
+    display: flex;
+    background-color: #fff;
+    width: 100vw;
+}
+
+.left {
+    position: fixed;
+    top: 390rpx;
+    left: 0;
+    width: 160rpx;
+    background-color: #f5f5f5;
+}
+
+.left .item {
+    height: 100rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #666;
+    font-size: 30rpx;
+}
+
+.left .selectColor {
+    background-color: #fff;
+    color: #000;
+}
+
+.right {
+    margin-left: 160rpx;
+    flex: 1;
+    width: 550rpx;
+    background-color: #fff;
+}
+
+.sort {
+    margin-bottom: 10rpx;
+    padding-left: 20rpx;
+}
+
+.sort_title {
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    font-weight: 700;
+}
+
+.item {
+    display: flex;
+    height: 220rpx;
+    padding: 10rpx 0;
+}
+
+.item .cover {
+    padding: 10rpx 0;
+    width: 200rpx;
+    height: 220rpx;
+    box-sizing: border-box;
+}
+
+.item .cover image {
+    width: 100%;
+    height: 100%;
+}
+
+.item .goods_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20rpx;
+    flex: 1;
+    height: 220rpx;
+    box-sizing: border-box;
+}
+
+.goods_info .goods_title .title {
+    font-size: 32rpx;
+    font-weight: 700;
+}
+
+.goods_info .goods_title .label {
+    padding: 0 4rpx;
+    margin-left: 10rpx;
+    display: inline-block;
+    background-color: #f95731;
+    color: #fff;
+    border-radius: 4rpx;
+    font-size: 20rpx;
+}
+
+.goods_info .goods_Eng {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.goods_info .goods_price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goods_info .x_price {
+    font-size: 28rpx;
+    color: #f95731;
+    margin-right: 4rpx;
+}
+
+.goods_info .y_price {
+    font-size: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.goods_info .add {
+    border-radius: 50%;
+    width: 40rpx;
+    height: 40rpx;
+    background-color: #333999;
+    color: #fff;
 }

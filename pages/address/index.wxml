@@ -1,0 +1,11 @@
+
+<van-cell url="../../packA/pages/confim/index" bindtap="add" label="{{list.name}}" title="{{list.gd}}" link-type="navigateTo" >
+  <van-icon slot="right-icon" name="edit" class="custom-icon" bindtap="writeAddress" />
+</van-cell>
+
+
+<view class="box">
+
+  <button bindtap="writeAddress" form-type="save">+新建收货地址</button>
+
+</view>

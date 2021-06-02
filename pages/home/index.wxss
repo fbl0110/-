@@ -120,7 +120,7 @@
   width: 320rpx;
   height: 120rpx;
   line-height: 120rpx;
-  border:1px solid red;
+  /* border:1px solid red; */
   background-color:#ffff;
 }
 .invitation .invitation_box1{
@@ -208,4 +208,6 @@ van-tab {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20rpx 0 ;
 }
