@@ -1,19 +1,44 @@
-// pages/upmy/index.js
+const {getuserInfo,getToken}=require('../../utils/util')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-
+      userlist:{},
+      gender:['女', '男']
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.Userdetails();
   },
+//用户详情
+ Userdetails(){
+    let userlist=getuserInfo();
+    console.log(userlist);
+     this.setData({
+      userlist:userlist
+     }) 
+     console.log(this.data.userlist);
+},
+//退出登录
+delete(){
+  let token=getToken();
+ wx.removeStorageSync('token',token)
+ if(!token){
+  wx.switchTab({
+    url: '/pages/home/index',
+  })
+  return
+}else if(token) {
+  wx.navigateTo({
+    url: '/pages/upmy/index',
+  })
+}
+},
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -13,14 +13,26 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/upmy/index",
-          "pathName": "pages/upmy/index",
+          "name": "fashii",
+          "pathName": "pages/fashion/index",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/home/index",
-          "pathName": "pages/home/index",
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/index",
+          "pathName": "pages/my/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "写地址",
+          "pathName": "pages/build/index",
           "scene": null
         }
       ]
