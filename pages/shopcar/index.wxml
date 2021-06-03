@@ -1,20 +1,42 @@
 <view class="box">
     <!-- 头部 -->
-    <image class="im_head" src="../../assets/gw_img/head.png"></image>
+    <view class="img_con" >
+        <image class="im_head" src="../../assets/gw_img/head.png"></image>
+    </view>
     <!-- 中间 -->
     <!-- <view class="middle">
          <image class="tb" src="../../assets/gw_img/tb.png"></image>
          <view class="txt">你的购物车有点寂寞</view>
          <button class="but"  bindtap="drink">去喝一杯</button>
      </view> -->
-
-
-    <view >
-        <van-cell  icon="shop-o" >
-            <view slot="title">
-                <view class="van-cell-text">单元格</view>
-                <van-tag type="danger">标签</van-tag>
+    <view class="content">
+        <view class="shop_cart" >
+            <view class="shop_cart_title">
+                <text class="" >我的购物车</text>
             </view>
-        </van-cell>
+            <!-- <van-divider /> -->
+            <view class="item">
+                <van-swipe-cell class="" style="flex:1;background-color:#fff" right-width="{{ 50 }}">
+                    <van-cell-group style="position: relative;">
+                        <van-checkbox value="{{ checked }}" bind:change="onChange"/>
+                        <van-card origin-price="20.06" thumb-mode="cover" price="10.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}">
+                            <view slot="footer" style="position: absolute;bottom: 10px;right: 20rpx;">
+                                <van-stepper v-model="{{value}}"  theme="round" button-size="22" disable-input />
+                            </view>
+                            </van-card>     
+                        </van-cell-group>
+                    <view class="delete_goods flex-c-c" slot="right">删除</view>
+                </van-swipe-cell>
+            </view>
+        </view>
     </view>
+    <van-submit-bar
+        price="{{ 3050 }}"
+        button-text="提交订单"
+        bind:submit="onClickButton"
+        tip="{{ true }}"
+        >
+        <van-checkbox value="{{ checked }}" >全选</van-checkbox>
+        <view slot="tip">您的收货地址不支持同城送, <text>修改地址</text></view>
+    </van-submit-bar>
 </view>

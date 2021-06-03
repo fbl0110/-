@@ -37,11 +37,11 @@ Page({
 
     // 获取商品
     feachGoodsList(searchValue, order, page, pagesize) {
-        console.log(searchValue, order, page, pagesize)
+        // console.log(searchValue, order, page, pagesize)
         wx.request({
             url: `https://rxcoffee.suchcow.top/search?value=${searchValue}&order=${order}&page=${page}&pagesize=${pagesize}`,
             success: ({ data: { errcode, data: goodsLists } }) => {
-                // console.log(res.data);
+                console.log(goodsLists);
                 if (errcode == 10001) {
                     if (!goodsLists.length) {
                         this.setData({
@@ -76,6 +76,7 @@ Page({
     },
     // 加载更多
     onReachBottom: function() {
+        console.log(this.data.isGetMoreGoods)
         if (!this.data.isGetMoreGoods) {
             wx.showToast({
                 title: '呦! 一会不见,这么拉了',

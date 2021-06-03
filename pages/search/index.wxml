@@ -1,10 +1,14 @@
 <view class="search_con">
-   <van-search value="{{ searchValue }}" backgeound="#e9e9e9" placeholder="请输入搜索关键词" data-value="{{searchValue}}" bind:change="searchGoods" /> 
+   <van-search value="{{ searchValue }}" focus="true" backgeound="#e9e9e9" placeholder="请输入搜索关键词" data-value="{{searchValue}}" bind:change="searchGoods" /> 
     <view class="contanier">
       <van-dropdown-menu>
         <van-dropdown-item value="{{ selectValue }}" options="{{ option }}" bind:change="orderByGoods" />
       </van-dropdown-menu>
-      <view class="goods_list">
+
+      <view class="" wx:if="{{!goodsList.length}}">
+        <van-empty image="search" description="暂无商品" />
+      </view>
+      <view  wx:else class="goods_list">
         <block wx:for="{{goodsList}}" wx:key="id">
           <sea  tabs="{{item}}"> </sea>
         </block>
