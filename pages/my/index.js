@@ -1,6 +1,6 @@
 // pages/my/index.js
 const {getShopList}=require('../../api/my.js');
-const {getuserInfo,getToken}=require('../../utils/util')
+const {getuserInfo,getToken}=require('../../utils/util');
 Page({
 
   /**
