@@ -1,6 +1,6 @@
 // pages/my/index.js
 const {getShopList}=require('../../api/my.js');
-const {getToken}=require('../../utils/util')
+const {getuserInfo,getToken}=require('../../utils/util')
 Page({
 
   /**
@@ -51,8 +51,10 @@ Page({
       goodslist:[],//个人中心商品列表
       page:1,
       limit:40,
-       s_id:9
-      
+      s_id:9,
+      userlist:{},
+      uname:'登录/注册',
+      img:'../../assets/gw_img/logon.png'
   },
   onChange(e){
     let index=e.detail.index;
@@ -66,6 +68,7 @@ Page({
   onLoad: function (options) {
     this.jl();
     this._getShopList();
+
     
   },
 //  跳转登录页面
@@ -165,6 +168,7 @@ Page({
      
     })
  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -175,7 +179,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+    let token = getToken();
+    let userInfo = getuserInfo();
+    console.log(userInfo)
+    if(token){
+      this.setData({
+        uname: userInfo.nickName,
+        img:userInfo.avatarUrl
+      })
+    }else{
+      this.setData({
+        uname:'登录/注册',
+        img:'../../assets/gw_img/logon.png'
+      })
+    }
+
   },
 
   /**

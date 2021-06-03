@@ -33,8 +33,8 @@ Page({
                   title: '登录成功',
                 })
                 setTimeout(() => {
-                  wx.navigateBack({
-                    delta: 1,
+                  wx.switchTab({
+                    url: '/pages/order/index',
                   })
                   // var currentPage = getCurrentPages();
                   // // console.log(currentPage)

@@ -15,7 +15,7 @@ Page({
     this.Userdetails();
   },
 //用户详情
- Userdetails(){
+Userdetails(){
     let userlist=getuserInfo();
     console.log(userlist);
      this.setData({
@@ -26,17 +26,13 @@ Page({
 //退出登录
 delete(){
   let token=getToken();
- wx.removeStorageSync('token',token)
- if(!token){
+  let  userInfo=  getuserInfo();
+  wx.removeStorageSync('userInfo',userInfo)
+  wx.removeStorageSync('token',token)
   wx.switchTab({
     url: '/pages/home/index',
   })
   return
-}else if(token) {
-  wx.navigateTo({
-    url: '/pages/upmy/index',
-  })
-}
 },
 
 

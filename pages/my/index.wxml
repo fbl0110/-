@@ -4,10 +4,10 @@
     <image class="backdrop" src="../../assets/gw_img/head.png"> </image>
     <view bindtap="t_logon" class="head">
       <view class="logo_con">
-        <image class="logon" src="../../assets/gw_img/logon.png"></image>
+        <image class="logon" src="{{img}}"></image>
       </view>
       <view class="login">
-        <text>登录/注册</text>
+        <text>{{uname}}</text>
         <van-icon name="arrow" />
       </view>
     </view>

@@ -19,7 +19,7 @@ Page({
         wx.redirectTo({
           url: '/pages/login/index',
         })
-    }else{
+    }else if(token){
       wx.switchTab({
         url:'/pages/order/index'
       })
