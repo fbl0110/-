@@ -3,14 +3,9 @@
 
 <view class="box">
 
-  <!-- <van-cell size="large" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" /> -->
-  
+ <van-cell size="large" wx:if="{{list.length==0}}" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" />
 
-  <!-- <view wx:for="{{list}}"> -->
-  <van-cell  bindtap="add" label="{{list.username}}" title="{{list.address}}" link-type="navigateTo" >
-  <van-icon slot="right-icon" name="edit" class="custom-icon" bindtap="writeAddress" />
-</van-cell>
-<!-- </view> -->
+   <van-cell center is-link title="{{list.a_province}}{{list.a_city}}{{list.a_area}}{{list.a_addressDetail}}" label="{{list.a_tel}}{{list.a_name}}" url="../../../pages/address/index" />
   
 
   <!-- 店铺 -->
@@ -29,7 +24,7 @@
   <view class="price">
     <view class="all_price">
       应付
-      <i class="iconfont icon-fl-renminbi">119</i>
+      <i class="iconfont icon-fl-renminbi">{{version.g_x_price}}</i>
     </view>
   </view>
 

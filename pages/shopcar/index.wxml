@@ -9,12 +9,22 @@
      </view> -->
 
 
-    <view >
-        <van-cell  icon="shop-o" >
-            <view slot="title">
-                <view class="van-cell-text">单元格</view>
-                <van-tag type="danger">标签</van-tag>
+    <view class="goods">
+        <view>
+            <view>潮品订单</view>
+            <view>直邮到家</view>
+        </view>
+
+        <van-card num="2" tag="标签" price="10.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}">
+            <view slot="footer">
+                <van-button size="mini">+</van-button>
+                <van-button size="mini">-</van-button>
             </view>
-        </van-cell>
+
+
+            <van-submit-bar price="{{ 15800 }}" button-text="去结算" bind:submit="onSubmit" />
+        </van-card>
+
+
     </view>
 </view>

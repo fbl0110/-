@@ -1,13 +1,30 @@
-<view wx:for="{{list}}">
-  <van-cell  bindtap="add" label="{{item.username}}" title="{{item.address}}" link-type="navigateTo" >
-  <van-icon slot="right-icon" name="edit" class="custom-icon" bindtap="writeAddress" />
-</van-cell>
+<view wx:for="{{addressList}}" wx:key="*this">
+  <view class="address_box">
+    <view bindtap="default" data-item="{{item}}">
+      <view class="address">{{item.a_province}}{{item.a_city}}{{item.a_area}}{{item.a_addressDetail}}</view>
+      <text class="name">{{item.a_name}}</text>
+      <text class="tel">{{item.a_tel}}</text>
+      <text class="one">仅限物流使用</text>
+    </view>
+
+    <view class="write" bindtap="write">
+      <van-icon name="edit" />
+    </view>
+  </view>
+
+
 </view>
+
+<view bindtap="addAddressGo" wx:if="{{userAddressed.length==0}}">
+    <van-cell  icon="location-o" is-link>
+      <view slot="title">
+        <view class="van-cell-text">请添加收货地址</view>
+      </view>
+    </van-cell>
+  </view>
 
 
 
 <view class="box">
-
   <button bindtap="writeAddress" form-type="save">+新建收货地址</button>
-
 </view>

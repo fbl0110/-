@@ -1,46 +1,66 @@
 // pages/address/index.js
+const { getAddress,writeAddress } = require('../../api/user')
+const {getToken}=require('../../utils/util')
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    list:[]
- 
-    
-
+    addressList: [],
+    userAddressed:[]
   },
-  add(){
-    wx.setStorageSync('value', this.data.list)
-  },
-  writeAddress(){
+  writeAddress() {
     wx.navigateTo({
-      url: '/pages/shippingAddress/index',
+      url: '/pages/build/index',
     })
   },
-  form(e){
-  console.log(e)
-},
+  write(){
+    wx.navigateTo({
+      url: '/pages/build/index',
+    })
+  },
+  addAddressGo(){
+    wx.navigateTo({
+      url: '/pages/build/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     let value= JSON.parse(wx.getStorageSync('value'))
-      this.data.list.push(value)
-      this.setData({
-        list:this.data.list
+    let token=getToken()
+    let userAddressed=wx.getStorageSync('userAddressed')
+    this.setData({
+      userAddressed
+    })
+    if(token==''){
+      wx.navigateTo({
+        url: '/pages/login/index',
       })
-      console.log(this.data.list);
+      return;
+    }
+    this._getAddress(token)
+  },
+  async _getAddress(token){
+    let {data}=await getAddress(token)
+    this.setData({
+        addressList:data
+    })
+  },
+  default(e){
+    let {item}=e.currentTarget.dataset
+    // console.log(item)
+    let list=wx.setStorageSync('list', item)
+    // console.log(list)
+    wx.navigateBack({
+      delta: 1,
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  add(){
-    wx.navigateTo({
-      url: '/packA/pages/confim/index?value='+this.data.list,
-    })
-  },
+
   onReady: function () {
 
   },

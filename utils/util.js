@@ -19,6 +19,7 @@ const getToken=()=>{
  return wx.getStorageSync(TOKEN)
 }
 
+
 module.exports = {
   formatTime,getToken
 }

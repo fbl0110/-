@@ -1,6 +1,6 @@
 <view class="box">
     <!-- 轮播图 -->
-    <swiper circular='true' class="swiper_box" current='{{index}}'>
+    <swiper circular='true' class="swiper_box">
       <block>
         <swiper-item>
           <image src="{{Detailgoods.img}}"></image>
