@@ -1,52 +1,92 @@
 // pages/details/index.js
-const {getDetail}=require('../../api/home')
+const { getDetail } = require('../../api/home')
+const { addGoods } = require('../../api/shopcar')
+// const {getDetail}=require('../../api/home')
+// const {getToken}=require('../../utils.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index:6,
-    Detailgoods:{},
-    id:''
+    index: 6,
+    Detailgoods: {},
+    id: '',
+    shopcarGoods: {},
+    value: 1
+  },
+
+
+
+  onChange(event) {
+    this.setData({
+      value:event.detail
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(this.data.Detailgoods)
-    let {id}=options
+    let { id } = options
     this.setData({
-      id:id
+      id: id
     })
-    // console.log(id)
-    this._getDetail(id);
+    this.getGoodsDetail(id);
+
   },
 
-  async _getDetail(id){
-    let {data}=await getDetail(id)
-    // console.log(data)
+  // 获取商品信息
+  async getGoodsDetail(id) {
+    let { data } = await getDetail(id)
+    if (data) {
+      this.setData({
+        Detailgoods: data
+      })
+      let goodsInfo = wx.setStorageSync('goodsInfo', data)
+    }
+
+  },
+
+  // 加入购物车
+  async _addGoods(token, goodsInfo) {
+
+    let data = await addGoods(token, goodsInfo)
+    console.log(data)
+    // this.setData({
+    //   shopcarGoods:data
+    // })
+  },
+  // 立刻购买
+  async _getDetail(id) {
+    let goodsInfo = wx.getStorageSync('goodsInfo')
+    // console.log(goodsInfo)
     this.setData({
-      Detailgoods:data
+      Detailgoods: goodsInfo
     })
   },
 
   onClickIcon() {
+    let token = wx.getStorageSync('token')
+    // 加入购物车
+    let goodsInfo = wx.getStorageSync('goodsInfo')
+    goodsInfo.sh_img = goodsInfo.img
+    goodsInfo.sh_number = this.data.value
+    this._addGoods(token, goodsInfo)
     // console.log('点击图标');
-    let id=this.data.id
-    wx.switchTab({
-      url: '/pages/shopcar/index?id'+id,
-    })
+    // let id=this.data.id
+    // wx.switchTab({
+    //   url: '/pages/shopcar/index?id'+id,
+    // })
   },
   onClickButton() {
-    let id=this.data.id
+    let id = this.data.id
     wx.navigateTo({
-      url: '../../packA/pages/confim/index?id'+id,
-      success:(res)=>{
-        let data={version:this.data.Detailgoods}
+      url: '../../packA/pages/confim/index?id' + id,
+      success: (res) => {
+        let data = { version: this.data.Detailgoods }
         // console.log(data)
-        res.eventChannel.emit('version',data)
+        res.eventChannel.emit('version', data)
       }
     })
   },

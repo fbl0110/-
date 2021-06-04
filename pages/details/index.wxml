@@ -1,6 +1,6 @@
 <view class="box">
     <!-- 轮播图 -->
-    <swiper circular='true' class="swiper_box" current='{{index}}'>
+    <swiper circular='true' class="swiper_box">
       <block>
         <swiper-item>
           <image src="{{Detailgoods.img}}"></image>
@@ -21,6 +21,8 @@
       <view class="info">{{Detailgoods.g_name}}</view>
       <view class="sold">已售卖{{Detailgoods.buyed}}+件</view>
     </view>
+
+    <van-stepper value="{{ value }}" bind:change="onChange" />
     <!-- </block> -->
 
 

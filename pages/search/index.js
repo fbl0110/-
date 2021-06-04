@@ -30,8 +30,7 @@ Page({
         this.setData({
             searchValue,
         });
-
-        this.feachGoodsList(searchValue, order, page, pagesize)
+        searchValue && this.feachGoodsList(searchValue, order, page, pagesize)
     },
 
 

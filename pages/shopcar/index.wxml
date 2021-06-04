@@ -29,6 +29,9 @@
                 </van-swipe-cell>
             </view>
         </view>
+
+
+
     </view>
     <van-submit-bar
         price="{{ 3050 }}"

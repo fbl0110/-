@@ -57,6 +57,7 @@
     },
 
 
+
     "usingComponents": {
         "van-tab": "@vant/weapp/tab/index",
         "van-tabs": "@vant/weapp/tabs/index",
@@ -86,6 +87,7 @@
 
     },
     "sitemapLocation": "sitemap.json",
+
     "subpackages": [{
             "root": "packA",
             "pages": [

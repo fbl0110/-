@@ -119,7 +119,7 @@ Page({
     // console.log(this.data.userinfo,this.data.addrInfo)
     var status = option.status;
 
-    console.log(status);
+    // console.log(status);
 
     this.setData({
       status: option.status
@@ -181,7 +181,7 @@ Page({
     wx.navigateBack({
       delta: 1
     })
-    console.log(currentPage);
+    // console.log(currentPage);
   },
   //值修改实时赋值
   modifyValue: function (event) {
@@ -222,7 +222,7 @@ Page({
     wx.navigateBack({
       delta: 1
     })
-    console.log(currentPage);
+    // console.log(currentPage);
   },
   //修改地址
   modifyAddress: function (e) {

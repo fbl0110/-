@@ -1,46 +1,89 @@
 // pages/address/index.js
+const { getAddress,writeAddress } = require('../../api/user')
+const {getToken}=require('../../utils/util.js')
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    list:[]
- 
-    
-
+    addressList: [],
+    userAddressed:[],
+    echoAddress:{},//地址的回显
   },
-  add(){
-    wx.setStorageSync('value', this.data.list)
-  },
-  writeAddress(){
+  // writeAddress() {
+  //   wx.navigateTo({
+  //     url: '/pages/build/index',
+  //   })
+  // },
+  write(){
+    // let token=getToken()
+    let token=wx.getStorageSync('token')
+    // console.log(token)
+    let a_id=wx.getStorageSync('list').a_id
+    this._writeAddress(a_id)
     wx.navigateTo({
-      url: '/pages/shippingAddress/index',
+      url: '/pages/build/index',
     })
   },
-  form(e){
-  console.log(e)
-},
+  addAddressGo(){
+    wx.navigateTo({
+      url: '/pages/build/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     let value= JSON.parse(wx.getStorageSync('value'))
-      this.data.list.push(value)
-      this.setData({
-        list:this.data.list
+    // console.log(echoAddress)
+    // let token=getToken()
+    let token=wx.getStorageSync('token')
+    console.log(token)
+    let userAddressed=wx.getStorageSync('userAddressed')
+    let a_id=wx.getStorageSync('list').a_id
+    // console.log(a_id)
+    this.setData({
+      userAddressed
+    })
+    if(token==''){
+      wx.navigateTo({
+        url: '/pages/login/index',
       })
-      console.log(this.data.list);
+      return;
+    }
+    this._getAddress(token)
+    this._writeAddress(a_id)
+  },
+  // 添加地址
+  async _getAddress(token){
+    let {data}=await getAddress(token)
+    this.setData({
+        addressList:data
+    })
+  },
+  // 编辑回显地址
+  async _writeAddress(a_id){
+    let data =await  writeAddress(a_id)
+    let message=data[0]
+    // console.log(message)
+    wx.setStorageSync('info', message)
+    // this.setData({
+    //     echoAddress:data
+    // })
+  },
+  default(e){
+    let {item}=e.currentTarget.dataset
+    // console.log(item)
+    let list=wx.setStorageSync('list', item)
+    // console.log(list)
+    wx.navigateBack({
+      delta: 1,
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  add(){
-    wx.navigateTo({
-      url: '/packA/pages/confim/index?value='+this.data.list,
-    })
-  },
+
   onReady: function () {
 
   },
