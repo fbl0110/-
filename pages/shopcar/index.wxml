@@ -25,7 +25,7 @@
                             </view>
                             </van-card>     
                         </van-cell-group>
-                    <view class="delete_goods flex-c-c" slot="right">删除</view>
+                    <view class="delete_goods flex-c-c" bindtap="delectGoods" slot="right">删除</view>
                 </van-swipe-cell>
             </view>
         </view>
