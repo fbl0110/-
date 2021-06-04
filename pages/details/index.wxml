@@ -21,6 +21,8 @@
       <view class="info">{{Detailgoods.g_name}}</view>
       <view class="sold">已售卖{{Detailgoods.buyed}}+件</view>
     </view>
+
+    <van-stepper value="{{ value }}" bind:change="onChange" />
     <!-- </block> -->
 
 

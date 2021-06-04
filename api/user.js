@@ -34,24 +34,35 @@ module.exports.getAddress=function(token){
   })
 }
 
-// 编辑地址
-module.exports.writeAddress=function(token,addressInfo){
+// 编辑回显地址
+// module.exports.writeAddress=function(token,a_id){
+//   // console.log(token,a_id)
+//   return request({
+//     url:'https://rxcoffee.suchcow.top/getSingleAddress',
+//     method:'post',
+//     data:{
+//       token,a_id
+//     }
+//   })
+// }
+module.exports.writeAddress=function(a_id){
+  // console.log(token,a_id)
   return request({
-    url:'https://rxcoffee.suchcow.top/updateaddress',
+    url:'http://coffee.boxboxm.com/api/address',
     method:'post',
     data:{
-      token,addressInfo
+      a_id
     }
   })
 }
 
 // 删除地址
-module.exports.writeAddress=function(token,a_id){
-  return request({
-    url:'https://rxcoffee.suchcow.top/deladdress',
-    method:'post',
-    data:{
-      token,a_id
-    }
-  })
-}
+// module.exports.writeAddress=function(token,a_id){
+//   return request({
+//     url:'https://rxcoffee.suchcow.top/deladdress',
+//     method:'post',
+//     data:{
+//       token,a_id
+//     }
+//   })
+// }

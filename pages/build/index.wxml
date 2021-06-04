@@ -1,7 +1,7 @@
 <!-- <form action="formSubmit" > -->
 <view class="box">
   <van-cell-group>
-    <van-field value="{{ userinfo.name }}" clearable label="收货人" placeholder="请输入收货人姓名" bind:click-icon="onClickIcon"
+    <van-field value="{{ name }}" clearable label="收货人" placeholder="请输入收货人姓名" bind:click-icon="onClickIcon"
       bind:change="nameValue" />
   </van-cell-group>
 
@@ -17,14 +17,14 @@
 
 
 
-  <van-field value="{{ username }}" clearable label="手机号码" placeholder="请输入收货人手机号码" bind:click-icon="onClickIcon"
+  <van-field value="{{ number }}" clearable label="手机号码" placeholder="请输入收货人手机号码" bind:click-icon="onClickIcon"
     bind:change="telValue" />
 
 
   <van-cell  use-label-slot is-link bind:click="showPopup" >
     <view slot="title" style="position: relative">
     <view >所在地区</view>
-    <view style="position: absolute; top:0;left:180rpx">{{nowAddress}}</view>
+    <view style="position: absolute; top:0;left:180rpx">{{list.nowAddress}}</view>
   </view>
   </van-cell>
   <van-popup show="{{ show }}" round value="{{nowAddress}}" position="bottom" custom-style="height: 70%"
@@ -34,7 +34,7 @@
   </van-popup>
 
   <!-- 详细地址 -->
-  <van-field value="{{ username }}" clearable label="详细地址" placeholder="请输入详细地址" bind:click-icon="onClickIcon"
+  <van-field value="{{ full }}" clearable label="详细地址" placeholder="请输入详细地址" bind:click-icon="onClickIcon"
     bind:change="fullValue" />
 
 

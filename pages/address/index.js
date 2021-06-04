@@ -1,20 +1,26 @@
 // pages/address/index.js
 const { getAddress,writeAddress } = require('../../api/user')
-const {getToken}=require('../../utils/util')
+const {getToken}=require('../../utils/util.js')
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     addressList: [],
-    userAddressed:[]
+    userAddressed:[],
+    echoAddress:{},//地址的回显
   },
-  writeAddress() {
-    wx.navigateTo({
-      url: '/pages/build/index',
-    })
-  },
+  // writeAddress() {
+  //   wx.navigateTo({
+  //     url: '/pages/build/index',
+  //   })
+  // },
   write(){
+    // let token=getToken()
+    let token=wx.getStorageSync('token')
+    // console.log(token)
+    let a_id=wx.getStorageSync('list').a_id
+    this._writeAddress(a_id)
     wx.navigateTo({
       url: '/pages/build/index',
     })
@@ -28,8 +34,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let token=getToken()
+    // console.log(echoAddress)
+    // let token=getToken()
+    let token=wx.getStorageSync('token')
+    console.log(token)
     let userAddressed=wx.getStorageSync('userAddressed')
+    let a_id=wx.getStorageSync('list').a_id
+    // console.log(a_id)
     this.setData({
       userAddressed
     })
@@ -40,12 +51,24 @@ Page({
       return;
     }
     this._getAddress(token)
+    this._writeAddress(a_id)
   },
+  // 添加地址
   async _getAddress(token){
     let {data}=await getAddress(token)
     this.setData({
         addressList:data
     })
+  },
+  // 编辑回显地址
+  async _writeAddress(a_id){
+    let data =await  writeAddress(a_id)
+    let message=data[0]
+    // console.log(message)
+    wx.setStorageSync('info', message)
+    // this.setData({
+    //     echoAddress:data
+    // })
   },
   default(e){
     let {item}=e.currentTarget.dataset

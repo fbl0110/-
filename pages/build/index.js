@@ -14,7 +14,13 @@ Page({
     checked: false,
     addressInfo: {},
     radio: '1',
-    address: {}
+    address: {},
+    // name:'',//收货人
+    // number:'',//电话号码
+    // radio:'',//性别
+    // full,//详细地址
+    // nowAddress:'',//省市区
+    list:{}
   },
   onChange(e) {
     this.setData({ checked: !this.data.checked });
@@ -95,15 +101,10 @@ Page({
       })
       return;
     }
-
-    // let token=wx.getStorageSync('token')
-    // console.log(addressInfo)
     this._addAddress(token, addressInfo)
-    // // this._addAddress()
   },
   // 姓名
   nameValue(e) {
-    // console.log(e)
     let a_name = e.detail
     let addressInfo = this.data.addressInfo
     addressInfo.a_name = a_name
@@ -113,7 +114,6 @@ Page({
     console.log(this.data.addressInfo)
   },
   telValue(e) {
-    // console.log(e)
     let a_tel = e.detail
     let addressInfo = this.data.addressInfo
     addressInfo.a_tel = a_tel
@@ -122,7 +122,6 @@ Page({
     })
   },
   fullValue(e) {
-    // console.log(e)
     let a_addressDetail = e.detail
     let addressInfo = this.data.addressInfo
     addressInfo.a_addressDetail = a_addressDetail
@@ -137,6 +136,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let info=wx.getStorageSync('info')
+    // console.log(info)
+    this.setData({
+      list:info
+    })
   },
   async _addAddress(token, addressInfo) {
     let data = await addAddress(token, addressInfo)
