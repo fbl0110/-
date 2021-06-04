@@ -24,6 +24,7 @@ const getuserInfo=()=>{
  return wx.getStorageSync(userInfo)
 }
 
+
 module.exports = {
   formatTime,getToken,getuserInfo
 }

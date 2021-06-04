@@ -58,9 +58,21 @@
           "scene": null
         },
         {
+<<<<<<< HEAD
           "name": "购物车",
           "pathName": "pages/shopcar/index",
           "query": "",
+=======
+          "name": "订单详情",
+          "pathName": "packA/pages/confim/index",
+          "query": "id=46",
+          "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/shopcar/index",
+          "query": "id=46",
+>>>>>>> zhang
           "scene": null
         }
       ]

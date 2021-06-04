@@ -21,6 +21,8 @@ Page({
       desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         var userInfo = res.userInfo
+        // console.log(userInfo)
+        wx.setStorageSync('userInfo', userInfo)
         wx.login({
           success: async (res) => {
             let code = res.code;
