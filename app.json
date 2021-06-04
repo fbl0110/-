@@ -1,5 +1,4 @@
 {
-
     "pages": [
         "pages/home/index",
         "pages/build/index",
@@ -11,6 +10,7 @@
         "pages/details/index",
         "pages/fashion/index",
         "pages/search/index",
+        "pages/upmy/index",
         "pages/address/index",
         "pages/shippingAddress/index"
     ],

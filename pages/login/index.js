@@ -14,6 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
+
   // getUserProfile
   login() {
     wx.getUserProfile({
@@ -22,7 +23,8 @@ Page({
         var userInfo = res.userInfo
         wx.login({
           success: async (res) => {
-            let code = res.code
+            let code = res.code;
+            wx.setStorageSync('userInfo', userInfo);
             if (code) {
               let { token } = await getLogin(code, userInfo)
               if (token) {
@@ -31,8 +33,8 @@ Page({
                   title: '登录成功',
                 })
                 setTimeout(() => {
-                  wx.navigateBack({
-                    delta: 1,
+                  wx.switchTab({
+                    url: '/pages/order/index',
                   })
                   // var currentPage = getCurrentPages();
                   // // console.log(currentPage)
