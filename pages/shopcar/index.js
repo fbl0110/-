@@ -1,4 +1,6 @@
 // pages/shopcar/index.js
+const { featchGoodsList, deleteOneGood, deleteGoods } = require('../../api/shopCart.js');
+const { getToken } = require('../../utils/util');
 Page({
 
     /**
@@ -13,12 +15,32 @@ Page({
         console.log(e)
     },
 
+    // 获取购物车商品
+    async getgoodsList(token) {
+        let data = featchGoodsList(token);
+        console.log(data);
+    },
+
+    // 删除购物车商品
+    delectGoods(e) {
+        let token = getToken();
+        deleteOneGood(token, g_id)
+    },
+
+
+
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        let token = getToken();
+        if (!token) {
+            wx.wx.navigateTo({
+                url: '/pages/login/index',
+            });
+        }
+        this.getgoodsList(token)
     },
     //  跳转到菜单页面
     drink() {
