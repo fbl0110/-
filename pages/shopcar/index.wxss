@@ -57,6 +57,7 @@
     border-radius: 20rpx;
     padding: 10rpx;
     background-color: #fff;
+    padding-bottom: 176rpx;
 }
 
 .shop_cart_title {
