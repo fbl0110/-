@@ -57,12 +57,12 @@ module.exports.writeAddress=function(a_id){
 }
 
 // 删除地址
-// module.exports.writeAddress=function(token,a_id){
-//   return request({
-//     url:'https://rxcoffee.suchcow.top/deladdress',
-//     method:'post',
-//     data:{
-//       token,a_id
-//     }
-//   })
-// }
+module.exports.delAddress=function(token,a_id){
+  return request({
+    url:'https://rxcoffee.suchcow.top/deladdress',
+    method:'post',
+    data:{
+      token,a_id
+    }
+  })
+}

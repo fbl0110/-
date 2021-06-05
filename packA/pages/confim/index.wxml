@@ -51,7 +51,7 @@
 
 
   <!-- 提交订单 -->
-  <van-submit-bar price="{{ 4900 }}" button-text="去支付" />
+  <van-submit-bar price="{{ 4900 }}" bindtap="puy" button-text="去支付" />
 
   <!-- <van-submit-bar
   price="{{ 4900 }}"

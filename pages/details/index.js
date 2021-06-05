@@ -13,9 +13,19 @@ Page({
     Detailgoods: {},
     id: '',
     shopcarGoods: {},
-    value: 1
+    value: 1,
+    show:false
+  },
+  buyTang(e){
+    console.log(e)
+  },
+  showPopup() {
+    this.setData({ show: true });
   },
 
+  onClose() {
+    this.setData({ show: false });
+  },
 
 
   onChange(event) {
@@ -39,12 +49,15 @@ Page({
   // 获取商品信息
   async getGoodsDetail(id) {
     let { data } = await getDetail(id)
+    console.log(data)
     if (data) {
       this.setData({
         Detailgoods: data
       })
       let goodsInfo = wx.setStorageSync('goodsInfo', data)
     }
+    // let g_details=data.g_details
+    // console.log(g_details)
 
   },
 
@@ -73,6 +86,9 @@ Page({
     goodsInfo.sh_img = goodsInfo.img
     goodsInfo.sh_number = this.data.value
     this._addGoods(token, goodsInfo)
+    wx.showToast({
+      title: '添加成功',
+    })
     // console.log('点击图标');
     // let id=this.data.id
     // wx.switchTab({

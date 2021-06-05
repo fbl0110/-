@@ -1,6 +1,6 @@
 // pages/build/index.js
 const { areaList } = require('../../utils/area')
-const { addAddress } = require('../../api/user')
+const { addAddress,writeAddress,delAddress } = require('../../api/user')
 const { getToken } = require('../../utils/util')
 Page({
 
@@ -12,40 +12,50 @@ Page({
     areaList,
     nowAddress: '',
     checked: false,
-    addressInfo: {},
+    addressInfo: {},//后台需要的参数
     radio: '1',
     address: {},
     // name:'',//收货人
     // number:'',//电话号码
     // radio:'',//性别
     // full,//详细地址
-    // nowAddress:'',//省市区
-    list:{}
+    nowAddress:'',//是否默认
+    list:{},
+    // echoAddress:{}
   },
+  // 默认地址
   onChange(e) {
     this.setData({ checked: !this.data.checked });
     let a_isDefault = e.detail
     let addressInfo = this.data.addressInfo
     addressInfo.a_isDefault = a_isDefault ? 1 : 0;
-
+    wx.setStorageSync('default', addressInfo.a_isDefault)
     this.setData({
       addressInfo
     })
-    console.log(this.data.addressInfo)
   },
+  // 性别
   onChange1(event) {
     this.setData({
       radio: event.detail,
     });
     let a_sex = event.detail
-    // console.log(a_sex)
     let addressInfo = this.data.addressInfo
     addressInfo.a_sex = (a_sex == 1) ? 1 : 0;
     this.setData({
       addressInfo
     })
   },
-
+  // 编辑回显地址
+  async _writeAddress(a_id){
+    let data =await  writeAddress(a_id)
+    let message=data[0]
+    console.log(message)
+    wx.setStorageSync('info', message)
+    this.setData({
+        list:message
+    })
+  },
   showPopup() {
     this.setData({ show: true });
   },
@@ -53,6 +63,7 @@ Page({
   onClose() {
     this.setData({ show: false });
   },
+  //省市区
   add(e) {
     console.log(e)
     this.onClose()
@@ -64,6 +75,7 @@ Page({
       (index == 2) && (addressInfo.a_area = item.name);
       return item.name;
     }).join('-')
+    console.log(dad)
     let a_areaCode = address.map(item => {
       return item.code;
     }).join('-')
@@ -73,6 +85,7 @@ Page({
       addressInfo
     })
   },
+  
   addAddress() {
     let addressInfo = this.data.addressInfo;
     wx.setStorageSync('addressInfo', addressInfo)
@@ -89,9 +102,7 @@ Page({
     arr.forEach(item => {
 
       if (!addressInfo[item]) {
-        // console.log(item)
         ishas = false;
-        // console.log(ishas)
       }
     })
 
@@ -136,18 +147,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(this.data.addressInfo)
+    console.log(options)
     let info=wx.getStorageSync('info')
-    // console.log(info)
+    console.log(info)
     this.setData({
       list:info
     })
+    let a_id=wx.getStorageSync('a_id').a_id
+    this._writeAddress(a_id)
+    this._delAddress(token,a_id)
   },
+
+  // 添加地址
   async _addAddress(token, addressInfo) {
     let data = await addAddress(token, addressInfo)
     console.log(data)
     this.setData({
       address: data
     })
+  },
+  // 删除地址
+  async _delAddress(token,a_id){
+    let data=await delAddress(token,a_id)
+  },
+  delAddress(){
+    this._delAddress(token,a_id)
   },
 
   /**
@@ -175,7 +200,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // this.data.list==''
+    // wx.removeStorageSync('list')
   },
 
   /**

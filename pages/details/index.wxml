@@ -1,84 +1,123 @@
 <view class="box">
-    <!-- 轮播图 -->
-    <swiper circular='true' class="swiper_box">
-      <block>
-        <swiper-item>
-          <image src="{{Detailgoods.img}}"></image>
-        </swiper-item>
-      </block>
+  <!-- 轮播图 -->
+  <swiper circular='true' class="swiper_box">
+    <block>
+      <swiper-item>
+        <image src="{{Detailgoods.img}}"></image>
+      </swiper-item>
+    </block>
 
-    </swiper>
+  </swiper>
 
-    <!-- 价格,商品描述 -->
-    <!-- <block   wx:for="{{Detailgoods}}" wx:key="g_name"> -->
-      <view class="price_box">
-        
-      <view class="price_box1">
-        <text class="discountPrice">¥{{Detailgoods.g_x_price}}</text>
-        <text class="originalPrice">¥{{Detailgoods.g_y_price}}</text>
-      </view>
+  <!-- 价格,商品描述 -->
+  <!-- <block   wx:for="{{Detailgoods}}" wx:key="g_name"> -->
+  <view class="price_box">
 
-      <view class="info">{{Detailgoods.g_name}}</view>
-      <view class="sold">已售卖{{Detailgoods.buyed}}+件</view>
+    <view class="price_box1">
+      <text class="discountPrice">¥{{Detailgoods.g_x_price}}</text>
+      <text class="originalPrice">¥{{Detailgoods.g_y_price}}</text>
     </view>
 
-    <van-stepper value="{{ value }}" bind:change="onChange" />
-    <!-- </block> -->
-
-
-    <!-- sku -->
-    <view class="sku_box">
-      <!-- <view>
-        <text>选择</text>
-        <text>默认规格/36包装+橘猫杯×1</text>
-        <text>多种选择</text>
-      </view> -->
-      <van-cell title="选择" is-link value="多种选择" />
-    </view>
-
-    <!-- 运费 -->
-    <view class="fare">
-      <!-- 运费 \t \t 免运费 -->
-      <van-cell title="运费"  value="免运费" />
-    </view>
-
-    <!-- 分割线 -->
-<van-divider
-    contentPosition="center"
-    customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;"
-    >
-  瑞幸潮品自营 \t 好物品质保证 \t购物畅选无忧
-</van-divider>
-
-<!-- 评价 -->
-<view>
-  <van-cell title="评价(13)" is-link value="查看全部" />
-
-  <!-- 评价大盒子 -->
-  <view>
-    <!-- 用户头像 -->
-    <view class="face_box">
-      <image src="../../assets/image/kong.png"></image>
-      <view>摇摆羊</view>
-    </view>
-    <view class="face_text">好评,孩子很喜欢,敏感肌也可以用</view>
-
-    <view class="face_image">
-      <view class="img">
-        <image src="../../assets/image/one.jpg"></image>
-      </view>
-      <view class="face_number">共1张</view>
-    </view>
+    <view class="info">{{Detailgoods.g_name}}</view>
+    <view class="sold">已售卖{{Detailgoods.buyed}}+件</view>
   </view>
 
-  <!-- 商品详情  富文本-->
-  <view>商品详情</view>
+  <!-- </block> -->
 
-  <!-- 加入购物车 -->
-  <van-goods-action>
-  <van-goods-action-icon icon="cart-o" text="购物车" info="5" />
-  <van-goods-action-button bind:click="onClickIcon" color="#8095cb" text="加入购物车"  plain />
-  <van-goods-action-button bind:click="onClickButton" color="#6d86c4" text="立即购买" />
-</van-goods-action>
+
+  <!-- sku -->
+  <view class="sku_box">
+    <van-cell title="选择" is-link bind:click="showPopup" />
+    <van-popup show="{{ show }}" round position="bottom" custom-style="height: 60%" bind:close="onClose" >
+      <van-card class="but"
+      centered="true"
+  price="{{Detailgoods.g_x_price}}"
+  desc="已售卖{{Detailgoods.buyed}}+件"
+  title="{{Detailgoods.g_name}}"
+  thumb="{{ Detailgoods.img }}"
+></van-card>
+<van-stepper class="stepper" value="{{ value }}" bind:change="onChange" />
+
+<view class="skuBig_box">
+<view class="tang">
+<view>糖度</view>
+<view class="buyTang" bindtap="buyTang">
+  <button>半份糖</button>
+  <button>单份糖</button>
 </view>
+</view>
+
+<view class="tang">
+  <view>奶</view>
+<view class="buyTang">
+  <button>无奶</button>
+  <button>单份奶</button>
+  <button>双份奶</button>
+</view>
+</view>
+
+<view class="tang">
+  <view>温度</view>
+<view class="buyTang">
+  <button>冰</button>
+  <button>热</button>
+</view>
+</view>
+</view>
+    </van-popup>
+  </view>
+
+  <!-- 运费 -->
+  <view class="fare">
+    <!-- 运费 \t \t 免运费 -->
+    <van-cell title="运费" value="免运费" />
+  </view>
+
+  <!-- 分割线 -->
+  <van-divider contentPosition="center" customStyle="color: #1989fa; border-color: #1989fa; font-size: 18px;">
+    瑞幸潮品自营 \t 好物品质保证 \t购物畅选无忧
+  </van-divider>
+
+  <!-- 评价 -->
+  <view>
+    <!-- <van-cell title="评价(13)" is-link value="查看全部" /> -->
+
+    <!-- 评价大盒子 -->
+    <!-- <view> -->
+      <!-- 用户头像 -->
+      <!-- <view class="face_box">
+        <image src="../../assets/image/kong.png"></image>
+        <view>摇摆羊</view>
+      </view>
+      <view class="face_text">好评,孩子很喜欢,敏感肌也可以用</view>
+
+      <view class="face_image">
+        <view class="img">
+          <image src="../../assets/image/one.jpg"></image>
+        </view>
+        <view class="face_number">共1张</view>
+      </view>
+    </view> -->
+
+    <!-- 商品详情  富文本-->
+    <view class="richText">
+      <rich-text>富文本</rich-text>
+    </view>
+
+    <!-- 加入购物车 -->
+    <van-goods-action>
+      <van-goods-action-icon icon="cart-o" text="购物车" info="5" />
+      <van-goods-action-button bind:click="onClickIcon" color="#8095cb" text="加入购物车" plain>
+        <!-- <van-cell   bind:click="showPopup" />
+    <van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  custom-style="height: 70%"
+  bind:close="onClose"
+/> -->
+      </van-goods-action-button>
+      <van-goods-action-button bind:click="onClickButton" color="#6d86c4" text="立即购买" />
+    </van-goods-action>
+  </view>
 </view>

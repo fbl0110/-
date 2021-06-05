@@ -9,38 +9,42 @@ Page({
     addressList: [],
     userAddressed:[],
     echoAddress:{},//地址的回显
+    a_id:''
   },
-  // writeAddress() {
-  //   wx.navigateTo({
-  //     url: '/pages/build/index',
-  //   })
-  // },
-  write(){
-    // let token=getToken()
-    let token=wx.getStorageSync('token')
-    // console.log(token)
-    let a_id=wx.getStorageSync('list').a_id
-    this._writeAddress(a_id)
+  goWriteAddress() {
     wx.navigateTo({
       url: '/pages/build/index',
+    })
+  },
+  write(){
+    // let token=getToken()
+    // let token=wx.getStorageSync('token')
+    // console.log(token)
+    // let a_id=wx.getStorageSync('list').a_id
+    // this._writeAddress(a_id)
+    let a_id=wx.getStorageSync('a_id')
+    wx.navigateTo({
+      url: '/pages/build/index?a_id='+a_id
     })
   },
   addAddressGo(){
     wx.navigateTo({
       url: '/pages/build/index',
+      success:function(){
+        wx.removeStorageSync('list')
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(echoAddress)
-    // let token=getToken()
+    // console.log(this.data.a_id)
     let token=wx.getStorageSync('token')
     console.log(token)
     let userAddressed=wx.getStorageSync('userAddressed')
-    let a_id=wx.getStorageSync('list').a_id
-    // console.log(a_id)
+    // let a_id=wx.getStorageSync('list').a_id
+    let a_id=wx.getStorageSync('key')
     this.setData({
       userAddressed
     })
@@ -51,25 +55,30 @@ Page({
       return;
     }
     this._getAddress(token)
-    this._writeAddress(a_id)
+    // this._writeAddress(a_id)
   },
-  // 添加地址
+  // 获取地址
   async _getAddress(token){
     let {data}=await getAddress(token)
+    // let a_id=data.a_id
+    let aadd=data.map(item=>{
+      return item.a_id
+    }).join(',')
+    // console.log(aadd)
+    this.setData({
+      a_id:aadd
+    })
+    wx.setStorageSync('a_id',aadd )
+    // let b_id=wx.setStorageSync('a_id',data.a_id)
+    // this.setData({
+    //   a_id
+    // })
+    // console.log(a_id)
     this.setData({
         addressList:data
     })
   },
-  // 编辑回显地址
-  async _writeAddress(a_id){
-    let data =await  writeAddress(a_id)
-    let message=data[0]
-    // console.log(message)
-    wx.setStorageSync('info', message)
-    // this.setData({
-    //     echoAddress:data
-    // })
-  },
+
   default(e){
     let {item}=e.currentTarget.dataset
     // console.log(item)
