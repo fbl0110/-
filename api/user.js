@@ -58,7 +58,7 @@ module.exports.writeAddress = function(a_id) {
 }
 
 // 删除地址
-<<<<<<< HEAD
+
 module.exports.delAddress=function(token,a_id){
   return request({
     url:'https://rxcoffee.suchcow.top/deladdress',
@@ -67,7 +67,8 @@ module.exports.delAddress=function(token,a_id){
       token,a_id
     }
   })
-=======
+}
+
 // module.exports.writeAddress=function(token,a_id){
 //   return request({
 //     url:'https://rxcoffee.suchcow.top/deladdress',
@@ -86,5 +87,5 @@ module.exports.getOpenid = function(token) {
             token
         }
     })
->>>>>>> dev
+
 }
