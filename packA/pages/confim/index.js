@@ -55,52 +55,52 @@ Page({
   // 2.拿到code去后台请求openid 成功的回调里的openid 放到全局了
   // 3.从接口 解析xml里的数据 请求支付接口
   // 提交订单 点击购买后,删除要购买的商品,生成订单
-  // async onClickButton() { 
+  async onClickButton() {
 
-  //   let token = getToken();
-  //   let { errcode, openid } = await getOpenid(token);
+    let token = getToken();
+    let { errcode, openid } = await getOpenid(token);
 
-  //   console.log(goods);
-  //   let goods=wx.getStorageSync('goods')
-  //   let o_z_price = this.data.totalPrice;
-  //   wx.request({
-  //     url: 'https://rxcoffee.suchcow.top/wxpay',
-  //     method: "POST",
-  //     data: {
-  //       openid,
-  //       goods,
-  //       o_z_price
-  //     },
-  //     success(res) {
-  //       let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
-  //       let { o_orderid } = res;
-  //       wx.requestPayment({
-  //         nonceStr: nonce_str,
-  //         package: mypackage,
-  //         signType: sign_type,
-  //         paySign: paySign,
-  //         timeStamp: timeStamp,
-  //         async success(res) {
-  //           console.log('支付成功', res);
-  //           // 支付成功后修改订单状态为已付款,再跳转到订单页面
-  //           await updateOrder(openid, o_orderid);
-  //           wx.switchTab({
-  //             url: '/pages/order/index'
-  //           })
-  //         },
-  //         fail(err) {
-  //           console.log('支付失败', err);
-  //           wx.switchTab({
-  //             url: '/pages/order/index'
-  //           })
-  //         }
-  //       })
-  //     },
-  //     fail(err) {
-  //       console.log('err')
-  //     }
-  //   })
-  // },
+    console.log(goods);
+    let goods = wx.getStorageSync('goods')
+    let o_z_price = this.data.totalPrice;
+    wx.request({
+      url: 'https://rxcoffee.suchcow.top/wxpay',
+      method: "POST",
+      data: {
+        openid,
+        goods,
+        o_z_price
+      },
+      success(res) {
+        let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
+        let { o_orderid } = res;
+        wx.requestPayment({
+          nonceStr: nonce_str,
+          package: mypackage,
+          signType: sign_type,
+          paySign: paySign,
+          timeStamp: timeStamp,
+          async success(res) {
+            console.log('支付成功', res);
+            // 支付成功后修改订单状态为已付款,再跳转到订单页面
+            await updateOrder(openid, o_orderid);
+            wx.switchTab({
+              url: '/pages/order/index'
+            })
+          },
+          fail(err) {
+            console.log('支付失败', err);
+            wx.switchTab({
+              url: '/pages/order/index'
+            })
+          }
+        })
+      },
+      fail(err) {
+        console.log('err')
+      }
+    })
+  },
 
 
 
@@ -163,7 +163,5 @@ Page({
   onShareAppMessage: function () {
 
   },
+  
 })
-
-
-
