@@ -4,42 +4,59 @@
         <image class="im_head" src="../../assets/gw_img/head.png"></image>
     </view>
     <!-- 中间 -->
-    <!-- <view class="middle">
+    <view class="middle" wx:if="{{!shopCartGoods.length}}">
          <image class="tb" src="../../assets/gw_img/tb.png"></image>
          <view class="txt">你的购物车有点寂寞</view>
          <button class="but"  bindtap="drink">去喝一杯</button>
-     </view> -->
-    <view class="content">
-        <view class="shop_cart" >
-            <view class="shop_cart_title">
-                <text class="" >我的购物车</text>
+        <view class="recommend_con" >
+            <view class="recommend_title" >
+                <view class="left">猜你喜欢</view>  
+                <view class="right">
+                    <van-icon name="replay" />
+                    <text class="" >换一批</text>
+                </view>
             </view>
-            <!-- <van-divider /> -->
-            <view class="item">
-                <van-swipe-cell class="" style="flex:1;background-color:#fff" right-width="{{ 50 }}">
-                    <van-cell-group style="position: relative;">
-                        <van-checkbox value="{{ checked }}" bind:change="onChange"/>
-                        <van-card origin-price="20.06" thumb-mode="cover" price="10.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}">
-                            <view slot="footer" style="position: absolute;bottom: 10px;right: 20rpx;">
-                                <van-stepper v-model="{{value}}"  theme="round" button-size="22" disable-input />
-                            </view>
-                            </van-card>     
-                        </van-cell-group>
-                    <view class="delete_goods flex-c-c" bindtap="delectGoods" slot="right">删除</view>
-                </van-swipe-cell>
+            <view class="recommend">
+                <view class="">
+                    
+                </view>
             </view>
         </view>
 
 
-
+     </view>
+    <view class="" wx:else>
+        <view class="content" >
+            <view class="shop_cart" >
+                <view class="shop_cart_title">
+                    <text class="" >我的购物车</text>
+                </view>
+                <!-- <van-divider /> -->
+                <block wx:for="{{shopCartGoods}}" wx:key="id">
+                    <view class="item">
+                        <van-swipe-cell class="" style="flex:1;background-color:#fff" right-width="{{ 50 }}">
+                            <van-cell-group style="position: relative;">
+                                <van-checkbox value="{{ item.isSelect }}" data-index="{{index}}" bind:change="onChange"/>
+                                <van-card origin-price="{{ item.g_y_price }}" thumb-mode="cover" price="{{ item.g_x_price }}" desc="" title="{{item.g_name}}" thumb="{{ item.sh_img }}">
+                                    <view slot="footer" style="position: absolute;bottom: 10px;right: 20rpx;">
+                                        <van-stepper value="{{item.sh_number}}"  theme="round" button-size="22" disable-input   data-id="{{item.g_id}}" data-index="{{index}}" bind:change="updateNum"  />
+                                    </view>
+                                    </van-card>     
+                                </van-cell-group>
+                            <view class="delete_goods flex-c-c" data-id="{{item.g_id}}" bindtap="delectGoods" slot="right">删除</view>
+                        </van-swipe-cell>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <van-submit-bar
+            price="{{ totalPrice * 100 }}"
+            button-text="提交订单"
+            bind:submit="onClickButton"
+            tip="{{ true }}"
+            >
+            <van-checkbox value="{{ Allchecked }}" bind:change="onChangeAll" >全选</van-checkbox>
+            <view slot="tip">您的收货地址不支持同城送, <text>修改地址</text></view>
+        </van-submit-bar>
     </view>
-    <van-submit-bar
-        price="{{ 3050 }}"
-        button-text="提交订单"
-        bind:submit="onClickButton"
-        tip="{{ true }}"
-        >
-        <van-checkbox value="{{ checked }}" >全选</van-checkbox>
-        <view slot="tip">您的收货地址不支持同城送, <text>修改地址</text></view>
-    </van-submit-bar>
 </view>
