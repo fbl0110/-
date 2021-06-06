@@ -10,7 +10,7 @@ Page({
     lunboImage:[],//轮播图
     goodslist:[],//首页商品列表
     page:1,
-    limit:6,
+    limit:10,
     s_id:9
   },
   onChange(e){
@@ -121,16 +121,16 @@ tide(){
   // 下拉加载更多
   onReachBottom:function(e){
     // console.log(e)
-    if(this.data.limit==10){
-      wx.showToast({
-        title: '数据已经加载完毕',
-      })
-      return
-    }else{
-      this.data.limit ++
-    this._getShopList()
+    // if(this.data.limit==10){
+    //   wx.showToast({
+    //     title: '数据已经加载完毕',
+    //   })
+    //   return
+    // }else{
+    //   this.data.limit ++
+    // this._getShopList()
 
-    }
+    // }
 
   }
 })

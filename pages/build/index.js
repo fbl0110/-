@@ -19,8 +19,9 @@ Page({
     // number:'',//电话号码
     // radio:'',//性别
     // full,//详细地址
-    nowAddress:'',//是否默认
+    nowAddress:{},//是否默认
     list:{},
+    a_id:''
     // echoAddress:{}
   },
   // 默认地址
@@ -65,7 +66,7 @@ Page({
   },
   //省市区
   add(e) {
-    console.log(e)
+    // console.log(e)
     this.onClose()
     let address = e.detail.values;
     let addressInfo = this.data.addressInfo
@@ -79,7 +80,9 @@ Page({
     let a_areaCode = address.map(item => {
       return item.code;
     }).join('-')
+    
     addressInfo.a_areaCode = a_areaCode
+    // console.log()
     this.setData({
       nowAddress: dad,
       addressInfo
@@ -124,6 +127,7 @@ Page({
     })
     console.log(this.data.addressInfo)
   },
+  // 电话号码
   telValue(e) {
     let a_tel = e.detail
     let addressInfo = this.data.addressInfo
@@ -146,17 +150,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(this.data.addressInfo)
-    console.log(options)
-    let info=wx.getStorageSync('info')
-    console.log(info)
+  onLoad: function (e) {
+    let a_id=e.a_id
     this.setData({
-      list:info
+      a_id
     })
-    let a_id=wx.getStorageSync('a_id').a_id
-    this._writeAddress(a_id)
-    this._delAddress(token,a_id)
+    this._writeAddress(a_id)//回显地址
+    this._delAddress(token,a_id)//删除地址
   },
 
   // 添加地址
@@ -179,6 +179,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    // console.log(e);
 
   },
 
@@ -186,6 +187,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
 
   },
 

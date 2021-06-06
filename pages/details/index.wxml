@@ -101,7 +101,7 @@
 
     <!-- 商品详情  富文本-->
     <view class="richText">
-      <rich-text>富文本</rich-text>
+      <rich-text class="rich" bindtap="rich" nodes="{{Detailgoods.g_details}}"></rich-text>
     </view>
 
     <!-- 加入购物车 -->

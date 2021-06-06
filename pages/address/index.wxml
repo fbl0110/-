@@ -7,7 +7,7 @@
       <text class="one">仅限物流使用</text>
     </view>
 
-    <view class="write" bindtap="write" >
+    <view class="write" bindtap="write" id="{{item.a_id}}" >
       <van-icon name="edit" />
     </view>
   </view>

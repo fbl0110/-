@@ -46,8 +46,8 @@ module.exports.getAddress = function(token) {
 //     }
 //   })
 // }
+// 回显地址
 module.exports.writeAddress = function(a_id) {
-    // console.log(token,a_id)
     return request({
         url: 'http://coffee.boxboxm.com/api/address',
         method: 'post',

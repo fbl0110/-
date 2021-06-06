@@ -76,7 +76,9 @@
   <van-cell  use-label-slot is-link bind:click="showPopup" >
     <view slot="title" style="position: relative">
     <view >所在地区</view>
-    <view style="position: absolute; top:0;left:180rpx">{{list.a_province}}{{list.a_city}}{{list.a_area}}</view>
+    <!-- <view style="position: absolute; top:0;left:180rpx">{{list.a_province}}{{list.a_city}}{{list.a_area}}</view> -->
+    <view style="position: absolute; top:0;left:180rpx">{{addressInfo.a_areaCode}}</view>
+
   </view>
   </van-cell>
   <van-popup show="{{ show }}" round value="{{nowAddress}}" position="bottom" custom-style="height: 70%"

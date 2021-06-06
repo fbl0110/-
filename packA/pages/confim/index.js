@@ -1,9 +1,10 @@
 const { getAddress, getOpenid } = require('../../../api/user')
 const { getToken } = require('../../../utils/util.js')
+const { updateOrder } = require('../../../api/order.js')
+
 
 // const { featchGoodsList, deleteOneGood, deleteGoods } = require('../../api/shopCart.js');
 
-const { updateOrder } = require('../../api/order.js');
 
 
 Page({
@@ -13,8 +14,9 @@ Page({
    */
   data: {
     // imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
-    list: [],
-    checked: false
+    // list: [],
+    checked: false,
+    disabled:false
   },
   onChange() {
     this.setData({ checked: !this.data.checked });
@@ -30,10 +32,10 @@ Page({
    */
   onLoad: function (e) {
     let token = wx.getStorageSync('token')
-    let userAddressed = wx.getStorageSync('list')
-    this.setData({
-      list: userAddressed
-    })
+    // let userAddressed = wx.getStorageSync('list')
+    // this.setData({
+    //   list: userAddressed
+    // })
     const eventChannel = this.getOpenerEventChannel();
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('version', ({ version }) => {
@@ -46,23 +48,29 @@ Page({
   },
   async _getAddress(token) {
     // let token=getStorageSync('token')
-    let data = await getAddress(token)
+    let {data} = await getAddress(token)
+
+    let dataOne=data[0]
     // console.log(data)
-    let { g_name, g_x_price } = data
-    console.log(g_name, g_x_price)
+    this.setData({
+      list:dataOne
+    })
+    // console.log(data)
+    // let {g_name,g_x_price}=data
+    // let goods
   },
   // 1.获取用户的信息 已获取 从本地存储拿
   // 2.拿到code去后台请求openid 成功的回调里的openid 放到全局了
   // 3.从接口 解析xml里的数据 请求支付接口
   // 提交订单 点击购买后,删除要购买的商品,生成订单
-  async onClickButton() {
-
+  async puy() {
     let token = getToken();
     let { errcode, openid } = await getOpenid(token);
-
+    let goods = []
+    goods.push(wx.getStorageSync('goodsInfo'))
     console.log(goods);
-    let goods = wx.getStorageSync('goods')
-    let o_z_price = this.data.totalPrice;
+    // let goods=wx.getStorageSync('goods')
+    let o_z_price =goods[0].g_x_price
     wx.request({
       url: 'https://rxcoffee.suchcow.top/wxpay',
       method: "POST",
@@ -157,11 +165,5 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
-  },
-  
 })

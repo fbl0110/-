@@ -38,6 +38,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(this.data.Detailgoods)
+    // console.log(nodes)
     let { id } = options
     this.setData({
       id: id
@@ -120,6 +122,9 @@ Page({
 
   },
 
+  rich(e){
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

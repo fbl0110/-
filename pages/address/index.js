@@ -9,20 +9,18 @@ Page({
     addressList: [],
     userAddressed:[],
     echoAddress:{},//地址的回显
-    a_id:''
+    a_id:[]
   },
   goWriteAddress() {
     wx.navigateTo({
       url: '/pages/build/index',
     })
+    
   },
-  write(){
-    // let token=getToken()
-    // let token=wx.getStorageSync('token')
-    // console.log(token)
-    // let a_id=wx.getStorageSync('list').a_id
-    // this._writeAddress(a_id)
-    let a_id=wx.getStorageSync('a_id')
+  write(e){
+    // console.log(e);
+   let a_id=e.currentTarget.id
+   console.log(a_id);
     wx.navigateTo({
       url: '/pages/build/index?a_id='+a_id
     })
@@ -60,15 +58,16 @@ Page({
   // 获取地址
   async _getAddress(token){
     let {data}=await getAddress(token)
+    // console.log(data)
     // let a_id=data.a_id
-    let aadd=data.map(item=>{
-      return item.a_id
-    }).join(',')
+    // let aadd=data.map(item=>{
+    //   return item.a_id
+    // }).join(',')
     // console.log(aadd)
-    this.setData({
-      a_id:aadd
-    })
-    wx.setStorageSync('a_id',aadd )
+    // this.setData({
+    //   a_id:aadd
+    // })
+    // wx.setStorageSync('a_id',aadd )
     // let b_id=wx.setStorageSync('a_id',data.a_id)
     // this.setData({
     //   a_id
@@ -77,6 +76,21 @@ Page({
     this.setData({
         addressList:data
     })
+    let a_id=data
+    let number=[]
+    for (let index = 0; index < a_id.length; index++) {
+            number.push(a_id[index].a_id)
+    }
+    this.setData({
+      a_id:number
+    })
+    // console.log(number)
+    // let number=data
+    // let a_id=[]
+    // for (let index = 0; index < number.length; index++) {
+    //       a_id.push(number[index.number])      
+    // }
+    // console.log(a_id)
   },
 
   default(e){
