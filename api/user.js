@@ -36,26 +36,26 @@ module.exports.getAddress = function(token) {
 }
 
 // 编辑回显地址
-// module.exports.writeAddress=function(token,a_id){
-//   // console.log(token,a_id)
-//   return request({
-//     url:'https://rxcoffee.suchcow.top/getSingleAddress',
-//     method:'post',
-//     data:{
-//       token,a_id
-//     }
-//   })
-// }
-// 回显地址
-module.exports.writeAddress = function(a_id) {
-    return request({
-        url: 'http://coffee.boxboxm.com/api/address',
-        method: 'post',
-        data: {
-            a_id
-        }
-    })
+module.exports.writeAddress=function(token){
+  // console.log(token,a_id)
+  return request({
+    url:'https://rxcoffee.suchcow.top/getSingleAddress',
+    method:'post',
+    data:{
+      token
+    }
+  })
 }
+// 回显地址
+// module.exports.writeAddress = function(a_id) {
+//     return request({
+//         url: 'http://coffee.boxboxm.com/api/address',
+//         method: 'post',
+//         data: {
+//             a_id
+//         }
+//     })
+// }
 
 // 删除地址
 

@@ -49,7 +49,8 @@ Page({
   },
   // 编辑回显地址
   async _writeAddress(a_id){
-    let data =await  writeAddress(a_id)
+    let token=wx.getStorageSync('token')
+    let data =await  writeAddress(token)
     let message=data[0]
     console.log(message)
     wx.setStorageSync('info', message)
@@ -155,7 +156,7 @@ Page({
     this.setData({
       a_id
     })
-    this._writeAddress(a_id)//回显地址
+    this._writeAddress(token)//回显地址
     this._delAddress(token,a_id)//删除地址
   },
 
