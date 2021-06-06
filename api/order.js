@@ -1,3 +1,4 @@
+
 const request = require('./request');
 
 
@@ -11,4 +12,5 @@ module.exports.updateOrder = function(openid, o_orderid) {
             o_orderid
         }
     })
+
 }

@@ -1,18 +1,21 @@
 // pages/order/index.js
 const {getToken}=require('../../utils/util')
+const {getOreder}=require('../../api/order')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
+    imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg',
+    orderStatus:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     let token=getToken()
     console.log(token)
     if(!token){
@@ -23,9 +26,6 @@ Page({
       wx.switchTab({
         url:'/pages/order/index'
       })
-      // wx.navigateBack({
-      //   delta: 1,
-      // })
     }
 
     // try {
@@ -38,8 +38,18 @@ Page({
     //   console.log(e)
     //   // Do something when catch error
     // }
+
+    // this._getOreder(token)
   },
 
+  // async _getOreder(token){
+  //   let data=await getOreder(token)
+  //   console.log(data)
+  // },
+  Onchange(e){
+    let index=e.detail.index//每个的下标
+    // console.log(index)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

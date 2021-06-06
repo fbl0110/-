@@ -7,7 +7,7 @@
       <text class="one">仅限物流使用</text>
     </view>
 
-    <view class="write" bindtap="write">
+    <view class="write" bindtap="write" id="{{item.a_id}}" >
       <van-icon name="edit" />
     </view>
   </view>
@@ -26,5 +26,5 @@
 
 
 <view class="box">
-  <button bindtap="writeAddress" form-type="save">+新建收货地址</button>
+  <button bindtap="goWriteAddress" form-type="save">+新建收货地址</button>
 </view>

@@ -1,7 +1,7 @@
 <!-- <form action="formSubmit" > -->
-<view class="box">
+<view class="box" wx:if="{{list.a_id != ''}}">
   <van-cell-group>
-    <van-field value="{{ name }}" clearable label="收货人" placeholder="请输入收货人姓名" bind:click-icon="onClickIcon"
+    <van-field value="{{ list.a_name }}" clearable label="收货人" placeholder="请输入收货人姓名" bind:click-icon="onClickIcon"
       bind:change="nameValue" />
   </van-cell-group>
 
@@ -17,14 +17,14 @@
 
 
 
-  <van-field value="{{ number }}" clearable label="手机号码" placeholder="请输入收货人手机号码" bind:click-icon="onClickIcon"
+  <van-field value="{{ list.a_tel }}" clearable label="手机号码" placeholder="请输入收货人手机号码" bind:click-icon="onClickIcon"
     bind:change="telValue" />
 
 
   <van-cell  use-label-slot is-link bind:click="showPopup" >
     <view slot="title" style="position: relative">
     <view >所在地区</view>
-    <view style="position: absolute; top:0;left:180rpx">{{list.nowAddress}}</view>
+    <view style="position: absolute; top:0;left:180rpx">{{list.a_province}}{{list.a_city}}{{list.a_area}}</view>
   </view>
   </van-cell>
   <van-popup show="{{ show }}" round value="{{nowAddress}}" position="bottom" custom-style="height: 70%"
@@ -34,7 +34,61 @@
   </van-popup>
 
   <!-- 详细地址 -->
-  <van-field value="{{ full }}" clearable label="详细地址" placeholder="请输入详细地址" bind:click-icon="onClickIcon"
+  <van-field value="{{ list.a_addressDetail }}" clearable label="详细地址" placeholder="请输入详细地址" bind:click-icon="onClickIcon"
+    bind:change="fullValue" />
+
+
+  <!-- 标签 -->
+  <van-cell center title="默认地址" label="提醒:每次下单会默认推荐使用该地址">
+    <van-switch size="24px" bind:change="onChange" checked="{{checked}}" active-color="red" inactive-color="#ccc" />
+  </van-cell>
+
+</view>
+
+
+
+
+
+
+
+<view class="box" wx:if="{{list.a_id == ''}}">
+  <van-cell-group>
+    <van-field value="{{ a_name }}" clearable label="收货人" placeholder="请输入收货人姓名" bind:click-icon="onClickIcon"
+      bind:change="nameValue" />
+  </van-cell-group>
+
+
+  <view class="sex_box">
+    <text>性别</text>
+    <van-radio-group class="sex" direction="horizontal" value="{{ radio }}" bind:change="onChange1">
+  <van-radio name="1">男</van-radio>
+  <van-radio name="0">女</van-radio>
+</van-radio-group>
+  </view>
+
+
+
+
+  <van-field value="{{ a_tel }}" clearable label="手机号码" placeholder="请输入收货人手机号码" bind:click-icon="onClickIcon"
+    bind:change="telValue" />
+
+
+  <van-cell  use-label-slot is-link bind:click="showPopup" >
+    <view slot="title" style="position: relative">
+    <view >所在地区</view>
+    <!-- <view style="position: absolute; top:0;left:180rpx">{{list.a_province}}{{list.a_city}}{{list.a_area}}</view> -->
+    <view style="position: absolute; top:0;left:180rpx">{{addressInfo.a_areaCode}}</view>
+
+  </view>
+  </van-cell>
+  <van-popup show="{{ show }}" round value="{{nowAddress}}" position="bottom" custom-style="height: 70%"
+    bind:close="onClose" bind:change="modifyValue">
+    <van-area area-list="{{ areaList }}" columns-placeholder="{{ ['请选择', '请选择', '请选择'] }}" title="请选择"
+      bind:confirm="add" bind:change="modifyValue" />
+  </van-popup>
+
+  <!-- 详细地址 -->
+  <van-field value="{{ a_addressDetail }}" clearable label="详细地址" placeholder="请输入详细地址" bind:click-icon="onClickIcon"
     bind:change="fullValue" />
 
 
@@ -48,12 +102,12 @@
 
 <view class="button_box">
   <!-- <button formType="sumbit">保存</button> -->
-  <van-button bindtap="addAddress" color="red" block="true" class="info" round type="info">保存</van-button>
+  <van-button bindtap="addAddress" color="skyblue" block="true" class="info" round type="info">保存</van-button>
 </view>
 
 
 <view class="button_box">
   <!-- <button formType="sumbit">保存</button> -->
-  <!-- <van-button bindtap="addAddress" color="red" block="true" class="info" round type="info">删除</van-button> -->
+  <van-button bindtap="delAddress" color="red" block="true" class="info" round type="info">删除</van-button>
 </view>
 <!-- </form> -->
