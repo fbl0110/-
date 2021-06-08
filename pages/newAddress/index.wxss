@@ -1,0 +1,21 @@
+.group{
+  display: flex;
+}
+van-button{
+  margin-top: 60rpx;
+  border-radius: 70rpx;
+  background-color: red;
+  color: #fff;
+  width: 510rpx;
+  height: 90rpx;
+}
+.sex_box{
+  padding-left: 30rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+}
+.sex{
+  padding-left: 140rpx;
+}

@@ -1,8 +1,9 @@
 // pages/details/index.js
 const { getDetail } = require('../../api/home')
 const { addGoods } = require('../../api/shopcar')
+const {featchGoodsList}=require('../../api/shopCart')
 // const {getDetail}=require('../../api/home')
-// const {getToken}=require('../../utils.js')
+const {getToken}=require('../../utils/util.js')
 Page({
 
   /**
@@ -14,7 +15,8 @@ Page({
     id: '',
     shopcarGoods: {},
     value: 1,
-    show:false
+    show:false,
+    shopcarNumber:''
   },
   buyTang(e){
     console.log(e)
@@ -39,6 +41,8 @@ Page({
    */
   onLoad: function (options) {
   // let html=this.data.Detailgoods.g_details
+    // let token=wx.getStorageSync('token')
+    let token=getToken()
   // console.log(html)
     // console.log(this.data.Detailgoods)
     // console.log(nodes)
@@ -47,9 +51,18 @@ Page({
       id: id
     })
     this.getGoodsDetail(id);
+    this._featchGoodsList(token)
 
   },
 
+  // 获取购物车的数量
+  async _featchGoodsList(token){
+    let {data}=await featchGoodsList(token)
+    let message=data[0].sh_number
+    this.setData({
+      shopcarNumber:message
+    })
+  },
   // 获取商品信息
   async getGoodsDetail(id) {
     let { data } = await getDetail(id)
@@ -84,7 +97,6 @@ Page({
   // 立刻购买
   async _getDetail(id) {
     let goodsInfo = wx.getStorageSync('goodsInfo')
-    // console.log(goodsInfo)
     this.setData({
       Detailgoods: goodsInfo
     })
@@ -100,11 +112,12 @@ Page({
     wx.showToast({
       title: '添加成功',
     })
-    // console.log('点击图标');
-    // let id=this.data.id
-    // wx.switchTab({
-    //   url: '/pages/shopcar/index?id'+id,
-    // })
+  },
+  // 跳转到购物车
+  goAddShopcar(){
+    wx.switchTab({
+      url: '/pages/shopcar/index',
+    })
   },
   onClickButton() {
     let id = this.data.id
