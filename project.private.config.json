@@ -1,5 +1,4 @@
 {
-  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -13,66 +12,8 @@
     "miniprogram": {
       "list": [
         {
-<<<<<<< HEAD
-          "name": "fashii",
-          "pathName": "pages/fashion/index",
-=======
-          "name": "编辑地址",
-          "pathName": "pages/address/index",
->>>>>>> 31163cbd25ca5582d4aab8a7d1b75431e0e0c579
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
-          "name": "pages/login/index",
-          "pathName": "pages/login/index",
-=======
-          "name": "添加地址",
-          "pathName": "pages/shippingAddress/index",
->>>>>>> 31163cbd25ca5582d4aab8a7d1b75431e0e0c579
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
-          "name": "pages/my/index",
-          "pathName": "pages/my/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "写地址",
-          "pathName": "pages/build/index",
-=======
-          "name": "pages/login/index",
-          "pathName": "pages/login/index",
->>>>>>> 31163cbd25ca5582d4aab8a7d1b75431e0e0c579
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/build/index",
-          "pathName": "pages/build/index",
-          "query": "",
-          "scene": null
-        },
-        {
-<<<<<<< HEAD
-          "name": "购物车",
-          "pathName": "pages/shopcar/index",
-          "query": "",
-=======
-          "name": "订单详情",
-          "pathName": "packA/pages/confim/index",
-          "query": "id=46",
-          "scene": null
-        },
-        {
-          "name": "购物车",
-          "pathName": "pages/shopcar/index",
-          "query": "id=46",
->>>>>>> zhang
+          "name": "pages/order/index",
+          "pathName": "pages/order/index",
           "scene": null
         }
       ]
