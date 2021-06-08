@@ -2,7 +2,7 @@ const {getToken}=require('../../utils/util')
 
 const { cerateOrder } = require('../../api/order.js');
 
-const {getOreder}=require('../../api/order')
+// const {getOreder}=require('../../api/order')
 
 Page({
   /**

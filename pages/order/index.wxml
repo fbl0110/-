@@ -4,7 +4,7 @@
     <van-tab title="已支付">
       <view class="yzf" wx:for="{{order}}" wx:key="item">
         <view class="yzf_da" wx:if="{{item.o_paragraph==0}}">
-          <view class="yzf_db" wx:for="{{item.orderDetail}}" wx:key="id">
+          <view class="yzf_db" wx:for="{{item.orderDetail}}" wx:key="idd">
             <view class="yzf_name">
               <image class="yzfimg" src="{{item.img}}"></image>
               <view>{{item.g_name}}</view>
