@@ -83,7 +83,7 @@ Page({
     let token = getToken();
     let { errcode, openid } = await getOpenid(token);
     let addressDefault=wx.getStorageSync('addressDefault')
-    addressDefault = addressDefault ? JSON.stringify(addressDefault) : ''
+    addressDefault = addressDefault.a_id ? JSON.stringify(addressDefault) : ''
    console.log(addressDefault)
     let goods = [];
     let goodsInfo = wx.getStorageSync('goodsInfo');

@@ -1,7 +1,7 @@
 // pages/details/index.js
 const { getDetail } = require('../../api/home')
 const { addGoods } = require('../../api/shopcar')
-const {featchGoodsList}=require('../../api/shopCart')
+// const {featchGoodsList}=require('../../api/shopCart')
 // const {getDetail}=require('../../api/home')
 const {getToken}=require('../../utils/util.js')
 Page({

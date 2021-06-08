@@ -50,11 +50,12 @@ Page({
       fbl:true,
       goodslist:[],//个人中心商品列表
       page:1,
-      limit:40,
+      limit:6,
       s_id:9,
       userlist:{},
       uname:'登录/注册',
-      img:'../../assets/gw_img/logon.png'
+      img:'../../assets/gw_img/logon.png',
+      goUp:false
   },
   onChange(e){
     let index=e.detail.index;
@@ -202,6 +203,26 @@ Page({
   onHide: function () {
  
   },
+  onPageScroll:function(e){
+      // console.log(e);
+      if(e.scrollTop>100){
+        this.setData({
+          goUp:true
+        })
+      }else{
+        this.setData({
+          goUp:false
+        })
+      }
+  },
+  backTo(){
+    if(wx.pageScrollTo){
+      wx.pageScrollTo({
+        scrollTop: 0,
+      })
+    }
+
+  },
 
   /**
    * 生命周期函数--监听页面卸载
@@ -225,7 +246,17 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if(this.data.limit==10){
+      setTimeout(()=>{
+        wx.showToast({
+          title: '已经到底了',
+        })
+      },100)
+      return 
+    }else{
+      this.data.limit ++
+      this._getShopList()
+    }
   },
 
   /**
