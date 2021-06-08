@@ -1,5 +1,4 @@
-// components/sea/sea.js
-
+const {getToken}=require('../../utils/util.js')
 Component({
   /**
    * 组件的属性列表
@@ -25,9 +24,8 @@ Component({
   methods: {
     prouter(e) {
       let id = e.currentTarget.dataset.id
-      // console.log(id)
-      let token = wx.getStorageSync('token')
-      // console.log(token)
+      // let token = wx.getStorageSync('token')
+      let token=getToken()
       if (token == '') {
         wx.navigateTo({
           url: '/pages/login/index',

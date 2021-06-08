@@ -45,13 +45,13 @@
     </view>
   </view>
 
-  <van-checkbox value="{{ checked }}" bind:change="onChange">我已阅读并同意<text>《支付协议》</text></van-checkbox>
-  <view class="tips">温馨提示:此订单电商仓直接发货快递到家,不支持门店配送或自取</view>
+  <!-- <van-checkbox value="{{ checked }}" bind:change="onChange">我已阅读并同意<text>《支付协议》</text></van-checkbox>
+  <view class="tips">温馨提示:此订单电商仓直接发货快递到家,不支持门店配送或自取</view> -->
 
 
 
   <!-- 提交订单 -->
-  <van-submit-bar price="{{ 4900 }}" button-text="去支付" />
+  <van-submit-bar price="{{ version.g_x_price *100 }}"    bindtap="puy" button-text="去支付" />
 
   <!-- <van-submit-bar
   price="{{ 4900 }}"

@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(a)
   },
 
   // getUserProfile
@@ -35,8 +35,10 @@ Page({
                   title: '登录成功',
                 })
                 setTimeout(() => {
-                  wx.switchTab({
-                    url: '/pages/order/index',
+                  let currentPage = getCurrentPages()
+                  // var prevPage=currentPage[currentPage.length-2]
+                  wx.navigateBack({
+                    delta: 1,
                   })
                   // var currentPage = getCurrentPages();
                   // // console.log(currentPage)

@@ -21,7 +21,8 @@ Page({
 
     // 搜索商品
     searchGoods(e) {
-        console.log(e.detail);
+        console.log(e)
+        // console.log(e.detail);
         let searchValue = e.detail;
         let order = this.data.order;
         let page = this.data.page;
@@ -40,7 +41,7 @@ Page({
         wx.request({
             url: `https://rxcoffee.suchcow.top/search?value=${searchValue}&order=${order}&page=${page}&pagesize=${pagesize}`,
             success: ({ data: { errcode, data: goodsLists } }) => {
-                console.log(goodsLists);
+                // console.log(goodsLists);
                 if (errcode == 10001) {
                     if (!goodsLists.length) {
                         this.setData({
