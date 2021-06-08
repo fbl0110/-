@@ -45,6 +45,99 @@
     border-radius: 55rpx 55rpx 55rpx 55rpx;
 }
 
+
+/* 购物车没商品显示页面 */
+
+.recommend_con {
+    padding: 0 20rpx;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.recommend_title {
+    padding: 20rpx 0;
+    justify-content: space-between;
+    font-size: 26rpx;
+}
+
+.recommend_title .left {
+    border-left: 6rpx solid #6d86c4;
+    padding-left: 6rpx;
+}
+
+.recommend_title .right {
+    color: #6d86c4;
+}
+
+.recommend {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.recommend .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16rpx;
+    overflow: hidden;
+    width: 230rpx;
+    background-color: #fff;
+    margin-bottom: 14rpx;
+}
+
+.recommend .item .cover {
+    width: 230rpx;
+    height: 230rpx;
+    border-radius: 16rpx;
+    overflow: hidden;
+}
+
+.recommend .item .cover image {
+    width: 100%;
+    height: 100%;
+}
+
+.recommend .item .item_info {
+    width: 100%;
+    padding: 0 14rpx;
+    box-sizing: border-box;
+}
+
+.recommend .item .item_info .name {
+    margin: 14rpx 0;
+    font-size: 24rpx;
+}
+
+.recommend .item .item_info .operate {
+    margin-bottom: 14rpx;
+    justify-content: space-between;
+}
+
+.recommend .item .item_info .operate .now_price {
+    color: #f95731;
+    font-size: 24rpx;
+}
+
+.recommend .item .item_info .operate .primary_price {
+    margin-left: 10rpx;
+    flex: 1;
+    color: #666;
+    font-size: 20rpx;
+    text-decoration: line-through;
+}
+
+.recommend .item .item_info .operate .add {
+    border-radius: 50%;
+    width: 40rpx;
+    height: 40rpx;
+    background-color: #333999;
+    color: #fff;
+}
+
+
+/* 购物车有商品显示的商品页面 */
+
 .content {
     position: absolute;
     top: 190rpx;
@@ -64,7 +157,7 @@
     padding: 20rpx 0;
 }
 
-.item {
+.content .item {
     display: flex;
     align-items: center;
     padding: 20rpx 0;
