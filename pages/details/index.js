@@ -51,18 +51,18 @@ Page({
       id: id
     })
     this.getGoodsDetail(id);
-    this._featchGoodsList(token)
+    // this._featchGoodsList(token)
 
   },
 
   // 获取购物车的数量
-  async _featchGoodsList(token){
-    let {data}=await featchGoodsList(token)
-    let message=data[0].sh_number
-    this.setData({
-      shopcarNumber:message
-    })
-  },
+  // async _featchGoodsList(token){
+  //   let {data}=await featchGoodsList(token)
+  //   let message=data[0].sh_number
+  //   this.setData({
+  //     shopcarNumber:message
+  //   })
+  // },
   // 获取商品信息
   async getGoodsDetail(id) {
     let { data } = await getDetail(id)

@@ -192,6 +192,7 @@ Page({
                         paySign: paySign,
                         timeStamp: timeStamp,
                         success: async(res) => {
+
                             console.log('支付成功', res);
                             // 支付成功后修改订单状态为已付款,再跳转到订单页面
                             console.log(openid, o_orderid)
