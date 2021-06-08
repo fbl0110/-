@@ -27,6 +27,7 @@
   border-radius: 50%;
 }
 .but{
+  color: #fff;
   height: 100rpx;
   margin-top: 400rpx;
   border-radius:50rpx 50rpx 50rpx 50rpx;

@@ -14,7 +14,6 @@ Page({
     s_id:9
   },
   onChange(e){
-    //  console.log(e);
     let index=e.detail.index;
     let numbverIndex=[9,10,11,12]
     
@@ -122,10 +121,16 @@ tide(){
   // 下拉加载更多
   onReachBottom:function(e){
     // console.log(e)
-    //  this.data.limit ++
+    // if(this.data.limit==10){
+    //   wx.showToast({
+    //     title: '数据已经加载完毕',
+    //   })
+    //   return
+    // }else{
+    //   this.data.limit ++
     // this._getShopList()
-    // wx.showToast({
-    //   title: '数据已经加载完毕',
-    // })
+
+    // }
+
   }
 })
