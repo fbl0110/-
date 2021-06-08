@@ -42,7 +42,6 @@ Page({
     console.log(order);
     let paidOrder = this.data.paidOrder;
     let unPaidOrder = this.data.unPaidOrder;
-
     order.forEach(item=>{
       if(item.o_paragraph == 1){
         paidOrder.push(item);
@@ -50,14 +49,63 @@ Page({
         unPaidOrder.push(item)
       }
     })
-
     this.setData({
       order,
       paidOrder,
       unPaidOrder
     })
-
   },
+  // async onClickButton() {
+  //   let token = getToken();
+  //   let { errcode, openid } = await getOpenid(token);
+  //   let goodsIds = [];
+  //       let goods = this.data.shopCartGoods;
+
+  //       // 删除选中的商品
+  //       let o_z_price = this.data.totalPrice;
+  //       wx.request({
+  //           url: 'https://rxcoffee.suchcow.top/wxpay',
+  //           method: "POST",
+  //           data: {
+  //               openid,
+  //               goods,
+  //               o_z_price
+  //           },
+  //           success: async(res) => {
+  //               let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
+  //               let { o_orderid } = res.data;
+  //               wx.requestPayment({
+  //                   nonceStr: nonce_str,
+  //                   package: mypackage,
+  //                   signType: sign_type,
+  //                   paySign: paySign,
+  //                   timeStamp: timeStamp,
+  //                   success: async(res) => {
+  //                       console.log('支付成功', res);
+  //                       // 支付成功后修改订单状态为已付款,再跳转到订单页面
+  //                       console.log(openid, o_orderid)
+  //                       await updateOrder(openid, o_orderid);
+  //                       this.getgoodsList(token);
+
+  //                       wx.switchTab({
+  //                           url: '/pages/order/index'
+  //                       })
+  //                   },
+  //                   fail: async(err) => {
+  //                       console.log('支付失败', err);
+  //                       this.getgoodsList(token);
+  //                       wx.switchTab({
+  //                           url: '/pages/order/index'
+  //                       })
+  //                   }
+  //               })
+  //           },
+  //           fail(err) {
+  //               console.log('err')
+  //           }
+  //       })
+  //   }
+
 
 
 

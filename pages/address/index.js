@@ -13,7 +13,7 @@ Page({
   },
   goWriteAddress() {
     wx.navigateTo({
-      url: '/pages/build/index',
+      url: '/pages/newAddress/index',
     })
     
   },
@@ -28,9 +28,10 @@ Page({
   addAddressGo(){
     wx.navigateTo({
       url: '/pages/build/index',
-      success:function(){
-        wx.removeStorageSync('list')
-      }
+      
+      // success:function(){
+      //   wx.removeStorageSync('list')
+      // }
     })
   },
   /**
@@ -40,12 +41,12 @@ Page({
     // console.log(this.data.a_id)
     let token=wx.getStorageSync('token')
     console.log(token)
-    let userAddressed=wx.getStorageSync('userAddressed')
-    // let a_id=wx.getStorageSync('list').a_id
-    let a_id=wx.getStorageSync('key')
-    this.setData({
-      userAddressed
-    })
+    // let userAddressed=wx.getStorageSync('userAddressed')
+    // // let a_id=wx.getStorageSync('list').a_id
+    // let a_id=wx.getStorageSync('key')
+    // this.setData({
+    //   userAddressed
+    // })
     if(token==''){
       wx.navigateTo({
         url: '/pages/login/index',
@@ -61,8 +62,10 @@ Page({
     console.log(data)
     data.some(item=>{
       if(item.a_isDefault==1){
-        wx.setStorageSync('defaultAddressId', item.a_id);
+        wx.setStorageSync('addressDefault', item);
         return true
+      }else{
+        wx.setStorageSync('addressDefault', data[0]);
       }
     })
     // console.log(data)
@@ -103,7 +106,7 @@ Page({
   default(e){
     let {item}=e.currentTarget.dataset
     // console.log(item)
-    let list=wx.setStorageSync('list', item)
+    wx.setStorageSync('addressDefault', item)
     // console.log(list)
     wx.navigateBack({
       delta: 1,
@@ -122,7 +125,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let token=wx.getStorageSync('token');
+    this._getAddress(token);
   },
 
   /**

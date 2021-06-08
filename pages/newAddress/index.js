@@ -1,6 +1,6 @@
 // pages/build/index.js
 const { areaList } = require('../../utils/area')
-const { addAddress,writeAddress,delAddress } = require('../../api/user')
+const { addAddress, writeAddress, delAddress } = require('../../api/user')
 const { getToken } = require('../../utils/util')
 Page({
 
@@ -19,11 +19,11 @@ Page({
     // number:'',//电话号码
     // radio:'',//性别
     // full,//详细地址
-    nowAddress:{},//是否默认
-    list:{},
-    a_id:'',
+    nowAddress: {},//是否默认
+    list: {},
+    a_id: '',
     // echoAddress:{}
-    showAddress:''
+    showAddress: ''
   },
   // 默认地址
   onChange(e) {
@@ -49,17 +49,17 @@ Page({
     })
   },
   // 编辑回显地址
-  async _writeAddress(token,a_id){
-    // let token=wx.getStorageSync('token')
-    // console.log(token);
-    let {data} =await  writeAddress(token,a_id)
-    // let message=data
-    // console.log(data)
-    // wx.setStorageSync('info', message)
-    this.setData({
-        list:data
-    })
-  },
+  // async _writeAddress(token,a_id){
+  //   // let token=wx.getStorageSync('token')
+  //   // console.log(token);
+  //   let {data} =await  writeAddress(token,a_id)
+  //   // let message=data
+  //   // console.log(data)
+  //   // wx.setStorageSync('info', message)
+  //   this.setData({
+  //       list:data
+  //   })
+  // },
   showPopup() {
     this.setData({ show: true });
   },
@@ -81,13 +81,13 @@ Page({
     }).join('-')
     console.log(dad)
     this.setData({
-      showAddress:dad
+      showAddress: dad
     })
     let a_areaCode = address.map(item => {
       return item.code;
     }).join('-')
     // console.log(a_areaCode);
-    
+
     addressInfo.a_areaCode = a_areaCode
     // console.log('addressInfo',addressInfo);
     this.setData({
@@ -95,7 +95,7 @@ Page({
       addressInfo
     })
   },
-  
+
   addAddress() {
     let addressInfo = this.data.addressInfo;
     wx.setStorageSync('addressInfo', addressInfo)
@@ -158,37 +158,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    let a_id=e.a_id
+    let a_id = e.a_id
     console.log(a_id)
     this.setData({
       a_id
     })
-    let token=wx.getStorageSync('token')
-    this._writeAddress(token,a_id)//回显地址
+    let token = wx.getStorageSync('token')
+    // this._writeAddress(token,a_id)//回显地址
     // this._delAddress(token,a_id)//删除地址
   },
 
   // 添加地址
   async _addAddress(token, addressInfo) {
-    if(addressInfo.a_isDefault==1){
+    if (addressInfo.a_isDefault == 1) {
       wx.setStorageSync('addressDefault', addressInfo)
     }
     let data = await addAddress(token, addressInfo)
-    
+
     console.log(data)
     this.setData({
       address: data
     })
+    setTimeout(() => {
+      wx.showToast({
+        title: '添加成功',
+      })
+      wx.redirectTo({
+        url: '/pages/address/index',
+      })
+    }, 1000)
+
+ 
   },
   // 删除地址
-  async _delAddress(token,a_id){
-    let data=await delAddress(token,a_id)
+  async _delAddress(token, a_id) {
+    let data = await delAddress(token, a_id)
   },
-  
-  delAddress(){
-    let token=wx.getStorageSync('token')
-    let a_id=this.data.a_id
-    this._delAddress(token,a_id)
+
+  delAddress() {
+    let token = wx.getStorageSync('token')
+    let a_id = this.data.a_id
+    this._delAddress(token, a_id)
     wx.showToast({
       title: '删除成功',
     })

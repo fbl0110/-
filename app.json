@@ -11,7 +11,8 @@
         "pages/fashion/index",
         "pages/search/index",
         "pages/upmy/index",
-        "pages/address/index"
+        "pages/address/index",
+        "pages/newAddress/index"
     ],
     "window": {
         "backgroundTextStyle": "light",

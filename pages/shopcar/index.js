@@ -181,18 +181,19 @@ Page({
                     goods,
                     o_z_price
                 },
-                success:(res)=>{
+                success: async(res) => {
                     let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
-                    let { o_orderid } = res;
+                    let { o_orderid } = res.data;
                     wx.requestPayment({
                         nonceStr: nonce_str,
                         package: mypackage,
                         signType: sign_type,
                         paySign: paySign,
                         timeStamp: timeStamp,
-                         success:async(res)=> {
+                        success: async(res) => {
                             console.log('支付成功', res);
                             // 支付成功后修改订单状态为已付款,再跳转到订单页面
+                            console.log(openid, o_orderid)
                             await updateOrder(openid, o_orderid);
                             this.getgoodsList(token);
 
@@ -200,7 +201,7 @@ Page({
                                 url: '/pages/order/index'
                             })
                         },
-                        fail: async(err)=> {
+                        fail: async(err) => {
                             console.log('支付失败', err);
                             this.getgoodsList(token);
                             wx.switchTab({

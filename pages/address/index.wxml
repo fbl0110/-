@@ -4,7 +4,7 @@
       <view class="address">{{item.a_province}}{{item.a_city}}{{item.a_area}}{{item.a_addressDetail}}</view>
       <text class="name">{{item.a_name}}</text>
       <text class="tel">{{item.a_tel}}</text>
-      <text class="one">仅限物流使用</text>
+      <text class="one" wx:if="{{item.a_isDefault==1}}">默认</text>
     </view>
 
     <view class="write" bindtap="write" id="{{item.a_id}}" >
