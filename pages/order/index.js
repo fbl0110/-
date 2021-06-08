@@ -23,7 +23,8 @@ Page({
    */
   onLoad: function (options) {
 
-    let token = getToken()
+    let token=getToken()
+
     console.log(token)
     if (!token) {
       wx.redirectTo({
