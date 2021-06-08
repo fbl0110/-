@@ -248,6 +248,17 @@ Page({
         this.getrRecommendGoods()
     },
 
+    // 点击猜你喜欢商品,跳转到商品详情
+    toGoodsDetail(e) {
+        // console.log(e)
+        let { id } = e.currentTarget.dataset;
+
+        wx.navigateTo({
+            url: `/pages/details/index?id=${id}`
+        })
+    },
+
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -270,6 +281,7 @@ Page({
             url: '/pages/menu/index',
         })
     },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

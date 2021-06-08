@@ -20,7 +20,7 @@
                 </view>
             </view>
             <view class="recommend">
-                <view class="item" wx:for="{{RecommendGoods}}" wx:key="id">
+                <view class="item" wx:for="{{RecommendGoods}}" wx:key="id" data-id="{{item.g_id}}" bindtap="toGoodsDetail">
                     <view class="cover">
                         <image class="" src="{{item.img}}"></image>
                     </view>

@@ -20,7 +20,7 @@
         </view>
       </view>
     </van-tab>
-    <van-tab title="待支付">
+    <van-tab title="未支付">
       <view class="yzf" wx:for="{{order}}" wx:key="item">
         <view class="yzf_da" >
           <view class="yzf_db" wx:for="{{item.orderDetail}}" wx:key="id">
