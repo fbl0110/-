@@ -4,27 +4,42 @@
         <image class="im_head" src="../../assets/gw_img/head.png"></image>
     </view>
     <!-- 中间 -->
-    <view class="middle" wx:if="{{!shopCartGoods.length}}">
-         <image class="tb" src="../../assets/gw_img/tb.png"></image>
-         <view class="txt">你的购物车有点寂寞</view>
-         <button class="but"  bindtap="drink">去喝一杯</button>
+    <view wx:if="{{!shopCartGoods.length}}" >
+        <view class="middle" >
+            <image class="tb" src="../../assets/gw_img/tb.png"></image>
+            <view class="txt">你的购物车有点寂寞</view>
+            <button class="but"  bindtap="drink">去喝一杯</button>
+        </view>
+        <!-- 猜你喜欢 -->
         <view class="recommend_con" >
-            <view class="recommend_title" >
+            <view class="recommend_title flex-c" >
                 <view class="left">猜你喜欢</view>  
-                <view class="right">
+                <view class="right  flex-c">
                     <van-icon name="replay" />
-                    <text class="" >换一批</text>
+                    <text class="" bindtap="changePage" >换一批</text>
                 </view>
             </view>
             <view class="recommend">
-                <view class="">
-                    
+                <view class="item" wx:for="{{RecommendGoods}}" wx:key="id">
+                    <view class="cover">
+                        <image class="" src="{{item.img}}"></image>
+                    </view>
+                    <view class="item_info" >
+                        <view class="name" >
+                            <text class="">{{item.g_name}}</text>
+                        </view>
+                        <view class="operate flex-c" >
+                            <view class="now_price">￥{{item.g_x_price}}</view>
+                            <view class="primary_price">￥{{item.g_y_price}}</view>
+                            <view class="add flex-c-c">
+                                <van-icon name="plus"  size="24rpx" />
+                            </view>
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>
-
-
-     </view>
+    </view>
     <view class="" wx:else>
         <view class="content" >
             <view class="shop_cart" >

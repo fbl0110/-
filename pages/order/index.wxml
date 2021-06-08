@@ -1,3 +1,4 @@
+
 <view class="order_box">
   <van-tabs sticky class="aaa" title-active-color="#fafafa" color="#fafafa">
     <van-tab title="已支付">
@@ -41,3 +42,4 @@
     </van-tab>
   </van-tabs>
 </view>
+

@@ -3,6 +3,8 @@ const { featchGoodsList, deleteOneGood, deleteGoods } = require('../../api/shopC
 const { getToken } = require('../../utils/util');
 const { updateOrder } = require('../../api/order.js');
 const { getOpenid } = require('../../api/user.js');
+const { getTrendGoodsList } = require('../../api/home.js');
+
 Page({
 
     /**
@@ -11,7 +13,11 @@ Page({
     data: {
         Allchecked: true,
         totalPrice: 0,
-        shopCartGoods: []
+        shopCartGoods: [],
+        active: 1,
+        page: 1,
+        limit: 6,
+        RecommendGoods: [],
     },
 
     // 选中商品
@@ -209,8 +215,38 @@ Page({
             })
         }
     },
+    // 获取 推荐商品的商品列表
+    async getrRecommendGoods() {
+        let page = this.data.page;
+        let limit = this.data.limit;
+        let active = this.data.active;
+        let { data } = await getTrendGoodsList(active, page, limit);
+        data = data.filter((item, index) => {
+                if (index < 6) {
+                    return item;
+                }
+            })
+            // console.log(data);
+        this.setData({
+            RecommendGoods: data
+        })
 
+    },
 
+    // 点击换一批
+    changePage() {
+        let page = this.data.page;
+        page++;
+        if (page > 8) {
+            page = 1
+        }
+        console.log(page)
+        this.setData({
+            page
+        })
+
+        this.getrRecommendGoods()
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -222,7 +258,11 @@ Page({
                 url: '/pages/login/index',
             });
         }
-        this.getgoodsList(token)
+        this.getgoodsList(token);
+
+        if (!this.data.shopCartGoods.length) {
+            this.getrRecommendGoods()
+        }
     },
     //  跳转到菜单页面
     drink() {

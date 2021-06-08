@@ -1,17 +1,28 @@
 const {getToken}=require('../../utils/util')
+
 const { cerateOrder } = require('../../api/order.js');
+
+const {getOreder}=require('../../api/order')
+
 Page({
   /**
    * 页面的初始数据
    */
+
   data:{
     order:[],
     
+
+  data: {
+    imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg',
+    orderStatus:[]
+
   },
   /**
    * 生命周期函数  --监听页面加载
    */
   onLoad: function (options) {
+
     let token=getToken()
     console.log(token)
     if(!token){
@@ -23,6 +34,7 @@ Page({
         url:'/pages/order/index'
       })
     }
+
     this._cerateOrder(token);
   },
      async _cerateOrder(token){
@@ -33,6 +45,11 @@ Page({
       })
     
      },
+  },
+  Onchange(e){
+    let index=e.detail.index//每个的下标
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
