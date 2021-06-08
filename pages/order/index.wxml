@@ -17,6 +17,17 @@
           <view class="zj_price">
             <view>总价:{{item.o_z_price}}</view>
           </view>
+          <van-collapse accordion value="{{ activeName }}" bind:change="onChange">
+            <van-collapse-item title="有赞微商城" name="1">
+               <view>aaaaaaa</view>
+            </van-collapse-item>
+            <van-collapse-item title="有赞零售" name="2">
+              网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失
+            </van-collapse-item>
+            <van-collapse-item title="有赞美业" name="3">
+              线上拓客，随时预约，贴心顺手的开单收银
+            </van-collapse-item>
+</van-collapse>
         </view>
        
       </view>
@@ -36,7 +47,7 @@
           </view>
           <view class="zj_price">
             <view>总价:{{item.o_z_price}}</view>
-            <van-button type="warning" size="small">立即付款</van-button>
+            <van-button type="warning" bindtap="onClickButton" size="small">立即付款</van-button>
           </view>
         </view>
       </view>
