@@ -62,9 +62,7 @@
     </van-tabs>
   </view>
 
-
-  <!-- <view class="up" bindscroll="up">
-    <image src="../../assets/image/up.png"></image>
-  </view> -->
-
+<view class="up" bindscroll="up" hidden="{{!goUp}}" bindtap="backTo">
+    <image src="../../assets/image/up.png" ></image>
+  </view> 
 </view>
