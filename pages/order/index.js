@@ -1,54 +1,65 @@
-const {getToken}=require('../../utils/util')
+const {
+  getToken
+} = require('../../utils/util')
+const {
+  cerateOrder
+} = require('../../api/order.js');
 
-const { cerateOrder } = require('../../api/order.js');
-
-// const {getOreder}=require('../../api/order')
 
 Page({
   /**
    * 页面的初始数据
    */
 
-  data:{
-    order:[],
-    
-
   data: {
-    imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg',
-    orderStatus:[]
-
+    order: [],
+    paidOrder:[],
+    unPaidOrder:[]
   },
   /**
    * 生命周期函数  --监听页面加载
    */
   onLoad: function (options) {
 
-    let token=getToken()
+    let token = getToken()
     console.log(token)
-    if(!token){
-        wx.redirectTo({
-          url: '/pages/login/index',
-        })
-    }else if(token){
+    if (!token) {
+      wx.redirectTo({
+        url: '/pages/login/index',
+      })
+    } else if (token) {
       wx.switchTab({
-        url:'/pages/order/index'
+        url: '/pages/order/index'
       })
     }
 
     this._cerateOrder(token);
   },
-     async _cerateOrder(token){
-       let  {order}=await cerateOrder(token);
-  console.log(order)
-      this.setData({
-         order
-      })
-    
-     },
+  async _cerateOrder(token) {
+    let {
+      order
+    } = await cerateOrder(token);
+    console.log(order);
+    let paidOrder = this.data.paidOrder;
+    let unPaidOrder = this.data.unPaidOrder;
+
+    order.forEach(item=>{
+      if(item.o_paragraph == 1){
+        paidOrder.push(item);
+      }else{
+        unPaidOrder.push(item)
+      }
+    })
+
+    this.setData({
+      order,
+      paidOrder,
+      unPaidOrder
+    })
+
   },
-  Onchange(e){
-    let index=e.detail.index//每个的下标
-  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -61,7 +72,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
 
   /**
@@ -98,4 +109,5 @@ Page({
   onShareAppMessage: function () {
 
   }
+
 })
