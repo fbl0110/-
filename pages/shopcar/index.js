@@ -161,6 +161,14 @@ Page({
         let goodsIds = [];
         if (errcode == 10001) {
             let goods = this.data.shopCartGoods;
+            let addressDefault = wx.getStorageSync('addressDefault');
+            if(!addressDefault.a_id){
+                wx.navigateTo({
+                  url: '/pages/address/index',
+                })
+                return;
+           }
+           addressDefault = JSON.stringify(addressDefault);
             goods = goods.filter(item => {
                 // 支付时筛选出选中的商品,未选中的商品剔除掉
                 if (item.isSelect) {
