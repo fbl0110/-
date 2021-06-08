@@ -1,9 +1,21 @@
 // pages/shopcar/index.js
-const { featchGoodsList, deleteOneGood, deleteGoods } = require('../../api/shopCart.js');
-const { getToken } = require('../../utils/util');
-const { updateOrder } = require('../../api/order.js');
-const { getOpenid } = require('../../api/user.js');
-const { getTrendGoodsList } = require('../../api/home.js');
+const {
+    featchGoodsList,
+    deleteOneGood,
+    deleteGoods
+} = require('../../api/shopCart.js');
+const {
+    getToken
+} = require('../../utils/util');
+const {
+    updateOrder
+} = require('../../api/order.js');
+const {
+    getOpenid
+} = require('../../api/user.js');
+const {
+    getTrendGoodsList
+} = require('../../api/home.js');
 
 Page({
 
@@ -22,7 +34,14 @@ Page({
 
     // 选中商品
     onChange(e) {
-        let { detail, target: { dataset: { index: goodsIndex } } } = e;
+        let {
+            detail,
+            target: {
+                dataset: {
+                    index: goodsIndex
+                }
+            }
+        } = e;
         console.log(detail, goodsIndex)
         let shopCartGoods = this.data.shopCartGoods;
         shopCartGoods = shopCartGoods.map((item, index) => {
@@ -46,14 +65,16 @@ Page({
             }
         });
         this.setData({
-                Allchecked: flag
-            })
-            // 计算总价格
+            Allchecked: flag
+        })
+        // 计算总价格
         this.countTotalPrice(shopCartGoods)
     },
 
     // 点击全选按钮
-    onChangeAll({ detail }) {
+    onChangeAll({
+        detail
+    }) {
         console.log(detail)
         let shopCartGoods = this.data.shopCartGoods;
         shopCartGoods.map(item => {
@@ -71,7 +92,15 @@ Page({
     // 修改数量
     updateNum(e) {
         // console.log(e)
-        let { detail, target: { dataset: { index: goodsIndex, id } } } = e;
+        let {
+            detail,
+            target: {
+                dataset: {
+                    index: goodsIndex,
+                    id
+                }
+            }
+        } = e;
         let token = getToken();
         // console.log(detail, goodsIndex); // detail: 数量 index: 商品索引
 
@@ -114,7 +143,9 @@ Page({
 
     // 获取购物车商品
     async getgoodsList(token) {
-        let { data } = await featchGoodsList(token);
+        let {
+            data
+        } = await featchGoodsList(token);
         if (data.length) {
             data = data.map(item => {
                 item.sh_number = Number(item.sh_number);
@@ -134,10 +165,19 @@ Page({
     },
 
     // 删除购物车商品
-    async delectGoods({ target: { dataset: { id: g_id } } }) {
+    async delectGoods({
+        target: {
+            dataset: {
+                id: g_id
+            }
+        }
+    }) {
         let token = getToken();
         // console.log(token, e)
-        let { errcode, message } = await deleteOneGood(token, g_id);
+        let {
+            errcode,
+            message
+        } = await deleteOneGood(token, g_id);
         if (errcode == 10001) {
             wx.showToast({
                 title: message,
@@ -157,7 +197,10 @@ Page({
     // 提交订单 点击购买后,删除要购买的商品,生成订单
     async onClickButton() {
         let token = getToken();
-        let { errcode, openid } = await getOpenid(token);
+        let {
+            errcode,
+            openid
+        } = await getOpenid(token);
         let goodsIds = [];
         if (errcode == 10001) {
             let goods = this.data.shopCartGoods;
@@ -193,13 +236,16 @@ Page({
                 success: async(res) => {
                     let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
                     let { o_orderid } = res.data;
+
                     wx.requestPayment({
                         nonceStr: nonce_str,
                         package: mypackage,
                         signType: sign_type,
                         paySign: paySign,
                         timeStamp: timeStamp,
+
                         success: async(res) => {
+
 
                             console.log('支付成功', res);
                             // 支付成功后修改订单状态为已付款,再跳转到订单页面
@@ -212,6 +258,7 @@ Page({
                             })
                         },
                         fail: async(err) => {
+
                             console.log('支付失败', err);
                             this.getgoodsList(token);
                             wx.switchTab({
@@ -231,13 +278,15 @@ Page({
         let page = this.data.page;
         let limit = this.data.limit;
         let active = this.data.active;
-        let { data } = await getTrendGoodsList(active, page, limit);
+        let {
+            data
+        } = await getTrendGoodsList(active, page, limit);
         data = data.filter((item, index) => {
-                if (index < 6) {
-                    return item;
-                }
-            })
-            // console.log(data);
+            if (index < 6) {
+                return item;
+            }
+        })
+        // console.log(data);
         this.setData({
             RecommendGoods: data
         })
@@ -262,7 +311,9 @@ Page({
     // 点击猜你喜欢商品,跳转到商品详情
     toGoodsDetail(e) {
         // console.log(e)
-        let { id } = e.currentTarget.dataset;
+        let {
+            id
+        } = e.currentTarget.dataset;
 
         wx.navigateTo({
             url: `/pages/details/index?id=${id}`
@@ -273,7 +324,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         let token = getToken();
         if (!token) {
             wx.navigateTo({
@@ -297,14 +348,14 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         let token = getToken();
         if (!token) {
             wx.navigateTo({
@@ -317,35 +368,35 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })
