@@ -58,6 +58,13 @@ Page({
   // 获取地址
   async _getAddress(token){
     let {data}=await getAddress(token)
+    console.log(data)
+    data.some(item=>{
+      if(item.a_isDefault==1){
+        wx.setStorageSync('defaultAddressId', item.a_id);
+        return true
+      }
+    })
     // console.log(data)
     // let a_id=data.a_id
     // let aadd=data.map(item=>{
@@ -81,10 +88,10 @@ Page({
     for (let index = 0; index < a_id.length; index++) {
             number.push(a_id[index].a_id)
     }
-    this.setData({
-      a_id:number
-    })
-    // console.log(number)
+    // this.setData({
+    //   a_id:number
+    // })
+    console.log(number)
     // let number=data
     // let a_id=[]
     // for (let index = 0; index < number.length; index++) {

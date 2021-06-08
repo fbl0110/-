@@ -38,6 +38,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  // let html=this.data.Detailgoods.g_details
+  // console.log(html)
     // console.log(this.data.Detailgoods)
     // console.log(nodes)
     let { id } = options
@@ -59,7 +61,14 @@ Page({
       let goodsInfo = wx.setStorageSync('goodsInfo', data)
     }
     // let g_details=data.g_details
-    // console.log(g_details)
+      let html=this.data.Detailgoods.g_details
+    console.log(html)
+    // html.replace()
+      // let img=html
+      // let html=this.data.Detailgoods.g_details.replace(
+          
+      // )
+
 
   },
 

@@ -17,7 +17,8 @@
         <view class="jgtext">{{item.text}}</view>
       </view>
       <view class="sxlbut flex-c-c" bindtap="jl">
-        <image style="transform:{{fbl? 'rotate(180deg)' : ''}};transition:all 0.3s" class="sxl" src="../../assets/gw_img/sl.png"></image>
+        <image style="transform:{{fbl? 'rotate(180deg)' : ''}};transition:all 0.3s" class="sxl"
+          src="../../assets/gw_img/sl.png"></image>
         <!-- <image wx:else class="sxl" src="../../assets/gw_img/sl.png"></image> -->
       </view>
     </view>
@@ -60,5 +61,10 @@
       </van-tab>
     </van-tabs>
   </view>
+
+
+  <!-- <view class="up" bindscroll="up">
+    <image src="../../assets/image/up.png"></image>
+  </view> -->
 
 </view>

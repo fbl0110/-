@@ -11,8 +11,7 @@
         "pages/fashion/index",
         "pages/search/index",
         "pages/upmy/index",
-        "pages/address/index",
-        "pages/shippingAddress/index"
+        "pages/address/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -92,12 +91,6 @@
             "root": "packA",
             "pages": [
                 "pages/confim/index"
-            ]
-        },
-        {
-            "root": "packB",
-            "pages": [
-                "pages/login/index"
             ]
         },
         {

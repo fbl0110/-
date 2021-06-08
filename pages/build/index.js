@@ -10,7 +10,7 @@ Page({
   data: {
     show: false,
     areaList,
-    nowAddress: '',
+    nowAddress: '',//省市区
     checked: false,
     addressInfo: {},//后台需要的参数
     radio: '1',
@@ -21,8 +21,9 @@ Page({
     // full,//详细地址
     nowAddress:{},//是否默认
     list:{},
-    a_id:''
+    a_id:'',
     // echoAddress:{}
+    showAddress:''
   },
   // 默认地址
   onChange(e) {
@@ -48,14 +49,15 @@ Page({
     })
   },
   // 编辑回显地址
-  async _writeAddress(a_id){
-    let token=wx.getStorageSync('token')
-    let data =await  writeAddress(token)
-    let message=data[0]
-    console.log(message)
-    wx.setStorageSync('info', message)
+  async _writeAddress(token,a_id){
+    // let token=wx.getStorageSync('token')
+    // console.log(token);
+    let {data} =await  writeAddress(token,a_id)
+    // let message=data
+    // console.log(data)
+    // wx.setStorageSync('info', message)
     this.setData({
-        list:message
+        list:data
     })
   },
   showPopup() {
@@ -67,8 +69,8 @@ Page({
   },
   //省市区
   add(e) {
-    // console.log(e)
     this.onClose()
+    // console.log(this.data.NowAddress)
     let address = e.detail.values;
     let addressInfo = this.data.addressInfo
     let dad = address.map((item, index) => {
@@ -78,12 +80,16 @@ Page({
       return item.name;
     }).join('-')
     console.log(dad)
+    this.setData({
+      showAddress:dad
+    })
     let a_areaCode = address.map(item => {
       return item.code;
     }).join('-')
+    // console.log(a_areaCode);
     
     addressInfo.a_areaCode = a_areaCode
-    // console.log()
+    // console.log('addressInfo',addressInfo);
     this.setData({
       nowAddress: dad,
       addressInfo
@@ -153,16 +159,19 @@ Page({
    */
   onLoad: function (e) {
     let a_id=e.a_id
+    console.log(a_id)
     this.setData({
       a_id
     })
-    this._writeAddress(token)//回显地址
-    this._delAddress(token,a_id)//删除地址
+    let token=wx.getStorageSync('token')
+    this._writeAddress(token,a_id)//回显地址
+    // this._delAddress(token,a_id)//删除地址
   },
 
   // 添加地址
   async _addAddress(token, addressInfo) {
     let data = await addAddress(token, addressInfo)
+    
     console.log(data)
     this.setData({
       address: data
@@ -173,7 +182,15 @@ Page({
     let data=await delAddress(token,a_id)
   },
   delAddress(){
+    let token=wx.getStorageSync('token')
+    let a_id=this.data.a_id
     this._delAddress(token,a_id)
+    wx.showToast({
+      title: '删除成功',
+    })
+    wx.navigateBack({
+      delta: 1,
+    })
   },
 
   /**
