@@ -1,1 +1,55 @@
-/* pages/order/index.wxss */
+
+.aaa .van-tab{
+  background-color:#333999;
+}
+
+.yzf_da{
+  width: 700rpx; 
+  height: 100%; 
+  margin-left: 26rpx;
+  margin-top: 5%;
+  background-color:#ffffff;
+  border-radius:25rpx 25rpx  25rpx  25rpx;
+}
+.yzf_db{
+  /* padding-top: 30rpx; */
+  width: 700rpx; 
+ display:flex;
+ align-items: center; 
+ border-bottom: 4rpx solid #f5f5f5;
+}
+.yzfimg{
+  height: 140rpx;
+  width: 170rpx;
+  margin-right: 20rpx;
+  border-radius:10rpx 10rpx  10rpx  10rpx;
+}
+.yzf_name{
+  width: 600rpx;
+  padding-left: 20rpx;
+   display: flex;
+   flex-wrap: wrap;
+   font-weight:bold;
+}
+.yzf_sljg{
+  height: 120rpx; 
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30rpx;
+  align-items: center;
+  padding: 20rpx;
+  
+}
+.zj_price{
+  height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 320rpx;
+}
+.but{
+  width: 100rpx;
+  height: 50rpx;
+  /* align-items: center; */
+  font-size:30rpx;
+}

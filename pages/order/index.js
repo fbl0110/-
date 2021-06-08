@@ -1,16 +1,15 @@
-// pages/order/index.js
 const {getToken}=require('../../utils/util')
+const { cerateOrder } = require('../../api/order.js');
 Page({
-
   /**
    * 页面的初始数据
    */
-  data: {
-    imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
+  data:{
+    order:[],
+    
   },
-
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数  --监听页面加载
    */
   onLoad: function (options) {
     let token=getToken()
@@ -23,23 +22,17 @@ Page({
       wx.switchTab({
         url:'/pages/order/index'
       })
-      // wx.navigateBack({
-      //   delta: 1,
-      // })
     }
-
-    // try {
-    //   var value = wx.getStorageSync('token')
-    //   if (value) {
-    //     // Do something with return value
-    //     console.log(value)
-    //   }
-    // } catch (e) {
-    //   console.log(e)
-    //   // Do something when catch error
-    // }
+    this._cerateOrder(token);
   },
-
+     async _cerateOrder(token){
+       let  {order}=await cerateOrder(token);
+  console.log(order)
+      this.setData({
+         order
+      })
+    
+     },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
