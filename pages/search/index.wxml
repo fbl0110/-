@@ -1,5 +1,5 @@
 <view class="search_con">
-   <van-search value="{{ searchValue }}" focus="true" backgeound="#e9e9e9" placeholder="请输入搜索关键词" data-value="{{searchValue}}" bind:change="searchGoods" /> 
+   <van-search value="{{ searchValue }}" focus="true" backgeound="#e9e9e9" autofocus="true" placeholder="请输入搜索关键词" data-value="{{searchValue}}" bind:change="searchGoods" /> 
     <view class="contanier">
       <van-dropdown-menu>
         <van-dropdown-item value="{{ selectValue }}" options="{{ option }}" bind:change="orderByGoods" />
