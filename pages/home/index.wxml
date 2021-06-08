@@ -46,9 +46,7 @@
 
   <!-- 邀请 -->
   <view class="invitation">
-    <view class="invitation_box1">
-      
-    </view>
+    <view class="invitation_box1"></view>
 
     <view class="invitation_box2">
       送礼品卡
@@ -117,6 +115,10 @@
 
 
   </van-tabs>
+
+  <!-- <view class="up">
+    <van-icon name="back-top" />
+  </view> -->
 
 
 </view>

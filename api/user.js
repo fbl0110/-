@@ -36,13 +36,12 @@ module.exports.getAddress = function(token) {
 }
 
 // 编辑回显地址
-module.exports.writeAddress=function(token){
-  // console.log(token,a_id)
+module.exports.writeAddress=function(token,a_id){
   return request({
     url:'https://rxcoffee.suchcow.top/getSingleAddress',
     method:'post',
     data:{
-      token
+      token,a_id
     }
   })
 }
