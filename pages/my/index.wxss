@@ -45,7 +45,8 @@
 }
 .login text{
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow:hidden;
+  white-space: nowrap;
 }
 .jgg{
   width: 700rpx;
@@ -135,14 +136,13 @@
 .up{
   position: fixed;
   right:0;
-  bottom:0;
-  width:80rpx;
-  height:80rpx;
-  border: 1px solid red;
+  bottom:100rpx;
+  width:70rpx;
+  height:70rpx;
   background-color:#fff;
-}
-.showTop{
-  display:none
+  margin-right: 30rpx;
+  border-radius: 50%;
+  z-index: 99;
 }
 .up image{
   width:100%;

@@ -76,7 +76,7 @@
   width: 200rpx;
   height: 180rpx;
   /* border:1px solid red; */
-  background: url('tsy') no-repeat;
+  background: url(http://rx.suchcow.top/tsy.png) no-repeat;
   background-position: center;
   background-size: 100% 100%;
 }
@@ -127,7 +127,7 @@
 }
 
 .invitation .invitation_box2 {
-  background: url(lpka) no-repeat;
+  background: url(http://rx.suchcow.top/lpk.png) no-repeat;
   background-position: center;
   background-size: 100% 100%;
   color: #fff;
@@ -208,16 +208,19 @@ van-tab {
   justify-content: space-around;
   padding: 20rpx 0;
 }
-/* .up{
+.up{
   position: fixed;
   right:0;
-  bottom:0;
-  width:80rpx;
-  height:80rpx;
-  border: 1px solid red;
-  background-color:#fff
+  bottom:100rpx;
+  width:70rpx;
+  height:70rpx;
+  /* border: 1px solid red; */
+  background-color:#fff;
+  margin-right: 30rpx;
+  border-radius: 50%;
+  z-index: 9999;
 }
-.up .van-icon{
+.up image{
   width:100%;
   height:100%;
-} */
+}

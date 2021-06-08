@@ -120,5 +120,9 @@
     <van-icon name="back-top" />
   </view> -->
 
+  <view class="up" bindscroll="up" hidden="{{!goUp}}"  bindtap="backTo">
+    <image src="../../assets/image/up.png" ></image>
+  </view> 
+
 
 </view>
