@@ -179,7 +179,8 @@ Page({
                 data: {
                     openid,
                     goods,
-                    o_z_price
+                    o_z_price,
+                    addressDefault
                 },
                 success: async(res) => {
                     let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
