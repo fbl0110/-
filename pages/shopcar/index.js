@@ -181,7 +181,6 @@ Page({
                     goods,
                     o_z_price
                 },
-
                 success: async(res) => {
                     let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
                     let { o_orderid } = res.data;
@@ -203,7 +202,7 @@ Page({
                                 url: '/pages/order/index'
                             })
                         },
-                        fail: async(err)=> {
+                        fail: async(err) => {
                             console.log('支付失败', err);
                             this.getgoodsList(token);
                             wx.switchTab({
