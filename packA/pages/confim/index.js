@@ -60,10 +60,12 @@ Page({
        this.setData({
         addressDefault:item
        })
+       wx.setStorageSync('addressDefault', item)
       }else{
         this.setData({
           addressDefault:data[0]
          })
+         wx.setStorageSync('addressDefault', data[0])
       }
     })
     // let dataOne=data? data.a_isDefault==1 :data[0]
@@ -86,6 +88,7 @@ Page({
     let goods = [];
     let goodsInfo = wx.getStorageSync('goodsInfo');
     goodsInfo.sh_number = 1;
+    console.log(goodsInfo)
     let o_z_price = goodsInfo.sh_number * goodsInfo.g_x_price;
     goods.push(goodsInfo);
     wx.request({
@@ -148,10 +151,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // let userAddressed = wx.getStorageSync('list')
-    // this.setData({
-    //   list: userAddressed
-    // })
+    let addressDefault = wx.getStorageSync('addressDefault')
+    this.setData({
+      addressDefault
+    })
 
   },
 
