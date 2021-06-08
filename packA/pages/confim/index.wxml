@@ -3,9 +3,9 @@
 
 <view class="box">
 
- <van-cell size="large" wx:if="{{list.length==0}}" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" />
+ <van-cell size="large" wx:if="{{!addressDefault.a_id}}" border title="添加快递收货地址" is-link icon="location-o" bindtap="address" />
 
-   <van-cell center is-link title="{{list.a_province}}{{list.a_city}}{{list.a_area}}{{list.a_addressDetail}}" label="{{list.a_tel}}{{list.a_name}}" url="../../../pages/address/index" />
+   <van-cell center is-link title="{{addressDefault.a_province}}{{addressDefault.a_city}}{{addressDefault.a_area}}{{addressDefault.a_addressDetail}}" label="{{addressDefault.a_tel}}{{addressDefault.a_name}}" url="../../../pages/address/index" />
   
 
   <!-- 店铺 -->

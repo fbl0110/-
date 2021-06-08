@@ -46,8 +46,8 @@ Page({
     console.log(order);
     let paidOrder = this.data.paidOrder;
     let unPaidOrder = this.data.unPaidOrder;
-    order.forEach(item => {
-      if (item.o_paragraph == 1) {
+    order.forEach(item=>{
+      if(item.o_paragraph == 1){
         paidOrder.push(item);
       } else {
         unPaidOrder.push(item)
@@ -59,6 +59,7 @@ Page({
       unPaidOrder
     })
   },
+
   //
   async onClickButton() {
     let token = getToken();
@@ -133,6 +134,11 @@ Page({
         })
     }
 },
+
+
+
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

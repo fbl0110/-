@@ -36,7 +36,7 @@
   title="{{Detailgoods.g_name}}"
   thumb="{{ Detailgoods.img }}"
 ></van-card>
-<van-stepper class="stepper" value="{{ value }}" bind:change="onChange" />
+<van-stepper class="stepper" value="{{ value }}" bind:change="onChange" data-number="{{value}}" />
 
 <view class="skuBig_box">
 <view class="tang">
@@ -106,7 +106,7 @@
 
     <!-- 加入购物车 -->
     <van-goods-action>
-      <van-goods-action-icon icon="cart-o" text="购物车" info="5" />
+      <van-goods-action-icon icon="cart-o" text="购物车" info="{{shopcarNumber}}" bindtap="goAddShopcar" />
       <van-goods-action-button bind:click="onClickIcon" color="#8095cb" text="加入购物车" plain>
         <!-- <van-cell   bind:click="showPopup" />
     <van-popup

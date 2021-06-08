@@ -1,6 +1,7 @@
 const { getAddress, getOpenid } = require('../../../api/user')
 const { getToken } = require('../../../utils/util.js')
-const { updateOrder } = require('../../../api/order.js')
+const { updateOrder } = require('../../../api/order.js');
+
 
 
 // const { featchGoodsList, deleteOneGood, deleteGoods } = require('../../api/shopCart.js');
@@ -13,10 +14,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // imageURL:'https://i.postimg.cc/GhxFkRC3/image.jpg'
-    // list: [],
-    checked: false,
-    disabled:false
+    checked: true,
+    disabled:false,
+    addressDefault:{}
   },
   onChange() {
     this.setData({ checked: !this.data.checked });
@@ -51,15 +51,26 @@ Page({
     this._getAddress(token)
 
   },
+  // 获取地址
   async _getAddress(token) {
     // let token=getStorageSync('token')
     let {data} = await getAddress(token)
-
-    let dataOne=data[0]
-    // console.log(data)
-    this.setData({
-      list:dataOne
+    data.some(item=>{
+      if(item.a_isDefault ==1){
+       this.setData({
+        addressDefault:item
+       })
+       wx.setStorageSync('addressDefault', item)
+      }else{
+        this.setData({
+          addressDefault:data[0]
+         })
+         wx.setStorageSync('addressDefault', data[0])
+      }
     })
+    // let dataOne=data? data.a_isDefault==1 :data[0]
+    // console.log(data)
+
     // console.log(data)
     // let {g_name,g_x_price}=data
     // let goods
@@ -71,16 +82,23 @@ Page({
   async puy() {
     let token = getToken();
     let { errcode, openid } = await getOpenid(token);
-    let goods = []
-    goods.push(wx.getStorageSync('goodsInfo'))
-    let o_z_price =goods[0].g_x_price
+    let addressDefault=wx.getStorageSync('addressDefault')
+    addressDefault = addressDefault ? JSON.stringify(addressDefault) : ''
+   console.log(addressDefault)
+    let goods = [];
+    let goodsInfo = wx.getStorageSync('goodsInfo');
+    goodsInfo.sh_number = 1;
+    console.log(goodsInfo)
+    let o_z_price = goodsInfo.sh_number * goodsInfo.g_x_price;
+    goods.push(goodsInfo);
     wx.request({
       url: 'https://rxcoffee.suchcow.top/wxpay',
       method: "POST",
       data: {
         openid,
         goods,
-        o_z_price
+        o_z_price,
+        addressDefault
       },
       success(res) {
         let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
@@ -133,9 +151,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let userAddressed = wx.getStorageSync('list')
+    let addressDefault = wx.getStorageSync('addressDefault')
     this.setData({
-      list: userAddressed
+      addressDefault
     })
 
   },

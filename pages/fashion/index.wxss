@@ -39,6 +39,7 @@
   width: 0;
   height: 0;
   border:12rpx solid transparent;
+
 }
 .desc_price{
   border-bottom-color:#999;
@@ -53,4 +54,5 @@
 .asc_price{
   border-top-color:#999;
 }
+
 

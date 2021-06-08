@@ -1,4 +1,3 @@
-// pages/home/index.js
 const {getLunbo,getShopList}=require('../../api/home.js')
 const {getToken}=require('../../utils/util')
 Page({
@@ -16,10 +15,7 @@ Page({
   onChange(e){
     let index=e.detail.index;
     let numbverIndex=[9,10,11,12]
-    
     this._getShopList(numbverIndex[index])
-
-
   },
   now_box(){
     wx.switchTab({
@@ -36,12 +32,12 @@ Page({
       url: '/pages/fashion/index',
     })
   },
-  taurder(){
-    let token=getToken()
-    // wx.navigateTo({
-    //   url: '/pages/details/index',
-    // })
-  },
+  // taurder(){
+  //   let token=getToken()
+  //   // wx.navigateTo({
+  //   //   url: '/pages/details/index',
+  //   // })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -105,7 +101,8 @@ tide(){
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function (e) {
+    console.log(e);
         this.data.goodslist={}
         this._getShopList()
   },
