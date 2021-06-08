@@ -105,9 +105,9 @@
   border: 1px solid red;
 }
 
-/* .rich_text ::v-deep img{
-  width: 100%; */
-/* } */
+.rich_text ::v-deep img{
+  width: 100%; 
+ }
 /* .van-card__header{
   position: relative;
   border: 1px solid red;

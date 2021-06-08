@@ -13,3 +13,13 @@ module.exports.updateOrder = function(openid, o_orderid) {
     })
 
 }
+//获取订单
+module.exports.cerateOrder=function(token){
+    return request({
+        url: `https://rxcoffee.suchcow.top/order`,
+        method: 'post',
+        data: {
+            token       
+        }
+    })
+}

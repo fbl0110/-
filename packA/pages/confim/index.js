@@ -21,6 +21,11 @@ Page({
   onChange() {
     this.setData({ checked: !this.data.checked });
   },
+  disabled(){
+      this.setData({
+        disabled:false
+      })
+  },
   address() {
     wx.navigateTo({
       url: '/pages/address/index',
@@ -68,8 +73,6 @@ Page({
     let { errcode, openid } = await getOpenid(token);
     let goods = []
     goods.push(wx.getStorageSync('goodsInfo'))
-    console.log(goods);
-    // let goods=wx.getStorageSync('goods')
     let o_z_price =goods[0].g_x_price
     wx.request({
       url: 'https://rxcoffee.suchcow.top/wxpay',

@@ -35,10 +35,9 @@
                 </view>
             </van-tab>
         </van-tabs>
-        <view class="cc"  bindtap="pric" >
+        <view class="cc"   bindtap="pric" >
            <text class="desc_price orderBy {{price? 'select_desc_price' : ''}}"></text>
            <text class="asc_price orderBy {{price1? 'select_asc_price' : ''}}"></text>
-
         </view>  
     </view>
 </view>
