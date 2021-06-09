@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        autoHeight: '1000rpx',
+        autoHeight: '700rpx',
         isSelect: false,
         anchorArray: [],
         titleAnchorArray: [],
