@@ -108,14 +108,6 @@
     <van-goods-action>
       <van-goods-action-icon icon="cart-o" text="购物车" info="{{shopcarNumber}}" bindtap="goAddShopcar" />
       <van-goods-action-button bind:click="onClickIcon" color="#8095cb" text="加入购物车" plain>
-        <!-- <van-cell   bind:click="showPopup" />
-    <van-popup
-  show="{{ show }}"
-  round
-  position="bottom"
-  custom-style="height: 70%"
-  bind:close="onClose"
-/> -->
       </van-goods-action-button>
       <van-goods-action-button bind:click="onClickButton" color="#6d86c4" text="立即购买" />
     </van-goods-action>

@@ -15,16 +15,16 @@ Page({
    */
   data: {
     checked: true,
-    disabled:false,
-    addressDefault:{}
+    disabled: false,
+    addressDefault: {},
   },
   onChange() {
     this.setData({ checked: !this.data.checked });
   },
-  disabled(){
-      this.setData({
-        disabled:false
-      })
+  disabled() {
+    this.setData({
+      disabled: false
+    })
   },
   address() {
     wx.navigateTo({
@@ -54,18 +54,18 @@ Page({
   // 获取地址
   async _getAddress(token) {
     // let token=getStorageSync('token')
-    let {data} = await getAddress(token)
-    data.some(item=>{
-      if(item.a_isDefault ==1){
-       this.setData({
-        addressDefault:item
-       })
-       wx.setStorageSync('addressDefault', item)
-      }else{
+    let { data } = await getAddress(token)
+    data.some(item => {
+      if (item.a_isDefault == 1) {
         this.setData({
-          addressDefault:data[0]
-         })
-         wx.setStorageSync('addressDefault', data[0])
+          addressDefault: item
+        })
+        wx.setStorageSync('addressDefault', item)
+      } else {
+        this.setData({
+          addressDefault: data[0]
+        })
+        wx.setStorageSync('addressDefault', data[0])
       }
     })
     // let dataOne=data? data.a_isDefault==1 :data[0]
@@ -82,9 +82,27 @@ Page({
   async puy() {
     let token = getToken();
     let { errcode, openid } = await getOpenid(token);
-    let addressDefault=wx.getStorageSync('addressDefault')
-    addressDefault = addressDefault.a_id ? JSON.stringify(addressDefault) : ''
-   console.log(addressDefault)
+    let addressDefault = wx.getStorageSync('addressDefault')
+    if (!addressDefault.a_id) {
+      wx.showModal({
+        title: '提示',
+        content: '亲,你还未选择收货地址',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/address/index',
+            })
+            return;
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+            return;
+          }
+        }
+      })
+      return;
+    } 
+      addressDefault = JSON.stringify(addressDefault)
+    
     let goods = [];
     let goodsInfo = wx.getStorageSync('goodsInfo');
     goodsInfo.sh_number = 1;

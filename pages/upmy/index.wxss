@@ -29,7 +29,7 @@
 .but{
   color: #fff;
   height: 100rpx;
-  margin-top: 400rpx;
+  margin-top: 600rpx;
   border-radius:50rpx 50rpx 50rpx 50rpx;
   background-color: #7276b8;
 }

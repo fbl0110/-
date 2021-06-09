@@ -7,7 +7,9 @@ const {
 const {
   getOpenid
 } = require('../../api/user.js');
-
+const {
+  updateOrder
+} = require('../../api/order.js');
 Page({
   /**
    * 页面的初始数据
@@ -16,15 +18,16 @@ Page({
   data: {
     order: [],
     paidOrder: [],
-    unPaidOrder: []
+    unPaidOrder: [],
+    activeNames: ['1'],
   },
   /**
    * 生命周期函数  --监听页面加载
    */
   onLoad: function (options) {
-
+ 
     let token=getToken()
-
+    this._cerateOrder(token);
     console.log(token)
     if (!token) {
       wx.redirectTo({
@@ -35,24 +38,46 @@ Page({
         url: '/pages/order/index'
       })
     }
-
-    this._cerateOrder(token);
-    this.onClickButton()
   },
+  onChange(e) {
+   console.log(e) 
+  let {isOpenIndex} = e.currentTarget.dataset;
+  let paidOrder = this.data.paidOrder;
+  paidOrder = paidOrder.map((item,index) =>{
+  if( isOpenIndex == index ){
+    item.isOpenDetail = !item.isOpenDetail
+  }
+    return item;
+  })
+  this.setData({
+    paidOrder,
+    activeNames: e.detail,
+  })
+
+  },
+
+  
   //获取订单
   async _cerateOrder(token) {
     let {
       order
     } = await cerateOrder(token);
     console.log(order);
-    let paidOrder = this.data.paidOrder;
-    let unPaidOrder = this.data.unPaidOrder;
+    let paidOrder =  [];
+    let unPaidOrder =  [];
+    if(!order.length){
+      return
+    }
     order.forEach(item=>{
-      if(item.o_paragraph == 1){
+      if(item.o_paragraph==1){
         paidOrder.push(item);
-      } else {
-        unPaidOrder.push(item)
+      }else{
+        unPaidOrder.push(item);
       }
+    })
+    paidOrder = paidOrder.map(item =>{
+      item.isOpenDetail = 1;
+      return item;
     })
     this.setData({
       order,
@@ -62,36 +87,24 @@ Page({
   },
 
   //
-  async onClickButton() {
+  async onClickButton(e) {
+   let {item} = e.currentTarget.dataset;
+   let addressDefault=wx.getStorageSync('addressDefault')
+   console.log(item);
     let token = getToken();
     let {
         errcode,
         openid
     } = await getOpenid(token);
-    let goodsIds = [];
-    if (errcode == 10001) {
-        let goods = this.data.unPaidOrder;
-        goods = goods.filter(item => {
-            // 支付时筛选出选中的商品,未选中的商品剔除掉
-            if (item.isSelect) {
-                goodsIds.push(item.g_id);
-                return item;
-            }
-        });
-        // 删除选中的商品
-        await deleteGoods(token, goodsIds);
-
-        // console.log(goods);
-        let o_z_price = this.data.totalPrice;
         wx.request({
             url: 'https://rxcoffee.suchcow.top/wxpay',
             method: "POST",
             data: {
                 openid,
-                goods,
-                o_z_price
+                o_orderid:item.o_orderid
             },
             success: async (res) => {
+              console.log(res);
                 let {
                     nonce_str,
                     timeStamp,
@@ -100,9 +113,7 @@ Page({
                     mypackage,
                     sign_type
                 } = res.data.result.xml;
-                let {
-                    o_orderid
-                } = res.data;
+                // let { o_orderid } = res.data;
                 wx.requestPayment({
                     nonceStr: nonce_str,
                     package: mypackage,
@@ -112,20 +123,12 @@ Page({
                     success: async (res) => {
                         console.log('支付成功', res);
                         // 支付成功后修改订单状态为已付款,再跳转到订单页面
-                        console.log(openid, o_orderid)
-                        await updateOrder(openid, o_orderid);
-                        this.getgoodsList(token);
-
-                        wx.switchTab({
-                            url: '/pages/order/index'
-                        })
+                        console.log(openid,item.o_orderid)
+                        await updateOrder(openid,item.o_orderid);
+                        // this._cerateOrder(token);     
                     },
                     fail: async (err) => {
                         console.log('支付失败', err);
-                        this.getgoodsList(token);
-                        wx.switchTab({
-                            url: '/pages/order/index'
-                        })
                     }
                 })
             },
@@ -133,7 +136,7 @@ Page({
                 console.log('err')
             }
         })
-    }
+    
 },
 
 
@@ -152,7 +155,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let token=getToken()
+    this._cerateOrder(token);
   },
 
   /**

@@ -206,12 +206,24 @@ Page({
             let goods = this.data.shopCartGoods;
             let addressDefault = wx.getStorageSync('addressDefault');
             if(!addressDefault.a_id){
-                wx.navigateTo({
-                  url: '/pages/address/index',
-                })
-                return;
+                    wx.showModal({
+                        title: '提示',
+                        content: '亲,你还未选择收货地址',
+                        success(res) {
+                            if (res.confirm) {
+                                wx.navigateTo({
+                                    url: '/pages/address/index',
+                                })
+                            } else if (res.cancel) {
+                                console.log('用户点击取消');
+                                return
+                            }
+                        }
+                    })
+                    return;
+           }else{
+            addressDefault =JSON.stringify(addressDefault)
            }
-           addressDefault = JSON.stringify(addressDefault);
             goods = goods.filter(item => {
                 // 支付时筛选出选中的商品,未选中的商品剔除掉
                 if (item.isSelect) {
@@ -245,8 +257,6 @@ Page({
                         timeStamp: timeStamp,
 
                         success: async(res) => {
-
-
                             console.log('支付成功', res);
                             // 支付成功后修改订单状态为已付款,再跳转到订单页面
                             console.log(openid, o_orderid)

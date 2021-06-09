@@ -21,6 +21,13 @@
         {
           "name": "我的",
           "pathName": "pages/my/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "下架",
+          "pathName": "packA/pages/confim/index",
+          "query": "id=46",
           "scene": null
         }
       ]

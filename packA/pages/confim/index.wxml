@@ -50,7 +50,9 @@
 
 
   <!-- 提交订单 -->
-  <van-submit-bar price="{{ version.g_x_price *100 }}"     bindtap="puy" button-text="去支付" />
+  <van-submit-bar disabled wx:if="{{version.state==1}}" tip="抱歉! 该商品已下架" price="{{ 0.00 }}"      button-text="去支付" />
+  <van-submit-bar wx:if="{{version.state==0}}" price="{{ version.g_x_price *100 }}"     bindtap="puy" button-text="去支付" />
+
 
   <!-- <van-submit-bar
   price="{{ 4900 }}"

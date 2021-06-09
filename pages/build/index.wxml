@@ -88,7 +88,7 @@
   </van-popup>
 
   <!-- 详细地址 -->
-  <van-field value="{{ list.a_addressDetail }}" clearable label="详细地址" placeholder="请输入详细地址" bind:click-icon="onClickIcon"
+  <van-field value="{{ list.a_addressDetail}}" clearable label="详细地址" placeholder="请输入详细地址" bind:click-icon="onClickIcon"
     bind:change="fullValue" />
 
 

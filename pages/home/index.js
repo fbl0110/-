@@ -11,7 +11,8 @@ Page({
     page: 1,
     limit: 6,
     s_id: '',
-    goUp: false
+    goUp: false,
+    changeIng:''
   },
   onChange(e) {
     let index = e.detail.index;
@@ -56,11 +57,14 @@ Page({
   },
   //  商品列表
   async _getShopList(index) {
+    console.log(index);
     if (index) {
       index = index
-    } else {
+    } else{
       index = 9
     }
+      
+    
     let { data } = await getShopList(index, this.data.page, this.data.limit)
     console.log(data)
 
@@ -146,7 +150,7 @@ Page({
         })
       }, 100)
       return
-    } else {
+    }else{
       this.data.limit++
       this._getShopList()
     }

@@ -36,6 +36,20 @@ Page({
       addressInfo
     })
   },
+  checked(){
+    let a_isDefault=this.data.addressInfo.a_isDefault;
+    // console.log(a_isDefault);
+    if(a_isDefault==0){
+      this.setData({
+        checked:false
+      })
+    }else if(a_isDefault==1){
+      this.setData({
+        checked:true
+      })
+    }
+
+  },
   // 性别
   onChange1(event) {
     this.setData({
