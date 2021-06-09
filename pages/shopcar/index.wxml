@@ -63,6 +63,7 @@
                     </view>
                 </block>
             </view>
+    <van-dialog id="van-dialog" />
         </view>
         <van-submit-bar
             price="{{ totalPrice * 100 }}"

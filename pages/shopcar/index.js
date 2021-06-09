@@ -65,9 +65,9 @@ Page({
             }
         });
         this.setData({
-            Allchecked: flag
-        })
-        // 计算总价格
+                Allchecked: flag
+            })
+            // 计算总价格
         this.countTotalPrice(shopCartGoods)
     },
 
@@ -191,7 +191,6 @@ Page({
                 },
             });
         }
-
     },
 
     // 提交订单 点击购买后,删除要购买的商品,生成订单
@@ -205,6 +204,7 @@ Page({
         if (errcode == 10001) {
             let goods = this.data.shopCartGoods;
             let addressDefault = wx.getStorageSync('addressDefault');
+
             if(!addressDefault.a_id){
                     wx.showModal({
                         title: '提示',
@@ -224,6 +224,7 @@ Page({
            }else{
             addressDefault =JSON.stringify(addressDefault)
            }
+
             goods = goods.filter(item => {
                 // 支付时筛选出选中的商品,未选中的商品剔除掉
                 if (item.isSelect) {
@@ -243,7 +244,7 @@ Page({
                     openid,
                     goods,
                     o_z_price,
-                    addressDefault
+                    addressDefault:JSON.stringify(addressDefault)
                 },
                 success: async(res) => {
                     let { nonce_str, timeStamp, prepay_id, paySign, mypackage, sign_type } = res.data.result.xml;
@@ -292,11 +293,11 @@ Page({
             data
         } = await getTrendGoodsList(active, page, limit);
         data = data.filter((item, index) => {
-            if (index < 6) {
-                return item;
-            }
-        })
-        // console.log(data);
+                if (index < 6) {
+                    return item;
+                }
+            })
+            // console.log(data);
         this.setData({
             RecommendGoods: data
         })
@@ -334,7 +335,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         let token = getToken();
         if (!token) {
             wx.navigateTo({
@@ -358,14 +359,14 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
+    onReady: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    onShow: function() {
         let token = getToken();
         if (!token) {
             wx.navigateTo({
@@ -378,35 +379,35 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     }
 })
